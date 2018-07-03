@@ -414,5 +414,106 @@ C에서 1은 true 0은 false 였으나 자바에서는 1이 true가 아니다 bo
 
 수학에서 x+y=z값의 결과를 얻는 식 x+y=z
 프로그래밍에서는 z=x+y
+
+package kr.co.mlec.day1;
+
+/*
+ * 기본자료형은 8가지가 있다
+ * - 논리형: boolean (1)
+ * - 정수형: byte(1), short(2), int(4), long(8)
+ * - 실수형: float(4), double(8)
+ * - 문자형: char(2)
+ * 괄호안의 숫자는 자료형이 몇비트인지를 표현 float(4) = float는 4바이트 실수자료형
+ */
+public class VariableMain {
+
+	public static void main(String[] args) {
+		//자료형 변수명;
+		//자료형만큼을 공간을 할당하고 그 공간의 이름을 변수명이라고한다
+		char c; //변수의 선언부
+				//문법적인 오류를 막기위해서 변수명은 숫자로 시작할수 없다 문자로만 선언가능
+		c ='A'; //변수의 대입부,치환부
+		System.out.println("문자: " + c);
+		System.out.printf("문자: %c\n", c);
+		
+		int num; //절차지향 C와는 다르게 변수 선언을 어느 곳에 해도 괜찮다
+		
+		num = 123;
+		
+		System.out.println("정수: "+ num);
+		
+		double d;
+		d = 12.345;
+		System.out.printf("실수: %f\n",d); 	//12.345000
+		System.out.printf("실수: %.4f\n",d); 	//12.3450
+		System.out.printf("실수: %.3f\n",d); 	//12.345
+		
+		boolean bool;
+		bool = true;
+		System.out.printf("논리값: %b\n",bool);
+		
+		char ch = 'A'; 		//선언부와 대입부는 동시에 쓸 수 있다.
+		System.out.printf("ch: %c\n", ch);
+		
+		//int num2;
+		//System.out.printf("num2: %d", num2);
+		//초기화하지 않으면 C처럼 쓰레기값이 나오는게 아니라 에러가 난다
+		
+		ch = 'B'; //미리 선언되어있는 변수는 자료형 없이도 새로운 값으로 치환할 수 있다
+		System.out.printf("ch: %c\n", ch);
+		
+		ch = '\u0042'; //유니코드로도 표현가능
+		System.out.printf("ch: %c\n", ch);
+	}
+
+}
 ----------------------------------------------------------------------------------------------------------
 8교시
+
+자료형은 기본자료형과 참조 자료형이있다
+지금까지는 기본자료형만 배웠다
+참조자료형은 class표현된다
+
+참조자료형은 문자열을 표현할 때 사용되는데 범위가 제한되지 않는다
+
+package kr.co.mlec.day1;
+
+public class VariableMain2 {
+
+	public static void main(String[] args) {
+		
+		int num = 10; 	// 정수 10을 저장하는 변수 num을 생성하였다
+		
+		// num값을 200으로 변경
+		num = 200;
+		
+		//문자열 "hello"를 저장하는 변수 str을 생성해보자
+		String str = "hello"; //참조자료형의 올바른 방식이 아니다		
+		System.out.printf("str: %s\n", str);
+		
+		str = "world"; 
+		System.out.printf("str: %s\n", str);
+		
+		/*
+		 * 기본 자료형은
+		 * 자료형 변수 = 상수;
+		 * int num = 100;
+		 * 
+		 * 참조자료형은
+		 * 참조자료형 변수  = new 참조자료형();
+		 * String str = new String("hello"); 옳은 방법
+		 * String str = "Hello"; 잘못된 방법
+		 * 잘못된 방법으로 만드는 경우는 hello라는 값을 가리키는 포인터를 만들게되는것
+		 * str은 hello를 가리키는 주소값을 가지고있다
+		 * str=0x0001
+		 * 0x0001에는 hello라는 데이터가 들어있음 
+		 * 
+		 * 기존 기본자료형을 만드는것은 공간할당->값대입
+		 * 참조자료형은 자기 자신이 값을 가질 수 없고 그 값을 가리키는 주소값만을 가질수잇다
+		 * 그니깐 이게 바로 자바형 포인터다
+		 */
+		
+	}
+
+}
+//빼액 자바 포인터 없다메ㅔㅔㅔㅔㅔ
