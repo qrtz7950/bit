@@ -194,6 +194,8 @@ public class HelloMain {
 일정부분을 주석처리하기 위해서는 /* */
 한줄만 주석처리하기 위해서는 //
 
+----------------------------------------------------------------------------------------------
+5교시
 package kr.co.mlec;
 
 /* 20180703
@@ -226,7 +228,7 @@ printf의 차이를 알아보자
 세 개의 메소드 모두 쌍따옴표 안의 내용을 출력하는 메소드이다
 System.out.print()	개행문자를 포함하지않음
 System.out.println()	개행문자 포함 ln:line의 약자
-System.out.printf()	개행문자를 포함하지않음, 변환문자를 사용(%c, %d, %x, %o, %f, %d)
+System.out.printf()	개행문자를 포함하지않음, 변환문자를 사용(%c, %d, %x, %o, %f, %d) JDK 1.5이후부터 사용가능
 
 사용자가 컴퓨터를 통해 전달할 수 있는 상수 값은 4가지가 있다 
 4가지 상수: 정수 실수 문자 문자열
@@ -235,3 +237,143 @@ ex)
 실수표현	print(3.14)
 문자표현	print('A') //문자열은 작은 따옴표
 문자열표현	print("ABC")
+
+%c: 문자
+%d: 정수
+%f: 실수
+%s: 문자열
+
+자바는 아스키코드 기반이 아닌 유니코드 기반의 언어이기때문에 가 와 같은 한글도 하나의 문자로 인식한다 ex) print('가')
+
+package kr.co.mlec.day1;
+
+/*
+ * 출력메소드에는
+ * System.out.print()
+ * System.out.println()
+ * System.out.printf()
+ * 세 개의 메소드 모두 쌍따옴표 안의 내용을 출력하는 메소드이다
+ * 다른 점을 알아보자
+ */
+
+public class PrintMain {
+
+	public static void main(String[] args) {
+		System.out.println(3);		//정수
+		System.out.println(3.14);	//실수
+		System.out.println("ABC");	//문자열
+		System.out.println('A');	//문자
+		//printf() 메소드는 개행문자를 포함하지않음, 변환문자를 사용(%c, %d, %x, %o, %f, %d) JDK 1.5이후부터 사용가능
+		System.out.printf("%c\n", 'A');
+		System.out.printf("%d\n", 3);
+		System.out.printf("%.2f\n", 3.14);
+		System.out.printf("%s\n", "ABC");
+		System.out.printf("문자: %s 정수: %d\n", "ABC" , 3);
+		//printf() 메소드를 잘 이용하면 한줄에 여러 자료형을 출력가능하다
+		//자바에서 더하기 연산은 다른 타입의 자료형도 자동으로 변환해준다
+		System.out.printf("문자: " + 'A' + ", 정수: " + 3 +"\n");
+		//문자:A, 정수:3
+		System.out.println('A'+"BC");	//ABC
+		System.out.println(3 + 4);		//7
+		System.out.println(2.3 + 5);	//7.3
+		System.out.println('A' + 'B');	// 131
+		// 문자끼리의 더하기 연산은 아스키코드값을 더한 값으로 표현된다 A+B = 131 A=65 B=66
+		// 자바는 유니코드 기반의 언어이다
+		System.out.println('\u0041');	//A
+		// 1 + 2 = 3을 표현해보자
+		System.out.println(1 + "+" + 2 + "=" +1+2); //1+2=12
+		//자바에서 연산은 왼쪽에서부터 두개씩 계산하기때문에 첫번째 계산 1 과 +를 더하면 string형으로 변환된다
+		//이후의 계산도 모두 string형이 되기 때문에 결과값이 12가 나오게된다
+		System.out.println(1 + "+" + 2 + "=" + (1+2)); //1+2=3
+		// 1+2 연산을 먼저실행해서 3으로 나오게할수있다
+		System.out.printf("%d + %d = %d\n",1 ,2 ,3); //1+2=3
+		// 변환문자를 이용하여 좀더 간단하게 표현 가능하다
+		System.out.println("[    A]");
+		//****A
+		System.out.println("[   12]\n\n");
+		//***12
+		//앞에 공백 맞추기가 너무 어렵네요 쉽게 해봅시다
+		System.out.printf("[%5c]\n", 'A');
+		System.out.printf("[%5d]\n", 12);
+		//[    A]
+		//[   12]
+		System.out.printf("[%-5c]\n", 'A');
+		System.out.printf("[%-5d]\n", 12);
+		//[A    ]
+		//[12   ]
+		System.out.printf("%f\n", 3.23); // 3.230000
+		System.out.printf("%.2f\n", 3.23); // 3.23
+		//소수점 자리 제한 가능
+	}
+}
+
+----------------------------------------------------------------------------------------------
+6교시
+
+package kr.co.mlec.day1
+import java.util.*;
+클래스 선언부
+class Hello{클래스 내용부
+	class{} // 클래스 안에 클래스는 이너 클러스
+}
+클래스 위에 써지는 부분은 클래스 선언부
+클레스의 브레이스 안에는 클래스 내용부
+
+★식별자 
+1.클래스: 단어의 첫 글자를 대문자로 표기 만약 여러 개의 단어로 이루어져 있다면 각 단어의 첫글자를 대문자로 표기 //카멜표기법
+ex) Hello HelloWorld BoradMng
+2.멤버변수,메소드 단어의 첫글자를 소문자로 표기 만약 여러개의 단어로 이루어져 있다면 각 단어의 첫글자를 대문자로 표기
+ex) name, cnt, main(), printName()
+3.상수 모든 단어를 대문자로 표기 만약 여러개의 단어로 이루어져 있다면 단어와 단어사이를 '_'언더바로 구분한다
+ex) MAX, MIN, MAX_VALUE
+
+package kr.co.mlec.day1;
+
+/*
+ * 네이밍률에 의거하여 클래스,변수,메소드의 개수를 구하시요
+ */
+
+public class NamingMain {
+
+	public static void main(String[] args) {
+		int i = Integer.parseInt("345");
+		System.out.println(i);
+		/*
+		 *클래스의 개수 = 4개 (NamingMain, String, Integer, System) 
+		 *변수의 개수 = 3개 (i, args, out)
+		 *메소드의 개수 = 3 (main() parseInt() println())
+		 *자줏빛으로 보이는 단어들은 예약어라고한다 (public static void)
+		 */
+	}
+
+}
+
+변수
+-데이터를 저장할 메모리의 위치를 나타내는 이름
+-메모리상에 데이터를 보관할 수 있는 공간을 확보
+-적절한 메모리공간을 확보하기 위해서 변수의 타입 등장
+-'='니콜을 통해서 cpu에게 연산작업을 의뢰
+
+우리가 여기서 쓰는 메모리는 RAM (Random Access Memory)
+
+32비트 컴퓨터 기준으로 4기가램 장착 가능
+system 영역 2G
+user 영역 2G
+우리가 사용하는 공간의 user영역
+
+user영역의 램은 다시 3가지로 나뉜다
+static
+HEAP: 실제로 제일 많이 사용하는 공간 객체 지향 프로그래밍언어에서 제일 많이 사용하게됨
+stack: 전체중에 1메가바이트만 사용가능
+
+▤와 같은 메모리 공간에서
+.□
+.□
+.□
+.□
+컴퓨터는 메모리의 시작점의 주소(.)만을 기억한다
+
+변수마다 저장하는 자료가 다르다 실수 정수 문자 문자열
+그래서 변수를 만들 때 이 변수가 어떤 용도로 사용되는지 선언해야한다
+
+
