@@ -194,8 +194,44 @@ public class HelloMain {
 일정부분을 주석처리하기 위해서는 /* */
 한줄만 주석처리하기 위해서는 //
 
+package kr.co.mlec;
 
+/* 20180703
+ * 역시 시작은 HelloWorld지
+ * When i wrote this code only God and I understood what i was doing
+ * now only god knows
+ */
+public class HelloMain {
+	public static void main(String[] args) {
+		// println() 메소드는 ""안의 내용을 출력하는 명령어
+		System.out.println("Hello World!");
+		System.out.println("안니어어어어ㅓㅓㅓ엉");
+		
+	}
+}
 
+코드를 짤 때는 public 이나 static의 위치를 바꿔도 된다
+ex)static public void main
 
+메인 메소드 안도 순서 바꿔도 된다
+ex)public static void main(String args[])
 
+※WORA: write once run anywhere
 
+출력메소드
+print
+println
+printf의 차이를 알아보자
+
+세 개의 메소드 모두 쌍따옴표 안의 내용을 출력하는 메소드이다
+System.out.print()	개행문자를 포함하지않음
+System.out.println()	개행문자 포함 ln:line의 약자
+System.out.printf()	개행문자를 포함하지않음, 변환문자를 사용(%c, %d, %x, %o, %f, %d)
+
+사용자가 컴퓨터를 통해 전달할 수 있는 상수 값은 4가지가 있다 
+4가지 상수: 정수 실수 문자 문자열
+ex)
+정수표현	print(3)
+실수표현	print(3.14)
+문자표현	print('A') //문자열은 작은 따옴표
+문자열표현	print("ABC")
