@@ -11,6 +11,8 @@ public class Homework07 {
 		//65=<대문자=<90 97=<소문자=<122
 		//65 90 외울 필요없이 'A' 문자를 형변한해서 65,90을 도출할 수 있다
 		//if(C>='A' && c<='Z')
+		//아스키코드의 대문자 소문자 차이 32도 'a'-'A'로 도출할 수 있다
+		
 		System.out.print("변경된 값: ");
 		
 		char c = inputStr.charAt(0);
