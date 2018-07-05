@@ -17,6 +17,7 @@ public class Homework07 {
 		
 		char c = inputStr.charAt(0);
 		if(c>=65 && c<=90) {
+			//프린트 문도 if문 바깥에 넣고 조건문안에서는 변수만 수정하면 좀더 깔끔
 			System.out.println((char)(c+32));
 		} else if(c>=97 && c<=122) {
 			System.out.println((char)(c-32));
