@@ -16,6 +16,7 @@ public class Homework07 {
 		System.out.print("변경된 값: ");
 		
 		char c = inputStr.charAt(0);
+// 		변수에서 형변환 미리해서 int c 로 받아버리면 출력문에서 형변환을 안해도된다
 		if(c>=65 && c<=90) {
 			//프린트 문도 if문 바깥에 넣고 조건문안에서는 변수만 수정하면 좀더 깔끔
 			System.out.println((char)(c+32));
