@@ -7,27 +7,44 @@ public class Homework11 {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Ã¹¹øÂ° Á¤¼ö: ");
+		System.out.print("ì²«ë²ˆì§¸ ì •ìˆ˜: ");
 		int a = sc.nextInt();
-		System.out.print("µÎ¹øÂ° Á¤¼ö: ");
+		System.out.print("ë‘ë²ˆì§¸ ì •ìˆ˜: ");
 		int b = sc.nextInt();
-		System.out.print("¼¼¹øÂ° Á¤¼ö: ");
+		System.out.print("ì„¸ë²ˆì§¸ ì •ìˆ˜: ");
 		int c = sc.nextInt();
-		System.out.print("³×¹øÂ° Á¤¼ö: ");
+		System.out.print("ë„¤ë²ˆì§¸ ì •ìˆ˜: ");
 		int d = sc.nextInt();
 
 		if(a>b && a>c && a>d) {
-			System.out.printf("°¡Àå Å« ¼ö : %d" , a);
+			System.out.printf("ê°€ìž¥ í° ìˆ˜ : %d" , a);
 		}
 		if(b>a && b>c && b>d) {
-			System.out.printf("°¡Àå Å« ¼ö : %d" , b);
+			System.out.printf("ê°€ìž¥ í° ìˆ˜ : %d" , b);
 		}
 		if(c>a && c>b && c>d) {
-			System.out.printf("°¡Àå Å« ¼ö : %d" , c);
+			System.out.printf("ê°€ìž¥ í° ìˆ˜ : %d" , c);
 		}
 		if(d>a && d>b && d>c) {
-			System.out.printf("°¡Àå Å« ¼ö : %d" , d);
+			System.out.printf("ê°€ìž¥ í° ìˆ˜ : %d" , d);
 		}
+		
+		//		int max = num2;
+//		if(num>num2) {
+//			max = num;
+//		}
+//		ì´ëŸ° ë°©ë²•ë„ ê°€ëŠ¥í•˜ê³ 
+		
+//		int max = num > num2 ? num : num2;
+//		if(num3 > max) {
+//			max = num3;
+//		}
+//		ë„ ê°€ëŠ¥í•˜ê³ 
+//		ifë¬¸ ì—†ì´ ì¡°ê±´ ì—°ì‚°ìžë§Œì„ ì´ìš©í•œ í† ë„ˆë¨¼íŠ¸ë„ ê°€ëŠ¥í•˜ë‹¤
+//		int max1 = num > num2 ? num : num2;
+//		int max2 = num3 > num4 ? num3 : num4;
+//		System.out.println(max1 > max2 ? max1 : max2);
+//		}
 	}
 		
 }
