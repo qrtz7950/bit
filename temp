@@ -1,0 +1,29 @@
+<3>
+
+public class Homework03_03 {
+
+	public static void main(String[] args) {
+		
+		for(int i=1; i<=100; i++) {
+			if(i%5!=0) {
+				System.out.print(i + " ");
+			}
+		}
+		
+		System.out.println();
+		System.out.println();
+		
+		int n = 0;
+		for(int i=1; i<=100; i++) {
+			if(i%5!=0) {
+				System.out.print(i + " ");
+				n++;
+				if(n==5) {
+					System.out.println();
+					n=0;
+				}
+			}
+		}
+	}
+
+}
