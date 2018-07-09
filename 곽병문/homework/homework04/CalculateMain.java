@@ -3,18 +3,18 @@ package kr.co.mlec.homework.homework04;
 import java.util.Scanner;
 
 /*
- * 	»çÄ¢¿¬»êÀ» ¼öÇàÇÏ´Â Calculate Å¬·¡½º ÀÛ¼º
+ * 	ì‚¬ì¹™ì—°ì‚°ì„ ìˆ˜í–‰í•˜ëŠ” Calculate í´ë˜ìŠ¤ ì‘ì„±
  * 
- * 	Á¤¼ö ÀÔ·Â : 12(Å°º¸µå)
- * 	Á¤¼ö ÀÔ·Â : 5(Å°º¸µå)
+ * 	ì •ìˆ˜ ì…ë ¥ : 12(í‚¤ë³´ë“œ)
+ * 	ì •ìˆ˜ ì…ë ¥ : 5(í‚¤ë³´ë“œ)
  * 
  * 	12 + 5 = 17
  * 	12 - 5 = 7
  * 	12 * 5 = 60
  * 	12 / 5 = 2.4
  * 
- * 	12ÀÇ ¼Ò¼öÃ¼Å© : false
- * 	5ÀÇ ¼Ò¼öÃ¼Å© : true
+ * 	12ì˜ ì†Œìˆ˜ì²´í¬ : false
+ * 	5ì˜ ì†Œìˆ˜ì²´í¬ : true
  */
 
 public class CalculateMain {
@@ -25,7 +25,7 @@ public class CalculateMain {
 		Scanner s = new Scanner(System.in);
 		
 		for(int i=0; i<2; i++) {
-			System.out.print("Á¤¼ö ÀÔ·Â : ");
+			System.out.print("ì •ìˆ˜ ì…ë ¥ : ");
 			a[i] = s.nextInt();
 		}
 		
@@ -47,15 +47,15 @@ class Calculate{
 		
 		for(int i=0; i<a.length; i++){
 			if(a[i]>1) {
-				int remainder = 0;
+				int remainder = 1;
 				for(int j=2; j<a[i]; j++) {
 					remainder = a[i] % j;
 					if(remainder==0) {break;}
 				}
-				System.out.println(a[i] + "ÀÇ ¼Ò¼öÃ¼Å© : " + (remainder!=0));
+				System.out.println(a[i] + "ì˜ ì†Œìˆ˜ì²´í¬ : " + (remainder!=0));
 			}
 			else {
-				System.out.println(a[i] + "ÀÇ ¼Ò¼öÃ¼Å© : false");
+				System.out.println(a[i] + "ì˜ ì†Œìˆ˜ì²´í¬ : false");
 			}
 		}
 	}
