@@ -2,7 +2,7 @@
 
 <a href="https://imgur.com/ba528e8d-adb7-4877-ab58-5fe8f7ad69a3" title="오늘 뭐 먹지">
 
-<img src="https://pbs.twimg.com/media/DZxo4OKVQAEAujA.jpg" width="90%"></img>
+<img src="https://i.imgur.com/VEECYPq.png" width="90%"></img>
 
 2018-07-05
   수업내용정리
