@@ -1,6 +1,6 @@
 비트교육 수업내용
 
-<a href="blob:https://imgur.com/ba528e8d-adb7-4877-ab58-5fe8f7ad69a3" title="오늘 뭐 먹지">
+<a href="https://imgur.com/ba528e8d-adb7-4877-ab58-5fe8f7ad69a3" title="오늘 뭐 먹지">
 
 <img src="https://pbs.twimg.com/media/DZxo4OKVQAEAujA.jpg" width="90%"></img>
 
