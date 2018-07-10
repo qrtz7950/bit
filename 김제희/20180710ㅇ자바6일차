@@ -1,0 +1,39 @@
+자바에서 버퍼 비우기 sc.nextLine();
+
+자바에서 스캐너는 입력장치가 버퍼에 쓴 내용을 가져온다
+
+그러나 엔터로만 구분하기 때문에 여러개의 nextInt가 이어지면 공백으로 구분해서 한번에 넣을 수도 있다
+
+ex) 
+iceArr[i].price = sc.nextInt();
+iceArr[i].price = sc.nextInt();
+iceArr[i].price = sc.nextInt();
+
+과 같은 코드가 있을 때
+
+1200
+3000
+2000
+이 아니라
+
+1200 3000 2000으로 입력해도 메소드가 숫자의 시작부터 숫자의 끝인 1200을 처음의 메소드가 가져가고 다음의 3000을 다음 메소드가 가져간다
+
+버퍼에 원하지 않는 내용이 남아 있어 좋지 않은 방법이다 엔터로만 입력을 구분하는 netxLine의 경우는 입력 후 버퍼가 비워지기 때문에
+
+상관없지만 netInt,nextdouble과 같은 경우는 메소드 사용 후 nextline의 메소드를 한번 더 입력하여 버퍼를 비워줘야한다
+
+ex)
+System.out.print("아이스크림명: ");
+iceArr[i].name = sc.next();
+sc.nextLine();
+
+System.out.print("아이스크림 가격: ");
+iceArr[i].price = sc.nextInt();
+sc.nextLine();
+
+때문에 nextLine메소드 사용이 권장되지만 이는 문자열만 입력받을 수 있기 대문에 정수, 실수형이 필요하면
+스트링 문자를 숫자로 바꿔주는 메소드가 필요하다
+
+ex)Integer.parseInt(sc.nextLine)
+
+를 이용해 문자열 입력을 인티저형으로 바꿀 수 있다
