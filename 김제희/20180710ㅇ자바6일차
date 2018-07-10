@@ -37,3 +37,6 @@ sc.nextLine();
 ex)Integer.parseInt(sc.nextLine)
 
 를 이용해 문자열 입력을 인티저형으로 바꿀 수 있다
+
+
+
