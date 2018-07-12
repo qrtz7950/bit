@@ -90,5 +90,5 @@ class -> class            //extend
 implements -> class       //implements
 implements -> implements  //extend
 
-
+인터페이스도 추상 메소드의 집합이기 때문에 이것 또한 강제성을 지닌다.
 
