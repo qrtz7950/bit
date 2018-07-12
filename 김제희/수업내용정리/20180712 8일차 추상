@@ -79,5 +79,16 @@ C++ C#은 star uml을 사용하나 자바는 연동이 안됨
 
 인터페이스는 객체를 추상화시키는 것이 아니라 기능을 
 
+선언하는 모든 메소드는 추상메소드로
+
+변수는 모드 자동형변환으로 public stataic final 이 붙은 상수로 자동 변환된다
+
+다른 타입일 경우에는 임플리먼츠
+같은 타입일 경우에는 익스텐드
+
+class -> class            //extend
+implements -> class       //implements
+implements -> implements  //extend
+
 
 
