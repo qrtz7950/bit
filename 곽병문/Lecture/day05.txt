@@ -1,61 +1,61 @@
-< Å¬·¡½º > (CarMain, {Handphone, HandphoneMain})
+< í´ëž˜ìŠ¤ > (CarMain, {Handphone, HandphoneMain})
 
-	- ¸ðµç °´Ã¼µéÀÇ »ý»êÃ³
+	- ëª¨ë“  ê°ì²´ë“¤ì˜ ìƒì‚°ì²˜
 	
-	- Å¬·¡½º = °´Ã¼¸¦ »ý¼ºÇÏ´Â Æ²
+	- í´ëž˜ìŠ¤ = ê°ì²´ë¥¼ ìƒì„±í•˜ëŠ” í‹€
 	
-	- ÇÁ·Î±×·¡¹ÖÀÌ ¾²ÀÌ´Â ¸ñÀûÀ» »ý°¢ÇÏ¿© ¾î¶² °´Ã¼¸¦ ¸¸µé¾î¾ß ÇÏ´ÂÁö °áÁ¤ÇÑ´Ù.
+	- í”„ë¡œê·¸ëž˜ë°ì´ ì“°ì´ëŠ” ëª©ì ì„ ìƒê°í•˜ì—¬ ì–´ë–¤ ê°ì²´ë¥¼ ë§Œë“¤ì–´ì•¼ í•˜ëŠ”ì§€ ê²°ì •í•œë‹¤.
 	
-	- °¢ °´Ã¼µéÀÌ ¾î¶² Æ¯Â¡(¼Ó¼º°ú µ¿ÀÛ)À» °¡Áö°í ÀÖÀ»Áö °áÁ¤ÇÑ´Ù.
+	- ê° ê°ì²´ë“¤ì´ ì–´ë–¤ íŠ¹ì§•(ì†ì„±ê³¼ ë™ìž‘)ì„ ê°€ì§€ê³  ìžˆì„ì§€ ê²°ì •í•œë‹¤.
 	
-	- °´Ã¼µé »çÀÌ¿¡¼­ ¸Þ½ÃÁö¸¦ ÁÖ°í ¹Þµµ·Ï ¸¸µé¾î ÁØ´Ù.
-	
-	
-	* °´Ã¼ÀÇ ±¸¼º : ¼Ó¼º(¸â¹öº¯¼ö), µ¿ÀÛ(¸Þ¼Òµå)
+	- ê°ì²´ë“¤ ì‚¬ì´ì—ì„œ ë©”ì‹œì§€ë¥¼ ì£¼ê³  ë°›ë„ë¡ ë§Œë“¤ì–´ ì¤€ë‹¤.
 	
 	
-	* ¸ð¾ç : [Á¢±ÙÁ¦ÇÑÀÚ][È°¿ëÁ¦ÇÑÀÚ]classÅ¬·¡½º¸í{ }	Á¢±ÙÁ¦ÇÑÀÚ public / default
-		  public static class Name{ }			È°¿ëÁ¦ÇÑÀÚ final / static / abstract
+	* ê°ì²´ì˜ êµ¬ì„± : ì†ì„±(ë©¤ë²„ë³€ìˆ˜), ë™ìž‘(ë©”ì†Œë“œ)
+	
+	
+	* ëª¨ì–‘ : [ì ‘ê·¼ì œí•œìž][í™œìš©ì œí•œìž]classí´ëž˜ìŠ¤ëª…{ }	ì ‘ê·¼ì œí•œìž public / default
+		  public static class Name{ }			í™œìš©ì œí•œìž final / static / abstract
 	
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-< ¸Þ¼Òµå > (MethodMain, MethodMain01, {Method, MethodMain02})
+< ë©”ì†Œë“œ > (MethodMain, MethodMain01, {Method, MethodMain02})
 
-	- ÇÔ¼ö¿Í À¯»çÇÔ
+	- í•¨ìˆ˜ì™€ ìœ ì‚¬í•¨
 
-	* ¸ð¾ç : [Á¢±ÙÁ¦ÇÑÀÚ][È°¿ëÁ¦ÇÑÀÚ] ¹ÝÈ¯Çü(¸®ÅÏÇü) ¸Þ¼ÒµåÀÌ¸§(ÆÄ¶ó¹ÌÅÍ/¸Å°³º¯¼ö) { ¹®Àå }
+	* ëª¨ì–‘ : [ì ‘ê·¼ì œí•œìž][í™œìš©ì œí•œìž] ë°˜í™˜í˜•(ë¦¬í„´í˜•) ë©”ì†Œë“œì´ë¦„(íŒŒë¼ë¯¸í„°/ë§¤ê°œë³€ìˆ˜) { ë¬¸ìž¥ }
 		 			void hi(int a){ }
 			public static void main(String[] args){ }
 
-								Á¢±ÙÁ¦ÇÑÀÚ public / protected / default / private
-								È°¿ëÁ¦ÇÑÀÚ static / final / abstract / synchronized
+								ì ‘ê·¼ì œí•œìž public / protected / default / private
+								í™œìš©ì œí•œìž static / final / abstract / synchronized
 
-	 * ¸Þ¼Òµå ¿À¹ö·Îµù(overloading)	: ÀÚ½ÅÀÇ Å¬·¡½º¿¡ ¸Þ¼Òµå¸íÀº µ¿ÀÏÇÏ¸é¼­ "¸Å°³º¯¼ö"ÀÇ °³¼ö ¶Ç´Â ÀÚ·áÇüÀÌ ´Ù¸¥°Í
+	 * ë©”ì†Œë“œ ì˜¤ë²„ë¡œë”©(overloading)	: ìžì‹ ì˜ í´ëž˜ìŠ¤ì— ë©”ì†Œë“œëª…ì€ ë™ì¼í•˜ë©´ì„œ "ë§¤ê°œë³€ìˆ˜"ì˜ ê°œìˆ˜ ë˜ëŠ” ìžë£Œí˜•ì´ ë‹¤ë¥¸ê²ƒ
 	
 	
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-< »ý¼ºÀÚ >
+< ìƒì„±ìž >
 
-	- ÀÎ½ºÅÏ½º°´Ã¼°¡ ¸¸µé¾îÁú¶§(new) È£ÃâµÇ´Â ¸Þ¼Òµå
+	- ì¸ìŠ¤í„´ìŠ¤ê°ì²´ê°€ ë§Œë“¤ì–´ì§ˆë•Œ(new) í˜¸ì¶œë˜ëŠ” ë©”ì†Œë“œ
 	
-	Method m = new Method();	// È£ÃâµÊ
+	Method m = new Method();	// í˜¸ì¶œë¨
 
 
-	* »ý¼ºÀÚ Á¤ÀÇ : ÀÚ·áÇü ¾ÈºÙ°í Å¬·¡½º ÀÌ¸§°ú °°Àº ¸Þ¼Òµå¸í¸¸À¸·Î Á¤ÀÇ
+	* ìƒì„±ìž ì •ì˜ : ìžë£Œí˜• ì•ˆë¶™ê³  í´ëž˜ìŠ¤ ì´ë¦„ê³¼ ê°™ì€ ë©”ì†Œë“œëª…ë§Œìœ¼ë¡œ ì •ì˜
 
-			¿À¹ö·Îµù °¡´É
+			ì˜¤ë²„ë¡œë”© ê°€ëŠ¥
 
-			Å¬·¡½º¿¡ »ý¼ºÀÚ°¡ Á¤ÀÇµÇÁö ¾ÊÀ¸¸é ÀÚµ¿À¸·Î JVMÀÌ ³»¿ëÀÌ ¾ø´Â »ý¼ºÀÚ¸Þ¼Òµå¸¦ ¸¸µë
+			í´ëž˜ìŠ¤ì— ìƒì„±ìžê°€ ì •ì˜ë˜ì§€ ì•Šìœ¼ë©´ ìžë™ìœ¼ë¡œ JVMì´ ë‚´ìš©ì´ ì—†ëŠ” ìƒì„±ìžë©”ì†Œë“œë¥¼ ë§Œë“¬ (ë””í´íŠ¸ ìƒì„±ìž)
 
 
 		public class Method{
 	
 			Method(){
-				System.out.println("»ý¼ºÀÚ´Ù!");
+				System.out.println("ìƒì„±ìžë‹¤!");
 			}
 		}
 
-	- ÁÖ·Î ¸â¹öº¯¼ö°ªÀ» default°ªÀÌ ¾Æ´Ñ ¿øÇÏ´Â °ªÀ¸·Î ÃÊ±âÈ­ ÇÏ±âÀ§ÇØ »ç¿ë
+	- ì£¼ë¡œ ë©¤ë²„ë³€ìˆ˜ê°’ì„ defaultê°’ì´ ì•„ë‹Œ ì›í•˜ëŠ” ê°’ìœ¼ë¡œ ì´ˆê¸°í™” í•˜ê¸°ìœ„í•´ ì‚¬ìš©
