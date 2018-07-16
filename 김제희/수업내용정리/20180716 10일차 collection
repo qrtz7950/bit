@@ -62,6 +62,35 @@ List
 단점 원하는 데이터가 뒤쪽에 위치하는 경우 속도의 문제
 특징 인터페이스임  메소드의 이름은 고정되어있다
 
+ArrayList   메모리상에서 연속적인 공간
+LinkedList  메모리상에서 비연속적인 공간이지만 각 객체들이 연속적인 데이터인것처럼 사용
+
+요즘은 다 db써서 잘 안씀
+
+ex)
+new ArrayList<Integer>; //Integer형을 모아둔 객체들의 집합이다라는 뜻
+//제너릭 사용예제
+//ArrayList는 제너릭을 사용할 수도 그렇지 않을수도있다
+ArrayList list new ArrayList();
+ArrayList<String> list new <Sting>ArrayList();
+//윗줄은 오브젝트 객체의 집합
+//아랫줄은 스트링형 값만을 가지는 객체의 집합
+
+ArrayList - 메소드
+
+new ArrayList<String>이 되어있을때
+list.add("봄")                     //순차적으로 리스트에 추가됨
+list.add("여름")
+String val = list.get( 0 );         //봄이 반환
+list.size( )                        //2를반환
+list.remove(0);                     //0번지를 삭제하고 1번지를 0번지로 바꿈(전체적으로 밀어줌)
+list.remove(“봄”);                  //해당 데이터 삭제
+list.clear( );                      //몽땅 다 지움
+boolean b = list.contains(“봄” );   //불린형으로 포함했는지를 반환
+boolean b = list.isEmpty();         //데이터가 번지수에 존재하는지 체크
+list.addAll( sub );                 //기존에 존재하는 콜렉션을 복사하여 맨뒤번지수에 붙여넣음 (삭제X)
+
+
 
 
 
