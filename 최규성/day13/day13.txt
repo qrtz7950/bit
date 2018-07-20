@@ -1,0 +1,114 @@
+해석순서는 from -> where -> select -> order by
+
+
+
+
+'같지않음'을 의미하는 부정논리 연산자는 != , ^= , <> / SQL 비교연산자는 NOT BETWEEN A AND B,
+NOT IN 을 사용한다. NULL이 아닌것을 찾을땐 IS NOT NULL을 사용
+ex) 
+ where department_id != 80
+    and department_id ^= 90
+    and department_id <> 100;
+
+or
+
+where department_id not in (80,90,100);
+
+or
+
+where not department_id in (80,90,100);
+
+
+
+ORDER BY - 정렬
+
+SELECT [DISTINCT] 칼럼명 [ALIAS]
+FROM 테이블명
+(WHERE)
+ORDER BY 칼럼명 또는 표현식[ASC or DESC] 의 형식으로 사용
+
+-ASC: 조회한 데이터를 오름차순으로 정렬한다 (디폴트값 생략가능)
+-DESC: 조회한 데이터를 내림차순으로 정렬한다
+-ORDER BY절은 SQL문에서 마지막에 위치한다.
+-컬럼 ALIAS명의 사용이 가능하다
+-NULL값은 오름차순일경우  가장 마지막에 내림차순은 맨처음온다
+-날짜형 데이터는 오름차순일경우 가장 빠른 날이 먼저 출력된다
+-기본적인 정렬방식은 오름차순이다.
+
+
+
+
+SQL 기본함수
+1.sysdate : 날짜제공
+2.to_char : 날짜를 문자로 변경 숫자를 문자로변경
+3.case 절
+
+ TO_CHAR
+   to_char() : 숫자형, 날짜형을 문자형으로 변경
+    
+    to_char(날짜, '포맷문자')      yy(년), m(월), d(일)
+                                h(시), mi(분) , s(초)
+                            
+    to_char(숫자, '포맷문자')     9(자리수)   0(비어있는 자리수를 0으로 채움)
+                                ,(액수 표현시 3자리마다 ','표현)
+                                .(실수 소수점 자리수 표현)
+    
+    to_char(hire_date, 'yyyy')
+
+
+ CASE 절
+case when 조건 then...
+     	...
+     else...
+end
+
+
+
+ex)
+select employee_id, last_name, salary
+        ,case when salary >= 20000 then '고액연봉자'
+              when salary >= 10000 then '보통연봉자'
+              else '저액연봉자'
+        end as "salary type"
+    from employees;
+
+
+
+ SQL 객체 - 시퀀스
+
+1.오라클에서 제공하는 고유  숫자 생성 객체
+2. create sequence 객체명;
+3. 객체명.currVal: 마지막 생성된 고유번호
+4. 객체명.nextVal: 번호 추출
+
+     
+
+---------------------------------------------------------------------------
+Top-N 서브쿼리
+1. 지정한 수만큼 상위 로우넘을 출력
+
+	로우넘은 셀렉트된 레코드들이 출력된 뒤에 생성되기 때문에 먼저 쓸 수 없다.
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@씨12발존나중요@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+해석순서는 from -> where -> group by -> having -> select -> order by
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+where절은 from절에대한 조건이고 그룹에 조건을 걸기위해서는 having을 사용한다
+
+
+
+
+----------------------------------------------------------------------------------
+
+
+    rownum_number() 함수
+    rownum_number() over([partition by 컬럼명] order by 컬럼명)
+    
+    rank() 함수
+    rank() over([partition by 컬럼명] order by 컬럼명)
+    
+    partition by :  지정된 컬럼에 해당하는 그룹설정
+    order by : 지정된 컬럼에 대한 위치/순서 지정
