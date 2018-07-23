@@ -27,6 +27,19 @@ select employee_id, first_name, phone_number
             end as "AREA"
     from employees
 order by employee_id asc;    
+
+--케이스문을 줄여서 쓸수도 있다
+--ex
+
+select employee_id, first_name, phone_number
+     , case substr(phone_number,1,3) when '515' then '서울'
+                                     when '590' then '대전'
+                                     when '650' then '부산'
+                                     when '603' then '광주'
+            else '기타'
+            end as AREA
+    from employees
+order by employee_id asc;           
         
 -------------------------------------------------------------------------
 select first_name, job_id, max(salary)
