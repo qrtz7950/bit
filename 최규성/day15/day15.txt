@@ -1,0 +1,9 @@
+JDBC: 자바에서 데이터베이스를 표준화 된 방법으로 접속,JDBC 드라이버는 사용하고자하는
+	데이터베이스 벤더 별로 제공 됨
+	경로: C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib
+
+import java.sql.*; : JDBC클래스는 java.sql패키지, javax.sql패키지안에 포함되어 있음
+Driver manager : JDBC드라이버를 선택하고 연결객체를 얻어오는 역할을한다.
+Connection : 실제의 데이터베이스와 연결하는 동작을 한다
+Statement :SQL문을 실행시키는 역할을 한다
+ResultSet(select):SQL문의 실행결과인 레코드셋을 담는 클래스이다.
