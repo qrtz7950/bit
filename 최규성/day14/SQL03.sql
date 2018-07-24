@@ -1,4 +1,4 @@
---ºÎ¼­º° ±Ş¿©°¡ ³ôÀº ¼øÀ¸·Î ¼øÀ§¸¦ Á¶È¸
+--ë¶€ì„œë³„ ê¸‰ì—¬ê°€ ë†’ì€ ìˆœìœ¼ë¡œ ìˆœìœ„ë¥¼ ì¡°íšŒ
 select department_id, salary, employee_id, first_name
         , (
             select count(*) + 1
@@ -26,23 +26,23 @@ select count(*) from departments; --27
 select count(*)
     from employees,departments;     --2889 = 107 * 27
     
---»ç¿øÀÇ ±Ù¹« ºÎ¼­¸í Á¶È¸
+--ì‚¬ì›ì˜ ê·¼ë¬´ ë¶€ì„œëª… ì¡°íšŒ
 select e.employee_id, e.first_name, e.salary, e.department_id, d.department_name
     from employees e,departments d
-    where e.department_id = d.department_id --Inner JoinÀÇ ¹æ¹ı(µÎ°³ÀÇ Å×ÀÌºíÀÌ °øÅëÀûÀ¸·Î °®´Â ÄÃ·³ »ç¿ë)
+    where e.department_id = d.department_id --Inner Joinì˜ ë°©ë²•(ë‘ê°œì˜ í…Œì´ë¸”ì´ ê³µí†µì ìœ¼ë¡œ ê°–ëŠ” ì»¬ëŸ¼ ì‚¬ìš©)
     order by 1;
 
-select count(*)                                    --ºÎ¼­°¡ nullÀÎ »ç¿øÀÌ ºüÁü
+select count(*)                                    --ë¶€ì„œê°€ nullì¸ ì‚¬ì›ì´ ë¹ ì§
     from employees e, departments d                 --106
     where e.department_id = d.department_id;
     
 ----------------------------------------------------------------------------------
---left outer join (107¸í)
+--left outer join (107ëª…)
 select e.employee_id, e.first_name, e.salary, e.department_id, d.department_name
     from employees e,departments d
     where e.department_id = d.department_id(+);
     
---right outer join (107¸í)
+--right outer join (107ëª…)
 select e.employee_id, e.first_name, e.salary, e.department_id, d.department_name
     from employees e,departments d
     where d.department_id(+) = e.department_id ;
@@ -67,19 +67,19 @@ select e.employee_id, e.first_name, e.salary, d.department_id
     from departments d right outer join employees e
         on e.department_id = d.department_id;
         
--- 80¹ø ºÎ¼­¿¡ ±Ù¹«ÇÏ´Â »ç¿øÀÇ ¹øÈ£, ÀÌ¸§, ºÎ¼­¸íÀ» Á¶È¸
+-- 80ë²ˆ ë¶€ì„œì— ê·¼ë¬´í•˜ëŠ” ì‚¬ì›ì˜ ë²ˆí˜¸, ì´ë¦„, ë¶€ì„œëª…ì„ ì¡°íšŒ
 select  e.employee_id, e.first_name, d.department_name
     from employees e, departments d
     where e.department_id = d.department_id
         and e.department_id = 80;
-            --ansi »ç¿ë
+            --ansi ì‚¬ìš©
 select e.employee_id, e.first_name, d.department_name
     from employees e inner join departments d
         on e.department_id = d.department_id
     where e.department_id = 80;
     
-/* Á÷Ã¥(job title)ÀÌ Sales ManagerÀÎ »ç¿øµéÀÇ ÀÔ»ç³âµµ¿Í ÀÔ»ç³âµµ(hire_date)º°
-    Æò±Õ ±Ş¿©¸¦ Ãâ·ÂÇÏ½Ã¿À. Ãâ·Â½Ã ³âµµ¸¦ ±âÁØÀ¸·Î ¿À¸§Â÷¼øÁ¤·Ä
+/* ì§ì±…(job title)ì´ Sales Managerì¸ ì‚¬ì›ë“¤ì˜ ì…ì‚¬ë…„ë„ì™€ ì…ì‚¬ë…„ë„(hire_date)ë³„
+    í‰ê·  ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤. ì¶œë ¥ì‹œ ë…„ë„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœì •ë ¬
     */
 select j.job_title,to_char(e.hire_date, 'yyyy'),avg(e.salary)
     from jobs j inner join employees e
@@ -88,53 +88,208 @@ select j.job_title,to_char(e.hire_date, 'yyyy'),avg(e.salary)
     group by j.job_title,to_char(e.hire_date,'yyyy')
     order by 2 asc;
 
-/* public AccountantÀÇ Á÷Ã¥(job_title)À¸·Î °ú°Å¿¡ ±Ù¹«ÇÑÀûÀÌÀÖ´Â ¸ğµç »ç¿øÀÇ »ç¹ø°ú ÀÌ¸§À» Ãâ·ÂÇÏ½Ã¿À
-    (ÇöÀç 'public account'ÀÇ Á÷Ã¥À¸·Î ±Ù¹«ÇÏ´Â »ç¿øÀº °í·ÁÇÏÁö¾Ê´Â´Ù.)
-    ÀÌ¸§Àº first_name, last_nameÀ» ÇÑ ÄÃ·³¿¡ ÇÕÃÄ¼­ Ãâ·ÂÇÑ´Ù.*/
+/* public Accountantì˜ ì§ì±…(job_title)ìœ¼ë¡œ ê³¼ê±°ì— ê·¼ë¬´í•œì ì´ìˆëŠ” ëª¨ë“  ì‚¬ì›ì˜ ì‚¬ë²ˆê³¼ ì´ë¦„ì„ ì¶œë ¥í•˜ì‹œì˜¤
+    (í˜„ì¬ 'public account'ì˜ ì§ì±…ìœ¼ë¡œ ê·¼ë¬´í•˜ëŠ” ì‚¬ì›ì€ ê³ ë ¤í•˜ì§€ì•ŠëŠ”ë‹¤.)
+    ì´ë¦„ì€ first_name, last_nameì„ í•œ ì»¬ëŸ¼ì— í•©ì³ì„œ ì¶œë ¥í•œë‹¤.*/
 
-select e.employee_id, e.first_name || ' ' || e.last_name ÀÌ¸§
+select e.employee_id, e.first_name || ' ' || e.last_name ì´ë¦„
     from employees e, jobs j,job_history jh
     where j.job_id = jh.job_id
         and jh.employee_id = e.employee_id
         and j.job_title = 'Public Accountant';
         
-    --ansi»ç¿ë
-select e.employee_id, e.first_name || ' ' || e.last_name ÀÌ¸§
+    --ansiì‚¬ìš©
+select e.employee_id, e.first_name || ' ' || e.last_name ì´ë¦„
     from employees e  inner join job_history jh
         on e.employee_id = jh.employee_id
         inner join jobs j on j.job_id = jh.job_id
     where j.job_title = 'Public Accountant';
 
---2007³â ÀÔ»çÇÑ »ç¿øÀÇ »ç¹øÀÌ¸§¼ººÎ¼­¸í Ãâ·Â ºÎ¼­°¡¾øÀ¸¸é ¾ø´Ù°í Ãâ·Â
-select e.employee_id »ç¹ø, e.first_name ÀÌ¸§, e.last_name ¼º, nvl(d.department_name,'<Not Assigned>') ºÎ¼­¸í
+--2007ë…„ ì…ì‚¬í•œ ì‚¬ì›ì˜ ì‚¬ë²ˆì´ë¦„ì„±ë¶€ì„œëª… ì¶œë ¥ ë¶€ì„œê°€ì—†ìœ¼ë©´ ì—†ë‹¤ê³  ì¶œë ¥
+select e.employee_id ì‚¬ë²ˆ, e.first_name ì´ë¦„, e.last_name ì„±, nvl(d.department_name,'<Not Assigned>') ë¶€ì„œëª…
     from employees e , departments d
     where to_char(e.hire_date,'yyyy') = '2007'
       and e.department_id = d.department_id(+);
     
---ÀÚ½ÅÀÇ ¸Å´ÏÀúº¸´Ù ¿¬ºÀÀ» ¸¹ÀÌ ¹Ş´Â Á÷¿øµéÀÇ ¼º°ú ¿¬ºÀÀ» Ãâ·ÂÇÏ½Ã¿À
+--ìì‹ ì˜ ë§¤ë‹ˆì €ë³´ë‹¤ ì—°ë´‰ì„ ë§ì´ ë°›ëŠ” ì§ì›ë“¤ì˜ ì„±ê³¼ ì—°ë´‰ì„ ì¶œë ¥í•˜ì‹œì˜¤
 select e.last_name, e.salary
     from employees e, employees m           --self join
     where e.salary > m.salary
         and e.manager_id = m.employee_id;    
         
-/*°¢ºÎ¼­º°·Î Á÷¿øÀÌ ÇÑ¸í¸¸ÀÖ´Â ºÎ¼­¸¸ Á¶È¸ÇÏ½Ã¿À ´Ü, Á÷¿øÀÌ ¾ø´Â ºÎ¼­¿¡ ´ëÇØ '<½Å»ıºÎ¼­>'
-¶ó´Â ¹®ÀÚ¿­ÀÌ Ãâ·ÂµÇµµ·Ï ÇÏ°í, Ãâ·Â °á°ú´Â ´ÙÀ½°ú °°ÀÌ ºÎ¼­¸íÀÌ ³»¸²Â÷¼øÀ¸·Î Á¤·ÄµÇ¾î¾ß ÇÑ´Ù.
+/*ê°ë¶€ì„œë³„ë¡œ ì§ì›ì´ í•œëª…ë§ŒìˆëŠ” ë¶€ì„œë§Œ ì¡°íšŒí•˜ì‹œì˜¤ ë‹¨, ì§ì›ì´ ì—†ëŠ” ë¶€ì„œì— ëŒ€í•´ '<ì‹ ìƒë¶€ì„œ>'
+ë¼ëŠ” ë¬¸ìì—´ì´ ì¶œë ¥ë˜ë„ë¡ í•˜ê³ , ì¶œë ¥ ê²°ê³¼ëŠ” ë‹¤ìŒê³¼ ê°™ì´ ë¶€ì„œëª…ì´ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬ë˜ì–´ì•¼ í•œë‹¤.
 */
 select nvl(
             (
                  select d.department_name
                       from departments d
                       where e.department_id = d.department_id
-            ),'<½Å»ıºÎ¼­>'
-        ) ºÎ¼­¸í, count(*) Á÷¿ø¼ö
+            ),'<ì‹ ìƒë¶€ì„œ>'
+        ) ë¶€ì„œëª…, count(*) ì§ì›ìˆ˜
     from employees e
     group by department_id
     having count(*) =1
     order by 1 desc;
     
- select nvl(d.department_name,'½Å»ıºÎ¼­'),count(*) Á÷¿ø¼ö
+ select nvl(d.department_name,'ì‹ ìƒë¶€ì„œ'),count(*) ì§ì›ìˆ˜
  from employees e, departments d
  where e.department_id = d.department_id(+)
  group by d.department_name
  having count(*) =1
- order by 1 desc 
+ order by 1 desc;
+ 
+ --===ì œí¬í•œí…Œë°›ì€ê±°=====================================================================
+select to_char(e.hire_date, 'yyyy'), avg(e.salary)
+    from employees e left outer join jobs j
+      on e.job_id = j.job_id
+   where j.job_title = 'Sales Manager'   
+group by to_char(e.hire_date, 'yyyy')
+order by 1;
+------------------------------------------------------------------------------
+select nvl(l.city, 'NO CITY') as city_name, round(avg(salary),'.9') as average_salary, count(*) as numOfEmployee
+    from employees e left outer join departments d 
+      on e.department_id = d.department_id left outer join locations l
+      on d.location_id = l.location_id
+group by l.city
+  having count(*) < 10;
+------------------------------------------------------------------------------ 
+select e.employee_id as employeeNum, e.first_name || ' ' || e.last_name as name
+  from employees e left outer join job_history jh
+    on e.employee_id = jh.employee_id left outer join jobs j
+    on j.job_id = jh.job_id 
+ where j.job_title = 'Public Accountant';
+------------------------------------------------------------------------------
+select e.last_name, e.salary
+  from employees e, employees m
+ where e.salary > m.salary
+   and e.manager_id = m.employee_id;
+------------------------------------------------------------------------------
+select e.employee_id, e.first_name || ' ' || e.last_name, nvl(d.department_name, '<NOT ASSIGNED>')
+  from employees e left outer join departments d
+    on e.department_id = d.department_id
+ where to_char(e.hire_date, 'yyyy') = '2007';
+ 
+select e.first_name || ' ' || e.last_name as name, e.salary
+  from employees e left outer join jobs j
+    on e.job_id = j.job_id
+ where j.job_title = 'Sales Representative'
+   and e.salary between '9000' and '10000';
+------------------------------------------------------------------------------
+select nvl(d.department_name,'no name') as department_name
+  from employees ee,departments dd
+where in ((select min(e.salary)
+          from employees e left outer join departments d
+            on e.department_id = d.department_id
+        group by department_name));
+   
+------------------------------------------------------------------------------
+select RANKING
+     , last_name
+     , first_name
+     , salary
+  from (
+        select e.*
+             , rank() over (order by e.salary desc) as RANKING
+             , row_number() over(order by e.salary desc) as rnum
+          from employees e
+        )
+where rnum between 6 and 10;
+
+select e.last_name as ename
+     , nvl(m.last_name,'no manager') as name
+     , d.department_name
+     , l.city
+  from employees e inner join departments d
+    on e.department_id = d.department_id inner join locations l
+    on d.location_id = l.location_id inner join employees m
+    on e.manager_id = m.employee_id
+ where l.city = 'Seattle'
+order by 1 asc;
+
+select j.job_title
+     , sum(e.salary)
+    from employees e left outer join jobs j
+      on e.job_id = j.job_id
+group by j.job_title
+  having sum(e.salary) > '30000';
+  
+select e.employee_id as ì‚¬ì›ë²ˆí˜¸
+     , e.first_name as ì´ë¦„
+     , j.job_title as ì—…ë¬´ëª…
+     , d.department_name as ë¶€ì„œì´ë¦„
+  from employees e left outer join employees m
+    on e.manager_id = m.employee_id left outer join departments d
+    on e.department_id = d.department_id left outer join locations l
+    on d.location_id = l.location_id left outer join jobs j
+    on j.job_id = e.job_id
+  where l.city = 'Seattle'
+  order by 1 asc;
+
+select e.first_name as name
+     , to_char(e.hire_date, 'yyyy-mm-dd am hh-mi-ss') as hiredate
+     , nvl(to_char(m.employee_id),'ê´€ë¦¬ìì—†ìŒ') as manager_id
+     , nvl(to_char(m.first_name),'ê´€ë¦¬ìì—†ìŒ') as manager_name
+ from employees e left outer join employees m
+   on e.manager_id = m.employee_id
+where to_char(e.hire_date, 'yyyy') between '2001' and '2003'
+order by e.employee_id desc;
+     
+select e.first_name
+     , e.salary
+     , d.department_name
+  from employees e left outer join departments d
+    on e.department_id = d.department_id
+where d.department_name = 'Sales'
+  and (select avg(e.salary)
+         from employees e
+        where e.department_id = 100
+       ) > e.salary;
+
+select to_char(e.hire_date, 'mm') || 'th' as month
+     , count(*) as numOfEmployee
+  from employees e
+group by to_char(e.hire_date, 'mm')
+order by 1 asc;
+
+select d.department_name
+     , max(e.salary)
+     , min(e.salary)
+     , round(avg(e.salary),'.9')
+    from employees e left outer join departments d
+      on e.department_id = d.department_id
+group by d.department_name
+  having (
+          select avg(ee.salary)
+            from employees ee left outer join departments dd
+            on ee.department_id = dd.department_id
+        group by dd.department_name
+          having dd.department_name = 'IT'
+          ) 
+          < avg(e.salary) and
+          (
+           select avg(eee.salary)
+             from employees eee left outer join departments ddd
+               on eee.department_id = ddd.department_id
+         group by ddd.department_name
+           having ddd.department_name = 'Sales') > avg(e.salary);
+
+select nvl(d.department_name, '<ì‹ ìƒë¶€ì„œ>') as ë¶€ì„œëª…
+     , count(*) as ì§ì›ëª…
+  from employees e left outer join departments d
+    on e.department_id = d.department_id
+group by d.department_name
+  having count(*) = '1'
+order by 1 desc; 
+
+select d.department_name
+     , to_char(e.hire_date, 'mon')
+     , count(*)
+  from employees e left outer join departments d
+    on e.department_id = d.department_id
+group by d.department_name, to_char(e.hire_date, 'mon')
+  having count(*)>='5'
+order by 1 asc;
+
+
+select * from employees;
