@@ -1,0 +1,37 @@
+JDBC (java database connectivity)
+
+자바에서 데이터 베이스를 표준화된 방법으로 접속할 수 있게해준다
+-----------------------------------------
+6교시
+------------JDCB API---------------------
+
+import java.sql.*;
+java.sql패키지안에 포함되어 있음
+
+Driver Manager 
+JDBC 드라이버 선탣
+
+Connetion
+실제의 데이터 베이스와 연결
+
+Statement
+SQL문을 실행
+
+ResultSet(select)
+SQL문의 실행결과인 레코드셋을 담는 클래스이다.
+
+--------------------------------프로그램 순서--------------------------------
+Class.forName() jvm이 드라이버를 로드(인지)해야함
+
+DriverManager
+Connetion      sql과 연결
+
+statement sql쿼리를 실행한다
+
+ResultSet 결과를 얻어낸다
+
+close     접속 해제
+
+db와 자바를 연결하는 것도 자바에서 외부장치를 쓰듯이 내가 쓴다고 선언하면 내가 수정하는 동안에는 다른 사람이 접근할 수 없으며
+내가 다 쓰고 난 이후에는 닫아줘야힌다
+
