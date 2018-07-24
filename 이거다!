@@ -2,20 +2,20 @@ select d.department_name
      , max(e.salary)
      , min(e.salary)
      , avg(e.salary)
-    from employees e left outer join departments d
-      on e.department_id = d.department_id
-group by d.department_name
+  from employees e left outer join departments d
+    on e.department_id = d.department_id
+  group by d.department_name
   having (
-          select avg(e.salary)
+          select avg(ee.salary)
             from employees ee left outer join departments dd
-            on ee.department_id = dd.department_id
-        group by dd.department_name
-          having dd.department_name = 'IT'
-          ) 
-          < avg(e.salary) and
+              on ee.department_id = dd.department_id
+            group by dd.department_name
+            having dd.department_name = 'IT'
+          ) < avg(e.salary)
+     and
           (
-           select avg(e.salary)
+           select avg(eee.salary)
              from employees eee left outer join departments ddd
                on eee.department_id = ddd.department_id
-         group by ddd.department_name
-           having ddd.department_name = 'Sales') > avg(e.salary);
+             group by ddd.department_name
+             having ddd.department_name = 'Sales') > avg(e.salary);
