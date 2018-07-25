@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package kr.co.mlec.homework.homework10;
 
 public class Board extends BoardServer{
@@ -27,7 +26,7 @@ public class Board extends BoardServer{
 				case 0:
 					System.exit(0);
 				default :
-					System.out.println("Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù.");
+					System.out.println("ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.");
 			}
 			System.out.println();
 			
@@ -35,65 +34,15 @@ public class Board extends BoardServer{
 	}
 	
 	public int menu() {
-		System.out.println("*** ¸Ş´º ***");
-		System.out.println("1. ÀüÃ¼°Ô½Ã±Û Á¶È¸");
-		System.out.println("2. ±Û¹øÈ£ Á¶È¸");
-		System.out.println("3. ±Ûµî·Ï");
-		System.out.println("4. ±Û¼öÁ¤");
-		System.out.println("5. ±Û»èÁ¦");
-		System.out.println("0. Á¾·á");
-		System.out.print("¿øÇÏ´Â Ç×¸ñÀ» ¼±ÅÃÇÏ¼¼¿ä => ");
+		System.out.println("*** ë©”ë‰´ ***");
+		System.out.println("1. ì „ì²´ê²Œì‹œê¸€ ì¡°íšŒ");
+		System.out.println("2. ê¸€ë²ˆí˜¸ ì¡°íšŒ");
+		System.out.println("3. ê¸€ë“±ë¡");
+		System.out.println("4. ê¸€ìˆ˜ì •");
+		System.out.println("5. ê¸€ì‚­ì œ");
+		System.out.println("0. ì¢…ë£Œ");
+		System.out.print("ì›í•˜ëŠ” í•­ëª©ì„ ì„ íƒí•˜ì„¸ìš” => ");
 		int a = Integer.parseInt(s.nextLine());
 		return a;
 	}
 }
-=======
-package kr.co.mlec.homework.homework10;
-
-public class Board extends BoardServer{
-	public static int totalnum = 0;
-	
-	public void start() {
-		
-		while(true) {
-			int a = menu();
-			switch(a) {
-				case 1:
-					showAll();
-					break;
-				case 2:
-					showNum();
-					break;
-				case 3:
-					upload();
-					break;
-				case 4:
-					modify();
-					break;
-				case 5:
-					remov();
-					break;
-				case 0:
-					System.exit(0);
-				default :
-					System.out.println("Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù.");
-			}
-			System.out.println();
-			
-		}
-	}
-	
-	public int menu() {
-		System.out.println("*** ¸Ş´º ***");
-		System.out.println("1. ÀüÃ¼°Ô½Ã±Û Á¶È¸");
-		System.out.println("2. ±Û¹øÈ£ Á¶È¸");
-		System.out.println("3. ±Ûµî·Ï");
-		System.out.println("4. ±Û¼öÁ¤");
-		System.out.println("5. ±Û»èÁ¦");
-		System.out.println("0. Á¾·á");
-		System.out.print("¿øÇÏ´Â Ç×¸ñÀ» ¼±ÅÃÇÏ¼¼¿ä => ");
-		int a = Integer.parseInt(s.nextLine());
-		return a;
-	}
-}
->>>>>>> 282951cd084703f8f7ebe984b1e780d5f23a17b4

@@ -1,0 +1,23 @@
+< JOIN >
+	저장공간이 null로 차는 경우가 많은 경우 테이블을 두개로 분리시켜 저장하는게 일반적이다
+	not null 테이블과 null 가능한 테이블로 나누거나 중복되는 값이 많은 내용의 컬럼을 나눌 경우
+	나누어진 테이블을 이어 보기 위해 JOIN이 필요
+
+	- cross join (cartesian product)	: 두 테이블의 컬럼의 모든 조합의 경우가 나옴
+	- inner join		: 두 테이블의 교집합 컬럼이 되는 레코드들 나옴
+	- outer join		: 두 테이블중 한쪽 테이블의 모든 레코드가 나오고, 다른 테이블의 교집합 부분이 붙어 나옴
+	  (left, right)		  (왼쪽 테이블의 모든 레코드, 오른쪽 테이블의 모든 레코드)
+	  (full outer join)	  (왼쪽 오른쪽 테이블 모두)		// (+)사용 : oracle에서만 사용
+
+		select e.employee_id, e.first_name, e.salary
+		       , e.department_id, d.department_name
+		  from employees e, departments d
+		  where e.department_id = d.department_id(+);   -- left outer join
+		  --  where e.department_id(+) = e.department_id;   -- right outer join
+
+		// ansi join : 명시적으로 (다른 프로그램에서도 통상적인 문법)
+				  cross join	: from tableA cross join tableB
+			 	  inner join	: from tableA inner join tableB on 조건
+				  left outer join	: from tableA left outer join tableB on 조건
+				  rigth outer join 	: from tableA right outer join tableB on 조건
+				  full outer join	: from tableA full outer join tableB on 조건

@@ -1,0 +1,54 @@
+< 입출력 API > (FileMain, FileIOMain, FileIOMain02~09, {kr.co.mlec.Util - FileClose}, UserInfo, {java - iotest}, UserVO)
+
+	* File 클래스
+
+		File file = new File("/*경로*/");
+
+		.getName()	: 파일이름 반환
+		.getParent()	: 바로 위 파일 이름 반환
+		.getPath()		: 파일 경로 반환
+		.isFile()		: 파일인지 여부 (boolean)
+		.isDirectory()	: 디렉토리 여부
+		.exists()		: 존재 여부
+		.length()		: 파일 크기
+		.lastModified()	: 마지막 수정 시간
+		.canRead()		: 읽기 가능 여부
+		.canWrite()	: 쓰기 가능 여부
+		.list()		: 리스트
+		.mkdir()		: 생성
+		.mkdirs()		: 위 경로 틀리면 경로까지 생성
+		.delete()		: 지움
+      // 바이트 스트림
+	* InputStream
+		
+		- void close() 		: 입력 스트림을 닫는다
+		- int read()		: 입력 스트림으로 부터 한 바이트를 읽어 int 형 값을 반환하다. 
+		    	    		  읽은 바이트가 파일의 끝이면 -1을 반환
+		- int read(byte buffer[])	: 입력 스트림으로부터 buffer 배열 크기만큼의 문자를 읽어 buffer에 저장
+		- int read(byte buffer[], int offset, int numbytes)
+					: 입력스트림으로부터 numbytes에 지정한 만큼의 바이트를 읽어 buffer의
+		     	    		  offset위치에 저장하고 읽은 바이트의 개수를 반환
+		- int available() 		: 현재 읽기 가능한 바이트의 수를 반환
+		- int skip(long numChars)	: numChars로 지정된 바이트 수 만큼을 스킵하고 스킵 된 바이트의 수를 반환
+		
+	* OutputStream
+
+		- void close() 		: 출력 스트림을 닫는다
+		- void flush() 		: 출력 버퍼에 저장된 모든 데이터를 출력 장치로 전송
+		- void write(int c)		: c의 하위 8비트를 스트림으로 출력
+		- void write(byte buffer[]) 	: buffer 배열에 있는 바이트들을 스트림으로 출력
+		- void write(byte buffer[], int index, int size)
+			: buffer 배열의 index 위치부터 size 크기 만큼의 바이트들을 스트림으로 출력
+
+      // 문자 스트림
+	* Reader
+
+	* Writer
+		FileWriter("", true) : 원래 내용 뒤에 이어서
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+	* BufferedInputStream
+	* BufferedOutputStream
+
+	훨씬 빠름
+
+으ㅏㅏㅏㅏ 정리 오늘은 포기 수업자료 입출력 API 참고

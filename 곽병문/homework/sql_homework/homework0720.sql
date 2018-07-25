@@ -1,57 +1,66 @@
 /*  1.
-    ºÎ¼­¹øÈ£¸¦ °¡Áö´Â ºÎ¼­ Áß »ç¿ø¼ö°¡ 5¸íÀÌ»óÀÎ ºÎ¼­¸¦ Á¶È¸
-    ´Ü, ºÎ¼­¹øÈ£´Â ¿À¸§Â÷¼øÀ¸·Î Á¶È¸
+    ë¶€ì„œë²ˆí˜¸ë¥¼ ê°€ì§€ëŠ” ë¶€ì„œ ì¤‘ ì‚¬ì›ìˆ˜ê°€ 5ëª…ì´ìƒì¸ ë¶€ì„œë¥¼ ì¡°íšŒ
+    ë‹¨, ë¶€ì„œë²ˆí˜¸ëŠ” ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¡°íšŒ
 */
-select department_id, count(department_id) »ç¿ø¼ö
+select department_id, count(department_id) ì‚¬ì›ìˆ˜
   from employees
- where department_id is not null
- group by department_id
- having count(department_id)>=5
- order by department_id asc;
+  where department_id is not null
+  group by department_id
+  having count(department_id)>=5
+  order by department_id asc;
  
  /* 2.
-    Employees Å×ÀÌºí¿¡¼­ ÀÔ»çÇÑ´Ş(hire_date)º°·Î ÀÎ¿ø¼ö¸¦ Á¶È¸
+    Employees í…Œì´ë¸”ì—ì„œ ì…ì‚¬í•œë‹¬(hire_date)ë³„ë¡œ ì¸ì›ìˆ˜ë¥¼ ì¡°íšŒ
  */
- select e.*
-   from(
-        select to_char(hire_date, 'mm') as ¿ù, count(to_char(hire_date, 'mm')) as Á÷¿ø¼ö
-          from employees
-        group by to_char(hire_date, 'mm')
-        order by to_char(hire_date, 'mm') asc
-      )e;
+ select to_char(hire_date, 'mm') || 'ì›”' as ì…ì‚¬í•œë‹¬, count(to_char(hire_date, 'mm')) as ì§ì›ìˆ˜
+   from employees
+   group by to_char(hire_date, 'mm')
+   order by to_char(hire_date, 'mm') asc;
 
  /* 3.
-    Ä¿¹Ì¼Ç(commission_pct)º° Á÷¿ø¼ö¸¦ Á¶È¸
-    Ä¿¹Ì¼ÇÀº ¾Æ·¡½ÇÇà°á°úÃ³·³ 0.2, 0.25´Â ¸ğµÎ
-    .2·Î, 0.3, 0.35´Â .3 ÇüÅÂ·Î Ãâ·ÂµÇ¾î¾ß ÇÑ´Ù.
-    ´Ü, Ä¿¹Ì¼Ç Á¤º¸°¡ ¾ø´Â Á÷¿øµéµµ ÀÖ´Âµ¥ Ä¿¹Ì¼ÇÀÌ ¾ø´Â Á÷¿ø ±×·ìÀº
-    ¡®<Ä¿¹Ì¼Ç ¾øÀ½>¡¯ÀÌ Ãâ·ÂµÇ°Ô ÇÑ´Ù
+    ì»¤ë¯¸ì…˜(commission_pct)ë³„ ì§ì›ìˆ˜ë¥¼ ì¡°íšŒ
+    ì»¤ë¯¸ì…˜ì€ ì•„ë˜ì‹¤í–‰ê²°ê³¼ì²˜ëŸ¼ 0.2, 0.25ëŠ” ëª¨ë‘
+    .2ë¡œ, 0.3, 0.35ëŠ” .3 í˜•íƒœë¡œ ì¶œë ¥ë˜ì–´ì•¼ í•œë‹¤.
+    ë‹¨, ì»¤ë¯¸ì…˜ ì •ë³´ê°€ ì—†ëŠ” ì§ì›ë“¤ë„ ìˆëŠ”ë° ì»¤ë¯¸ì…˜ì´ ì—†ëŠ” ì§ì› ê·¸ë£¹ì€
+    â€˜<ì»¤ë¯¸ì…˜ ì—†ìŒ>â€™ì´ ì¶œë ¥ë˜ê²Œ í•œë‹¤
  */
-select nvl(to_char(trunc(commission_pct, 1)), '<Ä¿¹Ì¼Ç¾øÀ½>') as Ä¿¹Ì¼Ç
-       , count(trunc(nvl(commission_pct, 0), 1)) as Á÷¿ø¼ö
+select nvl(to_char(trunc(commission_pct, 1)), '<ì»¤ë¯¸ì…˜ì—†ìŒ>') as ì»¤ë¯¸ì…˜
+       , count(trunc(nvl(commission_pct, 0), 1)) as ì§ì›ìˆ˜
   from employees
- group by trunc(commission_pct, 1);
+  group by trunc(commission_pct, 1);
  
  /* 4
-    »ç¿øµéÀÇ id¿Í ÀÌ¸§(first_name), ÀüÈ­¹øÈ£¿Í Áö¿ªÀ» id ¿À¸§Â÷¼ø¼øÀ¸·Î Ãâ·ÂÇÏ´Â ÄÚµå¸¦ ÀÛ¼º
-    ÀÌ¶§ Áö¿ªÀº ÀüÈ­¹øÈ£ÀÇ ¾ÕÀÚ¸®°¡ 515ÀÎ °æ¿ì´Â '¼­¿ï'
-    590ÀÎ °æ¿ì´Â '´ëÀü'   650ÀÎ °æ¿ì´Â 'ºÎ»ê'
-    603ÀÎ °æ¿ì´Â '±¤ÁÖ'   ±× ¿ÜÀÇ °æ¿ì '±âÅ¸' ¶ó Ãâ·ÂµÈ´Ù.
+    ì‚¬ì›ë“¤ì˜ idì™€ ì´ë¦„(first_name), ì „í™”ë²ˆí˜¸ì™€ ì§€ì—­ì„ id ì˜¤ë¦„ì°¨ìˆœìˆœìœ¼ë¡œ ì¶œë ¥í•˜ëŠ” ì½”ë“œë¥¼ ì‘ì„±
+    ì´ë•Œ ì§€ì—­ì€ ì „í™”ë²ˆí˜¸ì˜ ì•ìë¦¬ê°€ 515ì¸ ê²½ìš°ëŠ” 'ì„œìš¸'
+    590ì¸ ê²½ìš°ëŠ” 'ëŒ€ì „'   650ì¸ ê²½ìš°ëŠ” 'ë¶€ì‚°'
+    603ì¸ ê²½ìš°ëŠ” 'ê´‘ì£¼'   ê·¸ ì™¸ì˜ ê²½ìš° 'ê¸°íƒ€' ë¼ ì¶œë ¥ëœë‹¤.
 */
-select employee_id as id, first_name as ÀÌ¸§, phone_number as ÀüÈ­¹øÈ£
-       , case when substr(phone_number, 1, 3)='515' then '¼­¿ï'
-              when substr(phone_number, 1, 3)='590' then '´ëÀü'
-              when substr(phone_number, 1, 3)='650' then 'ºÎ»ê'
-              when substr(phone_number, 1, 3)='603' then '±¤ÁÖ'
-              else '±âÅ¸'
-          end as Áö¿ª
+select employee_id as id, first_name as ì´ë¦„, phone_number as ì „í™”ë²ˆí˜¸
+       , case when substr(phone_number, 1, 3)='515' then 'ì„œìš¸'
+              when substr(phone_number, 1, 3)='590' then 'ëŒ€ì „'
+              when substr(phone_number, 1, 3)='650' then 'ë¶€ì‚°'
+              when substr(phone_number, 1, 3)='603' then 'ê´‘ì£¼'
+              else 'ê¸°íƒ€'
+          end as ì§€ì—­
   from employees
- order by id asc;
+  order by id asc;
+  
+  /*
+  select employee_id as id, first_name as ì´ë¦„, phone_number as ì „í™”ë²ˆí˜¸
+       , case substr(phone_number, 1, 3) when '515' then 'ì„œìš¸'
+                                         when '590' then 'ëŒ€ì „'
+                                         when '650' then 'ë¶€ì‚°'
+                                         when '603' then 'ê´‘ì£¼'
+              else 'ê¸°íƒ€'
+          end as ì§€ì—­
+  from employees
+  order by id asc;
+  */
 
 /* 5
-   »ç¿øÅ×ÀÌºí¿¡¼­ Á÷¿ø( job_id)º° ÃÖ´ë±Ş¿©(salary)¸¦ ¹Ş´Â »ç¿øÀ» Á¶È¸ÇÏ½Ã¿À
+   ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì§ì›( job_id)ë³„ ìµœëŒ€ê¸‰ì—¬(salary)ë¥¼ ë°›ëŠ” ì‚¬ì›ì„ ì¡°íšŒí•˜ì‹œì˜¤
 */
-select e.job_id as ºÎ¼­¹øÈ£, e.ms as ÃÖ´ë±Ş¿©, employees.last_name as ÀÌ¸§
+select e.job_id as ë¶€ì„œë²ˆí˜¸, e.ms as ìµœëŒ€ê¸‰ì—¬, employees.last_name as ì´ë¦„
   from (
         select job_id, max(salary) as ms
            from employees
@@ -59,15 +68,24 @@ select e.job_id as ºÎ¼­¹øÈ£, e.ms as ÃÖ´ë±Ş¿©, employees.last_name as ÀÌ¸§
        )e
        , employees
   where employees.job_id = e.job_id and employees.salary = e.ms;
+  
+/* 
+select firstname, job_id, max(salary)
+  from employees
+  where (salary, job_id) in(
+                                select max(salary), job_id
+                                  from employees
+                                  group by job_id
+                            );
+*/
 
 /* 6
-    EMPLOYEES Å×ÀÌºí¿¡¼­ ±Ş¿©¸¦ ¸¹ÀÌ ¹Ş´Â ¼ø¼­´ë·Î Á¶È¸ÇßÀ» ¶§ °á°úÃ³·³ 6¹øÂ°ºÎÅÍ
-    10¹øÂ°±îÁö 5¸íÀÇ last_name, first_name, salary¸¦ Á¶È¸ÇÏ´Â sql¹®ÀåÀ» ÀÛ¼º
+    EMPLOYEES í…Œì´ë¸”ì—ì„œ ê¸‰ì—¬ë¥¼ ë§ì´ ë°›ëŠ” ìˆœì„œëŒ€ë¡œ ì¡°íšŒí–ˆì„ ë•Œ ê²°ê³¼ì²˜ëŸ¼ 6ë²ˆì§¸ë¶€í„°
+    10ë²ˆì§¸ê¹Œì§€ 5ëª…ì˜ last_name, first_name, salaryë¥¼ ì¡°íšŒí•˜ëŠ” sqlë¬¸ì¥ì„ ì‘ì„±
 */
-select ee.last_name, ee.first_name, ee.salary
+select ee.RANKING, ee.last_name, ee.first_name, ee.salary
   from (
-        select e.*, rownum as rn
+        select e.*, rank() over(order by e.salary desc) RANKING
           from employees e
-         order by salary desc
         )ee
- where ee.rn between 6 and 10;
+  where ee.RANKING between 6 and 10;

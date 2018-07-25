@@ -1,0 +1,63 @@
+(GugudanMain, Gugudan)
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+< 생성자 > (ConstructorMain01, ConstructorMain02) 
+
+	* this의 활용 : static 영역에서는 사용이 불가능하다.
+
+			그 클래스의 멤버변수를 가르킴
+
+			지역변수보다 우선
+					
+
+		- this.멤버변수
+
+		- this([인자값..]) : 생성자 호출
+		- this 생성자 제한사항 : "생성자내에서" 생성자 호출
+					  생성자 첫번째 구문에서만 사용 가능
+		
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+< 문자열 정의 > (StringMain01, StringMain02, StringMain03)
+
+	- 자바에서는 문자열을 객체로 취급
+	
+	- java.lang 패키지에 포함
+	
+	- java.lang.String, StringBuffer, StringBuilder 클래스 제공
+	
+	- String 클래스 :  한번 생성된 다음 변하지 않는 문자열에 사용
+	
+	- StringBuffer 클래스 : 계속하여 변할 수 있는 문자열에 사용, 동기화 적용
+	
+	- StringBuilder 클래스 : 계속하여 변할 수 있는 문자열에 사용, 비동기화		// 요즘에는 StringBuilder 더 자주 씀
+
+
+	* String 생성자
+
+		1. String()
+		2. String(char[]) : char배열 내용 모두 합쳐서 String으로 변환하여 반환
+		3. String(char[], int a, int b) : char배열 char[a]부터 b개를 String으로 변환하여 반환
+		4. String(String)
+		5. String(byte[]) : byte배열 내용 아스키코드를 합쳐서 String으로 변환하여 반환
+
+
+	- [int] .length() : 문자열 길이를 int형으로 반환
+	
+	- 문자열 추출
+		
+		[char] .charAt(int i) : 문자열중에서 i번째 문자를 반환
+		[void] .getChars(int sourceStart, int sourceEnd, char target[], int targetStart) : 문자열의 일부를 문자 배열로(target[]) 제공
+					시작점	       끝점	  복사할 배열	  복사 시작
+
+	- 문자 비교
+
+		[boolean] .equals(Object str)		: str로 지정된 문자열과 현재의 문자열 같은지 비교
+		[boolean] .equalsignorCase(String str)	: 문자열 비교시 대소문자 무시
+		[boolean] .startsWith(String str)	: 문자열이 str로 시작하면 true, 아니면 false
+		[boolean] .endsWith(String str)		: 문자열이 str로 끝나면 true. 아니면 false
+		[int] .compareTo(String str)		: 현재의 문자열과 str로 지정된 문자열을 비교하여 현재의 문자열이 str로 지정된
+							  문자열보다 크면 양수, 같으면 0, 작으면 음수값을 반환
+								작다는 의미) 순서(알파벳)에 따라 앞에 온다는 의미

@@ -1,0 +1,7 @@
+< 객체지향적 프로그램을 하기 위한 기본적인 4종류의 클래스 >
+	
+	VO (Value Object) [DTO]	: 변수들(속성)을 모아둔 것
+	UI (User Interface)		: 키보드 입력, 화면 출력
+	DAO (Data Access Object)	: DB, File, Application에 접근 하여 데이터 조회하거나 조작하는 기능을 전담
+				  (CRUD [Create Read Update Delet] 전담)
+	SERVICE			: DAO, UI간 연동, 부수적 기능

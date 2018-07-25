@@ -1,0 +1,122 @@
+< final > (FinalMain, {singleton - DogMain, Dog}
+	
+	- 변수 : 상수
+	- 메소드 : 오버라이딩 금지
+	- 클래스 : 상속금지
+	
+-----------------------------------------------------------------------------------------------------------------------------
+
+	- JDK1.8부터 인터페이스에 추상메소드가 아닌 정의된 메소드를 넣을수 있게 해주는 default 추가
+
+	- 유지, 보수때만 사용
+
+-----------------------------------------------------------------------------------------------------------------------------
+	(CatMain)
+	
+	- 모든 클래스는 기본적으로 Object를 상속받음(생략 되어있음)
+
+	- Object.toString() 메소드는 변수가 들고 있는 값을 String형으로 반환하는 메소드 => 생략가능
+
+		int a=1;
+		System.out.println(a)	// a는 원래 a.toString
+
+	- toString()메소드는 오버라이딩하여 사용하면 클래스 값 출력할때 유용함
+
+		class C{
+
+			private int age = 20;
+			public String toString(){
+				return "나이 = " + age;
+			}
+
+	- 메뉴 Source에 Generate toString() 기능 있음
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+< 예외처리 > (ExceptionMain01, ExceptionMain02, ExceptionMain03, ExceptionMain04, ExceptionMain05, ExceptionMain06, CheckIDException)
+	
+	- 보통 조건문으로 오류가 안생기게 잡지만, 개발자가 생각하지 못한 예외가 발생하여도 프로그램이 계속 돌아갈 수 있도록 해줌
+
+	- 발생할 수 있는 예외 클래스로 정의되어있음
+	
+	
+	* 예외관련 키워드
+	
+		- try, catch, finally : 예외 직접처리 시 사용하는 키워드
+		
+		- throws : 예외 간접처리 시 사용하는 키워드
+		
+		- throw : 사용자 정의 예외처리
+
+	1. 직접처리
+		
+		- try : 예외가 발생할 만한 코드를 기술하는 부분
+		
+		- catch : try 블럭에서 예외가 발생하면 예외를 처리하는 부분
+
+		- finally : 예외 발생여부와 상관없이 무조건 실행하는 부분
+
+			try{
+				예외가 발생할 것 같은 코드 정의
+			}
+			catch(Exception e){
+				예외처리
+			}
+			finally{ 무조건 실행 }
+			
+	2. 간접처리
+		
+		- throws : 메서드 내에서 발생된 예외를 자신이 아닌 호출한 쪽으로 예외처리를 떠넘기는 역할을 하는 키워드
+
+			public void print() throws Exception{
+				예외가 발생할 것 같은 코드 정의
+			}
+
+	3. 사용자 예외 지정 처리
+		
+			try {
+				if(id.length() < 5) {
+					throw new Exception("아이디는 최소 다섯글자 이상");
+				}
+				else {
+					System.out.println("ID를 등록하였습니ㄷ");
+					System.out.println("ID : " + id);
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+< 날짜 API > (DateMain, CalendarMain, SimpleDateFormatMain)
+
+	* Date : 1.0버전부터 지원되는 클래스
+		 1.1버전부터는 Calendar 클래스 사용을 권장
+
+		- 생성자
+			Date()
+			Date(long msec)
+
+
+	* Calendar : 추상클래스, 객체를 얻기위해 Calendar.getInstance()를 활용
+		
+		- 메소드
+			static Calendar getInstance()	: 객체 얻기
+			int get(int calendarField)	: 정보 추출
+			void set(int year, int month, int date[, int hour[, int minute[, int second]]]) : 날짜 설정
+			Date getTime()		: Date 객체 얻기		//현재의 객체와 같은 날짜를 가진 Date 객체를 반환
+			void setTime(Date d)	: Date 객체 시간정보를 Calendar로 설정
+			int getActuallMaximum(int calendarField) : 날짜 정보에서 해당 항목의 최대값 얻기 
+
+	* SimpleDateFormat : 날짜 객체로 부터 원하는 형태의 문자열로 변환
+			     특정한 포멧 문자열을 사용하여 날짜 정보를 추출
+
+		- 메소드
+			SimpleDateFormat(String pattern) : pattern 에 지정된 형태로 날짜를 문자열로 변환
+								y : 년, M : 월, d : 일, H : 시간(0-23), h : 시간(0-11), m : 분, s : 초, E : 요일
+			String format(Date d) : Date객체를 매개변수로 받아서 지정된 패턴 형식으로 문자열 반환
+
+
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일(E));
+				System.out.println("날짜정보 : " + sdf.format(new Date())));

@@ -1,0 +1,158 @@
+< Collection API > (WrapperMain, GenericMain, ListMain, SetMain)
+
+	- 같은 타입의 자료들을 정리 저장 탐색하기 쉽게 해주는 API
+
+
+		자료형		참조자료형 (Wrapper Class // 기본자료형을 감싸는 참조자료형)
+			
+		boolean		Boolean
+		char		Character
+		byte		Byte
+		short		Short
+		int		Integer
+		long		Long
+		float		Float
+		double		Double
+		
+		Int[] => Integer[]
+		
+		
+		auto boxing : 	참조자료형으로 일반자료형값을 받음
+				Integer i3 = 10;		// 1.5버전부터 가능
+		
+		auto unboxing :	일반자료형이 참조자료형을 인식
+				int i = new Integer(100);
+	
+	
+	- 정적 자료구조
+		
+		고정된크기의 자료구조	ex) 배열
+
+		선언시 크기를 명시하면 바꿀수 없음
+	
+
+	- 동적 자료구조
+		
+		요소의 개수에 따라 자료구조의 크기가 동적으로 증가하거나 감소	ex) 백터, 리스트, 스택, 큐
+	
+	
+	* Generic
+		
+		- Collection이 기존에는 모든 객체자료형들을 처리하기 위해서 java.lang.Object 타입을 사용
+		
+		- JDK1.5 이후에는 컴파일 시점에 자료구조에서 사용되는 Type을 체크하는 Generic문법을 사용하는 방식으로 변화
+		
+		- 사용할 타입을 명시해 놓고 그 자료형이 사용될때 명시적형변환을 자동으로 해줌
+		
+		형식)	클래스<타입>
+		예)	List<String> list = new ArrayList<String>();
+		
+
+	* List
+
+		- 특징 : 순서가 있고, 중복을 허용(배열과 유사), 인터페이스(메소드 이름 고정)
+
+		- 장점 : 가변적인 배열
+		
+		- 단점 : 원하는 데이터가 뒤쪽에 위치하는 경우 속도의 문제
+		
+		- 구현 클래스 : ArrayList - 연속적인 저장공간			많이 저장할때는 LinkedList 적게할때는 ArrayList가 유용
+				
+				LinkedList - 비연속적인 저장공간
+
+
+	* ArrayList
+
+		   ArrayList list = new ArrayList();			// object배열, 모든 자료형 저장 가능
+		★ ArrayList<String> list2 = new ArrayList<String>();	// String만 저장 가능 (Generic 함께 쓰기 권고)
+
+	
+		.add(E e)		: 데이터 입력 (순차적으로 입력됨)		// .add(int index, E e) : 원하는 위치에 값 입력	
+		.get(int index)		: 해당하는 인덱스 값 출력
+		.size()			: 크기 반환
+		.remove(int i)		: 인덱스 위치의 데이터를 삭제	// 앞주소 값 삭제하면 뒤에 있는 값들 앞으로 다 밀림, 결과로 지워진 문자 반환
+		.remove(Object o)	: 동일한 데이터를 삭제		// 결과로는 boolean(삭제여부) 반환
+		.clear()		: 모든 데이터를 삭제
+		.contain(Object o)	: 특정 데이터가 있는제 체크
+		.isEmpty()		: 데이터가 존재하는지 체크	// boolean형
+		.addAll(Collection c)	: 기존 등록된 콜렉션 데이터 추가 (두개의 ArrayList를 합쳐 하나로)
+		.iterator()		: Iterator 인터페이스 객체 반환
+		
+	* LinkedList
+		
+		ArrayList와 동일, 저장공간 배치만 다름
+
+
+	* Set
+
+		- 순서X, 중복X
+		
+		- 장점 : 빠른 속도
+		
+		- 단점 : 단순 집합의 개념으로 정렬하려면 별도의 처리가 필요하다
+		
+		- 구현 클래스 : HashSet - 주소값으로
+				
+				TreeSet - 규칙으로
+		
+		.add(E e)		// boolean(입력 성공 실패 여부, 중복시 실패) 반환
+		.size()
+		.remove(Object o)
+		.clear()
+		.contains(Object o)
+		.isEmpty()
+		.iterator()
+		.toArray()		// Object[] arr = set.toArray();
+
+-----------------------------------------------------------------------------------------------------------------------------
+	* Iterator(순환자)
+
+		- 이미 있는 데이터 접근하여 동작
+
+			Iterator<String> ite = list.iterator();
+
+		.hasNext() : 다음값이 있나 확인(boolean)
+		.next()	   : 다음값 가져오기
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+	* Map	(MapMain, MapMain02)
+		
+		- 특징 : Key(키)와 Value(값)으로 나누어 데이터 관리, 순서는 없으며, 키에 대한 중복은 없음
+
+		- 장점 : 빠름빠름
+		
+	 	- 구현 클래스 : HashMap				// Map<String, String> map = new HashMap<>();
+				
+				TreeMap
+
+		.put(K key, V value)		: 데이터 입력	// 동일한 키 값이 있을 경우 새로운 값으로 대체하고 기존 값 반환
+		.get(Object Key)		: 데이터 추출	// Key에 해당하는 값이 없을 경우 null 반환
+		.remove(Object Key)		: 데이터 삭제	// 삭제된 값을 리턴, Key에 해당하는 값이 없을 경우 null 반환
+		.containsKey(Object Key)	: 특정키 확인	// Key 가 존재할 경우 true 반환
+		.putAll(Map<K Key, V value>m)	: 콜렉션 추가
+		.entrySet()			: (key와 value) 쌍을 표현하는 Map.Entry 집합을 반환
+				
+
+		객체간 비교할때 equals(Object obj), hashCode() 메소드 오버라이딩 해야 비교가능
+		hashcode와 value가 모두 같아야 같다고 인식하기 때문
+
+-----------------------------------------------------------------------------------------------------------------------------
+	* Entry
+
+		- Generic 여러개(정확한거 아님 뇌피셜)
+
+		ex)
+			Set<Entry<String, String>> set = map.entrySet();
+			
+			Iterator<Entry<String, String>> ite = set.iterator();
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+< 입출력 API >
+	
+	- java.io 패키지
+	
+	- 바이트 스트림
+	
+	- 문자 스트림

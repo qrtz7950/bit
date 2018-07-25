@@ -1,0 +1,46 @@
+< JDBC >
+	- Java Database Connectivity
+	- 자바에서 데이터베이스를 표준화 된 방법으로 접속할 수 있게 함
+	
+	- JDBC 드라이버는 사용하고자 하는 데이터베이스 벤더 별로 제공 됨
+	- 오라클 JDBC드라이버
+		오라클홈\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6.jar	// Oracle11g 호환
+	
+	- eclipse
+		파일 우클릭 - Build Path - Configure Build Path... - Libraries - Add External JARs - JDBC드라이버 ojdbc6.jar 추가 (파일에서 lib 파일 만들어서 거기 넣고 해도 됨)
+
+	* JDBC API
+	
+		- import java.sql.*	: JDBC클래스는 java.sql패키지, javax.sql 패키지 안에 포함
+		
+		- DriverManager	: JDBC드라이버를 선택하고 연결객체를 얻어오는 역할
+		
+		- Connection	: 실제의 데이터베이스와 연결하는 동작
+		
+		- Statement	: SQL문을 실행시키는 역할
+		
+		- ResultSet(select)	: SQL문의 실행결과(select)인 레코드셋을 담는 클래스
+	
+	
+	* JDBC 프로그램 순서
+		
+		1. Class.forName(...)		JDBC드라이버를 로드
+		2. DriverManager		SQL데이터베이스와 연결
+		   Connection
+		3. Statement		SQL쿼리를 실행
+		4. ResultSet		결과를 얻어냄
+		5. close			닫음
+	
+	
+	* JDBC 프로그램 단계
+
+		- 데이터베이스 드라이버 로드
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+		- 데이터베이스 연결
+			Connection conn = DriverManger.getConnection( "JDBC_url", "아이디", "비밀번호");
+			
+			JDBC_URL 구성 = jdbc:oracle:thin:@IP주소:포트:SID
+			IP 주소	: 오라클이 설치된 컴퓨터의 IP 주소 혹은 도메인 이름
+			포트	: 리스너의 사용 포트 기본값은 1521
+			SID	: 오라클 인스턴스 이름으로 MySQL에서는 DB 이름으로도 불림

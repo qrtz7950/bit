@@ -1,0 +1,83 @@
+	- ORDER BY : 정렬
+	
+		SELECT [DISTINCT] 칼럼명 [ALIAS]
+		FROM 테이블명
+		ORDER BY 칼럼명 또는 표현식 [ASC or DESC]	// ASC :오름차수(디폴트), DESC :내림차순
+	
+	- to_char
+	
+		to_char() 		숫자형, 날짜형을 문자형으로 변경
+		to_char(날짜, '포맷문자')     	yy(년), m(월), d(일)
+   	                 			h(시), mi(분), s(초)
+		to_char(숫자, '포맷문자')   	9(자리수)  0(비어있는 자리수 0 채움)
+                  	           			 ,(액수표현시 3자리마다 ,표현)
+                     	          			 .(실수 소수점 자리수 표현)
+		
+	- case 절						// if문 비슷 (case = if, when = else if, else = else)
+		
+		case when expr then...
+		       when expr then...
+		       else...
+		end
+	
+	- distinct 중복제외		: distinct 컬럼명
+	
+	- count 해당 레코드 총 수	: count(*) , count(컬럼명)
+
+
+* 시퀀스	: 테이블 내의 유일한 숫자를 자동으로 생성하는 자동 번호 발생기
+	
+	생성	: create sequence 시퀀스명;
+	조회	: select 시퀀스명.nextval from dual;		// nextval은  시퀀스 숫자 올라가고 띄움
+		  select 시퀀스명.currval from dual;		// currval은 현재의 값이 나오는데 nextval을 한번 쓴 후부터 사용 가능
+	초기값	: create sequence 시퀀스명
+			start with 시작할수;			// start with 사용
+	증가값	: create sequence 시퀀스명
+			increment by 증가값;			// increment by 사용
+	수정	: alter 사용
+			ex) alter sequence 시퀀스명
+				increment by 증가값;		// 증가값 변경
+
+* Top-N 서브쿼리
+	
+	- 지정한 수만큼의 상위 데이터만 조회 : rownum 사용	// rownum은 레코드 순서
+							// select 안 select : 서브쿼리
+		
+		 select *
+		 	from (                   -- 먼저 내림차순 정렬하여 추출한후
+		 		select *	
+ 		 		from employees
+ 	      	 		order by salary desc
+  		  	        )
+		 	 where rownum <= 5;        -- 위에서 5명 뽑아냄
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+★★★★★  SQL 해석순서 ★★★★★
+            from => where => group by => having => select => order by
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+* Group by : 같은 내용 그룹화
+
+	 select department_id
+ 	 	from employees
+ 		group by department_id;
+
+* Having : 그룹에 조건을 걸때 사용
+
+	select department_id, round(avg(salary),1) avg_salary
+ 		from employees
+ 		group by department_id
+ 		having avg(salary) >= 5000;
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+- rownum_number() 함수						// rownum 추출함수
+	: rownum_number() over ([partition by 컬럼명] order by 컬럼명 [asc, desc])
+
+- rank() 함수							// 순위 추출함수 : 겹치면 공동순위로 나오게, 공동순위 있으면 밑 순위 건너뜀
+	: rank() over ([partition by 컬럼명] order by 컬럼명 [asc, desc])		// dense_rank()는 공동2등 있어도 3등 존재하는 함수
+
+	partition by : 지정된 컬럼에 해당하는 그룹설정
+    	order by : 지정된 컬럼에 대한 위치/순서 지정

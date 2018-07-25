@@ -1,4 +1,4 @@
-package kr.co.mlec.Util;
+package kr.co.mlec.util;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,7 +10,7 @@ import java.io.Writer;
 
 public class FileClose {
 	
-	public static void close(FileOutputStream fos) {	// ¹¬½ÃÀû Çüº¯È¯ÇÏ·Á°í ÃÖ»óÀ§ °´Ã¼ ¸Å°³º¯¼ö
+	public static void close(FileOutputStream fos) {	// ë¬µì‹œì  í˜•ë³€í™˜í•˜ë ¤ê³  ìµœìƒìœ„ ê°ì²´ ë§¤ê°œë³€ìˆ˜
 		
 		if(fos!=null) {
 			try {
@@ -22,7 +22,7 @@ public class FileClose {
 		
 	}
 	
-	public static void close(OutputStream os) {	// ¹¬½ÃÀû Çüº¯È¯ÇÏ·Á°í ÃÖ»óÀ§ °´Ã¼ ¸Å°³º¯¼ö
+	public static void close(OutputStream os) {	// ë¬µì‹œì  í˜•ë³€í™˜í•˜ë ¤ê³  ìµœìƒìœ„ ê°ì²´ ë§¤ê°œë³€ìˆ˜
 		
 		if(os!=null) {
 			try {
@@ -90,6 +90,17 @@ public class FileClose {
 		if(fis!=null) {
 			try {
 				fis.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public static void close(DataInputStream dis) {
+		if(dis!=null) {
+			try {
+				dis.close();
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

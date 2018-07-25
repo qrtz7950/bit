@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package kr.co.mlec.homework.homework10;
 
 import java.util.ArrayList;
@@ -13,20 +12,20 @@ public class BoardServer {
 	public void showAll() {
 		Iterator<Form> ite = list.iterator();
 		if(!ite.hasNext()) {
-			System.out.println("ÀúÀåµÈ °Ô½Ã±Û ¸ñ·ÏÀÌ ¾ø½À´Ï´Ù");
+			System.out.println("ì €ì¥ëœ ê²Œì‹œê¸€ ëª©ë¡ì´ ì—†ìŠµë‹ˆë‹¤");
 		}
-		System.out.println("¹øÈ£\t±Û¾´ÀÌ\tµî·ÏÀÏ\t\tÁ¦¸ñ");
+		System.out.println("ë²ˆí˜¸\tê¸€ì“´ì´\të“±ë¡ì¼\t\tì œëª©");
 		while(ite.hasNext()) {
 			System.out.println(ite.next());
 		}
 	}
 	
 	public void showNum() {
-		System.out.print("Á¶È¸ÇÒ ±Û¹øÈ£¸¦ ÀÔ·Â : ");
+		System.out.print("ì¡°íšŒí•  ê¸€ë²ˆí˜¸ë¥¼ ì…ë ¥ : ");
 		int num = Integer.parseInt(s.nextLine());
 		int num2=-1;
 		if(num<1 || num>list.size()) {
-			System.out.println("Á¶È¸ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+			System.out.println("ì¡°íšŒí•  ê¸€ë²ˆí˜¸ " + num + "ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 			return;
 		}
 		for(int i=0; i<list.size(); i++) {
@@ -36,31 +35,31 @@ public class BoardServer {
 			}
 		}
 		if(num2==-1) {
-			System.out.println("Á¶È¸ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+			System.out.println("ì¡°íšŒí•  ê¸€ë²ˆí˜¸ " + num + "ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 			return;
 		}
 		System.out.println();
-		System.out.println("¹ø   È£ : " +  list.get(num2).getNum());
-		System.out.println("Á¦   ¸ñ : " +  list.get(num2).getTitle());
-		System.out.println("±Û¾´ÀÌ : " +  list.get(num2).getWriter());
-		System.out.println("µî·ÏÀÏ : " +  list.get(num2).getDay());
+		System.out.println("ë²ˆ   í˜¸ : " +  list.get(num2).getNum());
+		System.out.println("ì œ   ëª© : " +  list.get(num2).getTitle());
+		System.out.println("ê¸€ì“´ì´ : " +  list.get(num2).getWriter());
+		System.out.println("ë“±ë¡ì¼ : " +  list.get(num2).getDay());
 	}
 	
 	public void upload() {
-		System.out.print("µî·ÏÇÒ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä => ");
+		System.out.print("ë“±ë¡í•  ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš” => ");
 		String title = s.nextLine();
-		System.out.print("µî·ÏÇÒ ±Û¾´ÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä => ");
+		System.out.print("ë“±ë¡í•  ê¸€ì“´ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš” => ");
 		String writer = s.nextLine();
 		Form tmp = new Form(title, writer);
 		list.add(tmp);
 	}
 	
 	public void modify() {
-		System.out.print("¼öÁ¤ÇÒ ±Û¹øÈ£¸¦ ÀÔ·Â => ");
+		System.out.print("ìˆ˜ì •í•  ê¸€ë²ˆí˜¸ë¥¼ ì…ë ¥ => ");
 		int num = Integer.parseInt(s.nextLine());
 		int num2=-1;
 		if(num<1 || num>list.size()) {
-			System.out.println("¼öÁ¤ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+			System.out.println("ìˆ˜ì •í•  ê¸€ë²ˆí˜¸ " + num + "ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 			return;
 		}
 		for(int i=0; i<list.size(); i++) {
@@ -70,23 +69,23 @@ public class BoardServer {
 			}
 		}
 		if(num2==-1) {
-			System.out.println("¼öÁ¤ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+			System.out.println("ìˆ˜ì •í•  ê¸€ë²ˆí˜¸ " + num + "ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 			return;
 		}
-		System.out.print("¹Ù²Ü Á¦¸ñÀ» ÀÔ·Â => ");
+		System.out.print("ë°”ê¿€ ì œëª©ì„ ì…ë ¥ => ");
 		String title = s.nextLine();
 		Form tmp = new Form(title, list.get(num2).getWriter(), num);
 		list.add(num2,tmp);
 		list.remove(num2+1);
-		System.out.println("Á¦¸ñÀÌ ¼öÁ¤µÇ¾ú½À´Ï´Ù");
+		System.out.println("ì œëª©ì´ ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤");
 	}
 	
 	public void remov() {
-		System.out.println("»èÁ¦ÇÒ ±Û ¹øÈ£¸¦ ÀÔ·Â => ");
+		System.out.println("ì‚­ì œí•  ê¸€ ë²ˆí˜¸ë¥¼ ì…ë ¥ => ");
 		int num = Integer.parseInt(s.nextLine());
 		int num2=-1;
 		if(num<1 || num>list.size()) {
-			System.out.println("»èÁ¦ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+			System.out.println("ì‚­ì œí•  ê¸€ë²ˆí˜¸ " + num + "ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 			return;
 		}
 		for(int i=0; i<list.size(); i++) {
@@ -96,118 +95,11 @@ public class BoardServer {
 			}
 		}
 		if(num2==-1) {
-			System.out.println("»èÁ¦ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+			System.out.println("ì‚­ì œí•  ê¸€ë²ˆí˜¸ " + num + "ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 			return;
 		}
 		list.remove(num2);
-		System.out.println((num2+1) + "¹ø ±ÛÀÌ »èÁ¦ µÇ¾ú½À´Ï´Ù");
+		System.out.println((num2+1) + "ë²ˆ ê¸€ì´ ì‚­ì œ ë˜ì—ˆìŠµë‹ˆë‹¤");
 	}
 	
 }
-=======
-package kr.co.mlec.homework.homework10;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
-
-public class BoardServer {	
-	static private List<Form> list = new ArrayList<>();
-	Scanner s = new Scanner(System.in);
-	
-	public void showAll() {
-		Iterator<Form> ite = list.iterator();
-		if(!ite.hasNext()) {
-			System.out.println("ÀúÀåµÈ °Ô½Ã±Û ¸ñ·ÏÀÌ ¾ø½À´Ï´Ù");
-		}
-		System.out.println("¹øÈ£\t±Û¾´ÀÌ\tµî·ÏÀÏ\t\tÁ¦¸ñ");
-		while(ite.hasNext()) {
-			System.out.println(ite.next());
-		}
-	}
-	
-	public void showNum() {
-		System.out.print("Á¶È¸ÇÒ ±Û¹øÈ£¸¦ ÀÔ·Â : ");
-		int num = Integer.parseInt(s.nextLine());
-		int num2=-1;
-		if(num<1 || num>list.size()) {
-			System.out.println("Á¶È¸ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
-			return;
-		}
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getNum()==num) {
-				num2=i;
-				break;
-			}
-		}
-		if(num2==-1) {
-			System.out.println("Á¶È¸ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
-			return;
-		}
-		System.out.println();
-		System.out.println("¹ø   È£ : " +  list.get(num2).getNum());
-		System.out.println("Á¦   ¸ñ : " +  list.get(num2).getTitle());
-		System.out.println("±Û¾´ÀÌ : " +  list.get(num2).getWriter());
-		System.out.println("µî·ÏÀÏ : " +  list.get(num2).getDay());
-	}
-	
-	public void upload() {
-		System.out.print("µî·ÏÇÒ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä => ");
-		String title = s.nextLine();
-		System.out.print("µî·ÏÇÒ ±Û¾´ÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä => ");
-		String writer = s.nextLine();
-		Form tmp = new Form(title, writer);
-		list.add(tmp);
-	}
-	
-	public void modify() {
-		System.out.print("¼öÁ¤ÇÒ ±Û¹øÈ£¸¦ ÀÔ·Â => ");
-		int num = Integer.parseInt(s.nextLine());
-		int num2=-1;
-		if(num<1 || num>list.size()) {
-			System.out.println("¼öÁ¤ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
-			return;
-		}
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getNum()==num) {
-				num2=i;
-				break;
-			}
-		}
-		if(num2==-1) {
-			System.out.println("¼öÁ¤ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
-			return;
-		}
-		System.out.print("¹Ù²Ü Á¦¸ñÀ» ÀÔ·Â => ");
-		String title = s.nextLine();
-		Form tmp = new Form(title, list.get(num2).getWriter(), num);
-		list.add(num2,tmp);
-		list.remove(num2+1);
-		System.out.println("Á¦¸ñÀÌ ¼öÁ¤µÇ¾ú½À´Ï´Ù");
-	}
-	
-	public void remov() {
-		System.out.println("»èÁ¦ÇÒ ±Û ¹øÈ£¸¦ ÀÔ·Â => ");
-		int num = Integer.parseInt(s.nextLine());
-		int num2=-1;
-		if(num<1 || num>list.size()) {
-			System.out.println("»èÁ¦ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
-			return;
-		}
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getNum()==num) {
-				num2=i;
-				break;
-			}
-		}
-		if(num2==-1) {
-			System.out.println("»èÁ¦ÇÒ ±Û¹øÈ£ " + num + "Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
-			return;
-		}
-		list.remove(num2);
-		System.out.println((num2+1) + "¹ø ±ÛÀÌ »èÁ¦ µÇ¾ú½À´Ï´Ù");
-	}
-	
-}
->>>>>>> 282951cd084703f8f7ebe984b1e780d5f23a17b4
