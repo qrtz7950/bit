@@ -8,4 +8,10 @@ TV 공장에서 어떻게 TV를 만드는지 모르지만 내가 원하는 TV를
 
 팩토리 패턴
 
+객체 지향적 프로그래밍을 위해서는 적어도 4가지의 기능이 있는 클래스 종류가 필요하다
+
+UI      (User Interface)       화면출력
+VO      (Value Object)         값을 저장하는 객체
+DAO     (Data Access Object)   값을 저장한 객체를 다룸
+SERVICE (Serive)               DAO와 UI의 사이를 유기적으로 연계하기위한 비즈니스 로직
 
