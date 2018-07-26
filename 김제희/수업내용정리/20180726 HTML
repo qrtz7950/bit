@@ -24,3 +24,13 @@ html4까지는 ms에서 표준안을 만듬
 그 이후는 모질라에서 제정한 새로운 표준안으로 html5가 등장
 이게 마지막 버젼이라서 html5를  html이라고 부름
 
+https://developer.mozilla.org/ko/docs/Web/HTML
+공식문서 HyperLink
+
+html은 정적인 문서이다 그래서 html, css, javaScript 3가지를 모두 알아야 동적인 웹사이트를 만들 수 있다
+
+    html
+head     body
+title   
+
+java가 아닌 html, css 파일들은 webcontent폴더 밑에 만든다
