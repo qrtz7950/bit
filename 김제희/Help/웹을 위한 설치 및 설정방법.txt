@@ -1,15 +1,15 @@
-1.��Ĺ 8.0 ��ġ ��Ʈ�� ����Ŭ�� ��ġ�� �ʵ��� 8080�� �ƴ� �ٸ� ��Ʈ�� ����
-���⼭�� 8000��Ʈ ���
+1.톰캣 8.0 설치 포트는 오라클과 겹치지 않도록 8080이 아닌 다른 포트로 변경
+여기서는 8000포트 사용
 http://tomcat.apache.org/
 
-2.��Ŭ���� ���ο� ��ũ�����̽� ���� ����
+2.이클립스 새로운 워크스페이스 폴더 생성
 web-workspace
 
-3.��Ŭ���� properti java ee�� ����
+3.이클립스 properti java ee로 변경
 
-4.encoding��� ����
-��Ŭ���� window -> prefrerences -> web -> css -> ecu-kr
-					 -> html    -> utf-8�� ����
+4.encoding방식 변경
+이클립스 window -> prefrerences -> web -> css -> ecu-kr
+					 -> html    -> utf-8로 변경
 					 -> jsp 
 html
 css
@@ -18,8 +18,40 @@ java
 jsp
 encoding (ECU-KR) => UTF-8
 
-ECU�� �ѱ��� 2����Ʈ ���ڷ�
-UTF-8�� �ѱ��� 3����Ʈ ���ڷ�
+ECU는 한글을 2바이트 숫자로
+UTF-8는 한글을 3바이트 숫자로
 
-4-1. java encoding ��� ����
-genernal -> workspace -> �ǾƷ� text file encoding  ->other -> utf-8�� ����
+4-1. java encoding 방식 변경
+genernal -> workspace -> 맨아래 text file encoding  ->other -> utf-8로 변경
+
+5.프로젝트 생성
+Dynamic Web project 생성
+
+이름 입력후 next next 마지막 generate web.xml어쩌고 체크후 finish
+정상적으로 프로젝트가 생성되면 프로젝트 탐색기에 지구본이 있는 아이콘의 프로젝트 생성
+
+프로젝트 안에 WebContent에 meta-inf , web-inf가 있어야 웹서버로 동작가능
+
+6. 새로운 프로젝트 하나 더 생성
+Mission-Web
+
+Mission-Web은 웹사이트 만들어보기
+Lecture-Web은 수업관련
+
+7. Lecture-Web 프로젝터 하단의 서버 클릭하여 새로운 서버 생성
+Apache -> 8.0선택 next
+톰캣 설치된 경로 찾기
+정상적으로 생성되면 다음과 같이 서버 탭에 보임
+Tomcat v8.0 Server at localhost
+
+8.새로운 폴더 생성 eclipse-work
+9.생성된 서버 더블클릭server location을 아까 만든 eclipse-work 로 설정
+포트가 8080이라면 변경
+
+10.서버탭의 서버를 오른쪽 클릭하여 start
+뭐가 막 설치됨
+웹서버를 시작하고나면 더이상 웹서버 폴더의 위치를 바꿀 수 없다
+새로운 서버 생성시에도 다른 웹서버 폴더 위치와 다른 포트를 설정해야함
+
+11.끗!
+
