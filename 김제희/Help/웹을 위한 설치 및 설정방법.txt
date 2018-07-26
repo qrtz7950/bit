@@ -1,0 +1,25 @@
+1.톰캣 8.0 설치 포트는 오라클과 겹치지 않도록 8080이 아닌 다른 포트로 변경
+여기서는 8000포트 사용
+http://tomcat.apache.org/
+
+2.이클립스 새로운 워크스페이스 폴더 생성
+web-workspace
+
+3.이클립스 properti java ee로 변경
+
+4.encoding방식 변경
+이클립스 window -> prefrerences -> web -> css -> ecu-kr
+					 -> html    -> utf-8로 변경
+					 -> jsp 
+html
+css
+javascript
+java
+jsp
+encoding (ECU-KR) => UTF-8
+
+ECU는 한글을 2바이트 숫자로
+UTF-8는 한글을 3바이트 숫자로
+
+4-1. java encoding 방식 변경
+genernal -> workspace -> 맨아래 text file encoding  ->other -> utf-8로 변경
