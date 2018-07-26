@@ -3,8 +3,9 @@
 <head>
 </head>
 <body>
-<img src="https://i.imgur.com/VEECYPq.png" width="90%"></img>
-<a href="https://drive.google.com/open?id=1j9kTrMHrDFmilVhMwh3WRyLmt3ngL3gX&usp=sharing" title="오늘 뭐 먹지"></a>
+
+<a href="https://drive.google.com/open?id=1j9kTrMHrDFmilVhMwh3WRyLmt3ngL3gX&usp=sharing" title="오늘 뭐 먹지">
+<img src="https://i.imgur.com/VEECYPq.png" width="90%"></img></a>
 </body>
 </html>
 
