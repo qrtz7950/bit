@@ -1,0 +1,61 @@
+<!-- 
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>insert title here</title>
+</head>
+<body>
+	<h2>카레 매운 단계</h2>
+	
+	<select>
+		<option>아기단계</option>
+		<option>어린이단계</option>
+		<option>어른단계</option>
+		<option>지존단계</option>
+	</select>
+	<br><br>
+	
+	<select>
+		<option>아기단계</option>
+		<option>어린이단계</option>
+		<option>어른단계</option>
+		<option selected>지존단계</option>
+	</select>
+	<br><br>
+
+	<select multiple>
+	<option>아기단계</option>
+	<option>어린이단계</option>
+	<option>어른단계</option>
+	<option selected>지존단계</option>
+	</select> <!-- ctrl키 눌러서 여러개도 선택가능하다 -->
+	<br><br>
+
+	<select>
+	<optgroup label="매운맛"></optgroup>
+		<option>아기단계</option>
+		<option>어린이단계</option>
+		<option>어른단계</option>
+		<option selected>지존단계</option>
+	</optgroup>
+	<optgroup label="리필"></optgroup>
+		<option selected>밥</option>
+		<option>반찬</option>
+		<option>국</option>
+	</select>
+	<br><br>
+	
+	<input list="매운맛단계">
+	<datalist id="매운맛단계">
+		<option>아기단계</option>
+		<option>어린이단계</option>
+		<option>어른단계</option>
+		<option>지존단계</option>
+	</datalist>
+	<br><br>
+</body>
+</html>

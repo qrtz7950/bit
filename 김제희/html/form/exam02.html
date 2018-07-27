@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exam01</title>
+</head>
+<body>
+	<form action="https://www.naver.com/">
+		<!-- 이메일<input type="email" size="20" required><br> -->
+		이메일<input type="email" size="20"><br>
+		<!-- 입력정보에 대해 최소한의 검사를 하기위한 속성들 실습 -->
+		<!-- 이러한 기능은 원래 스크립트를 이용해야하나 html코드를 이용하여 간단하게 브라우저에서 해당 기능을 수행할수 있게되었다 -->
+		SNS 주소 : <input type="url" size="40"><br>
+		전화번호 : <input type="tel" size="40" pattern="\d{3}-\d{4}-\d{4}"><br>
+		전화번호 : <input type="tel" size="40" pattern="{010/011/016/017/018/019}-\d{3,4}-\d{4}"
+											placeholder="xxx-xxxx-xxxx형식으로 입력해라"><br>
+			
+		검색어 : <input type="search" size="20"><br>
+		수랑    : <input type="number" min="1" max="100"><br>
+		범위    : <input type="range" min="1" max="100"><br>
+		날짜    : <input type="date" value="2018-07-27" min="2018-01-01" max="2018-12-31"><br>
+		날짜    : <input type="month" value="2018-07" min="2018-01" max="2018-12"><br>
+		시간    : <input type="time"><br>
+		시간    : <input type="color"><br>
+		시간    : <input type="time"><br>
+		<input type="submit">
+		<!-- <input type="submit"> -->
+		<input type="image" src="/Lecture-Web/html/img/submit.png"
+				width="120" height="70">
+		<input type="reset">
+		
+	</form>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!-- 
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>특수문자 표현방식</title>
+</head>
+<body>
+	<br> 태그는 줄넘김 태그입니다 <br>
+	&lt;br &gt; 태그는 줄넘김 문자입니다 <br>
+	
+	&nbsp;는 공백 문자입니다 <br>
+	&amp;nbsp는 공백 문자입니다 <br>
+	
+	<pre>
+		package kr.co.mlec.day03;
+	/*
+	 * *****
+	 */
+	public class LoopMain02 {
+	
+		public static void main(String[] args) {
+	
+			System.out.print('*');
+			System.out.print('*');
+			System.out.print('*');
+			System.out.print('*');
+			System.out.print('*');
+			
+			System.out.println();
+			
+			for(int i=0; i<5; i++) {
+				System.out.print('*');
+			}
+	
+			System.out.println();
+			
+			for(int i=5;i>0;i--) {
+				System.out.print(i);
+			}
+			
+			System.out.println();
+			
+		}
+	
+	}
+	</pre> <!-- <pre>태그 사이의 모든것을 문자로 받는다 -->
+	
+	안녕하세요 내가 <b>쟤</b>보다는 낫지에서 <strong>쟤</strong>를 맡고 있습니다<br>
+	<q>그 껌</q><br>
+	<blockquote>곽병문이 나타났다</blockquote><br>
+	<b><q>김제희</q></b>는 무엇을 할까?<br>
+	
+</body>
+</html>
