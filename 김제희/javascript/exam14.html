@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/*
+	함수의 종류
+	1. 선언적 함수
+	2. 익명함수
+	
+	차이점? 예제15를 보자
+*/
+
+// 선언적함수 정의
+	function testFunction() {
+		alert('mycall...');
+	}
+	
+	function testFunction01(data) {
+		alert(`data : ${data}`);
+	}
+	
+	function testFunction02(a,b) {
+		alert(`a : ${a}, b : ${b}`);
+	}
+	
+	function sum(a, b) {
+		return a + b;
+	}
+	
+	var total = sum(10,20);
+	alert(total);
+	
+	var temp = function func() {
+		alert('call func()...');
+	};
+	
+	// 익명함수
+	var func01 = function() {
+		alert('call func01()...');
+	}
+	
+	function callbackFunction(f) {
+		f();
+	}
+	
+	callbackFunction(function() {
+		alert('익명함수호출()...');
+	});
+	
+	function print(a, b) {
+		/*
+		var msg = a + ' ~ ' + b + '사이의 총합 : ';
+		var s = 0;
+		while(a <= b) {
+			s += a++;
+		}
+		msg += s;
+		
+		alert(msg);
+		*/
+		
+		//alert(a + ' ~ ' + b + '사이의 총합 : ' + getSum(a, b));
+		// getSum함수는 다른데에서 쓰이지 않음으로 이 함수내에서 선언해도된다
+		
+		function sum(a, b) {
+			var s = 0;
+			while(a <= b) {	
+				s += a++;
+			}
+			return s;
+		}
+		alert(a + ' ~ ' + b + '사이의 총합 : ' + sum(a, b));
+	}
+	
+	
+	
+
+	print(1,10); //콜백 함수 예쩨 1~10합하는 함수
+	
+	
+	callbackFunction(testFunction);
+	callbackFunction(func01);
+	func01();
+	temp();
+	
+// 함수 호출
+testFunction();
+testFunction01(10);
+testFunction02('a','b');
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

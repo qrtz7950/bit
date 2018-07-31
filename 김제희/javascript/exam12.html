@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var array = [12, 'A', 34.56, true, "ABC", null, '!'];
+	//자바스크립트의 배열은 모든 자료형을 하나의 배열에 담을 수 있다
+	
+	document.write(array[0] + '<br>');
+	document.write(array[1] + '<br>');
+	document.write(array[2] + '<br>');
+	document.write(array[3] + '<br>');
+	document.write(array[4] + '<br>');
+	document.write(array[5] + '<br>');
+	document.write(array[6] + '<br>');
+	document.write(array[7] + '<br>'); //없는 주소지의 값을 찍어도 오류가 나지않고 undefined가 뜸
+	
+	document.write(array + '<br>');
+	document.write(array.length + '<br>');
+	
+	array[7] = 'add';
+	document.write(array[7] + '<br>');
+	document.write('add 추가후 array : ' + array + '<br>');
+
+	array[10] = 'end';
+	document.write('end 추가후 array : ' + array + '<br>');
+	document.write('array[8] : ' + array[8] + '<br>');
+	/* 자바스크립트에서 null 과 undefined는 false임 */
+	document.write('배열의 총개수 : ' + array.length + '개<br><br>');
+	
+	array.push("추가..."); //= array[array.length] 데이터 추가
+	document.write('array : ' + array + '<br>');
+	document.write('pop()후 배열의 총개수 : ' + array.length + '개<br><br>');
+	
+	//push <=> pop
+	array.pop(); // 맨마지막 주소번지 데이터삭제후 삭제한거 반환
+	document.write('array : ' + array + '<br>');
+	document.write('push()후 배열의 총개수 : ' + array.length + '개<br><br>');
+	
+	document.write(typeof array); //object형
+	
+	var str = 'Hello World';
+	document.write('str : ' + str + '<br>');
+	document.write('문자열의 길이 : ' + str.length + '개<br>');
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
