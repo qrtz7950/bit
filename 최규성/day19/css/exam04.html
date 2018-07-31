@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	div{
+		position: absolute;
+		width:100px;
+		height:100px;
+	}
+	
+	#layer01{
+		background-color :red;
+		left: 100px;
+		top:100px;
+		
+	}
+	#layer02{
+		background-color :blue;
+		left:50px;
+	}
+</style>
+<body>
+	<div id="layer01">첫번째</div>
+	<div id="layer02">두번째</div>
+	<div style="background-color: lightgray; width:500px; height:500px; position:relative; left:300px;">
+		<div style="width:40px; height:40px; background-color:green; left:50px; position: absolute "></div>
+	</div>
+</body>
+</html>

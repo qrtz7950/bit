@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var array= [12, 'a', 12.34, true,'ABC', null, '!'];
+	
+	document.write(array[0] + '<br>');
+	document.write(array[1] + '<br>');
+	document.write(array[2] + '<br>');
+	document.write(array[3] + '<br>');
+	document.write(array[4] + '<br>');
+	document.write(array[5] + '<br>');
+	document.write(array[6] + '<br>');
+	document.write(array[7] + ' <- 배열에 없는 값<br>');
+	
+	document.write(array+'<br>');
+	
+	document.write('array배열의 원소개수 : ' + array.length + " 개<br>");
+	
+	array[7] = 'add';
+	document.write(array+'<br>');
+	document.write('array배열의 원소개수 : ' + array.length + " 개<br>");
+	
+	//8,9번지 없이 10번지 추가
+	array[10] = 'end';
+	document.write(array+'<br>');
+	document.write('array배열의 원소개수 : ' + array.length + " 개<br>");
+
+	array.push("추가..."); 	//array[array.length] = '추가...';
+	document.write(array+'<br>');
+	
+	
+	var data = array.pop();	//배열의 맨 마지막 값이 삭제됨
+	document.write('삭제된 데이터: ' + data + '<br>');
+	document.write('삭제후 배열:' + array + '<br>');
+	document.write('배열의 원소의 개수 : ' + array.length + '<br>');
+	
+	document.write(typeof array + '<Br>');
+	
+	var str = 'Hello World';
+	document.write('str : ' + str + '<br>');
+	document.write('문자열의  길이: ' + str.length+ '<br>');
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

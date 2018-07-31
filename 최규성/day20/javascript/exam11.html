@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		이름을 입력하세요 : 홍길동
+		나이를 입력하세요 : 24
+		홍길동의 10년후의 나이는 34세입니다
+		1번째 수행입니다
+		계속하시겠습니까? <= 확인버튼
+		
+		이름을 입력하세요: 고길동
+		나이를 입력하세요: 38
+		고길동의 10년후의 나이는 48세입니다
+		2번째 수행입니다
+		계속하시겠습니까? <= 취소버튼
+	*/
+	
+	for(let cnt = 0; input = true; input){
+		var name = prompt('이름을 입력하세요: ');
+		var age = prompt('나이를 입력하세요: ');
+		age =  Number(age);
+		alert(name + '의 10년후 나이는 ' + (age+10) + "입니다.");
+		alert( ++cnt + '번째 수행입니다');
+		input = confirm('계속하시겠습니까?');
+	}
+/* 	var cnt = 0;
+	while(true){
+		var name = prompt('이름을 입력하세요: ');
+		var age = prompt('나이를 입력하세요: ');
+		age =  Number(age);
+		alert(name + '의 10년후 나이는 ' + (age+10) + "입니다.");
+		alert( ++cnt + '번째 수행입니다');
+		var input = confirm('계속하시겠습니까?');
+		if(!input) {
+			break;
+		}
+	} */
+	
+/* 	var cnt = 0;
+	do{
+		var name = prompt('이름을 입력하세요: ');
+		var age = prompt('나이를 입력하세요: ');
+		age =  Number(age);
+		alert(name + '의 10년후 나이는 ' + (age+10) + "입니다.");
+		alert( ++cnt + '번째 수행입니다');
+		var input = confirm('계속하시겠습니까?');
+	} while(input) */
+</script>
+</head>
+<body>
+
+</body>
+</html>

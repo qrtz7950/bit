@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//선언적 함수 정의
+	function testFunction(){
+		alert('call...');
+		
+	}
+	function testFunction01(data){
+		alert('data: ' + data);
+	}
+	function testFunction02(a,b){
+		alert(`a : ${a}, b : ${b}`);
+	}
+	
+	function sum(a, b){
+		return a + b;
+	}
+	
+	var temp = function func(){	//익명함수 취급
+		alert('call func()...');
+	}
+	temp();	//func가 아닌 temp를 호출해야 한다. 그래서 함수이름을 생략할수있고 그것을 익명함수라고 부른다.
+	//익명 함수
+	var temp01 = function (){
+		alert('call temp01()...');
+	}
+	temp01();
+	
+	function callbackFunction(f) {
+		f();			//call-back 함수
+	}
+	
+	callbackFunction(function() {	//이런 방식을 가장 많이 사용하게된다.
+		alert('익명함수호출()...');
+	});
+	
+	function getSum(a,b){
+		var s = 0;
+		while(a<=b){
+			s += a++;
+		}
+		return s;
+	}
+	function print(a,b){
+		/* var msg = a + '~' + b + '사이의 총합: ';
+ 		var s = 0;
+ 		while(a<= b){
+ 			s += a++;
+ 		}
+ 		msg += s;
+	
+ 		alert(msg); */
+ 		
+ 		/* alert(a + '~' + b + '사이의 총합: ' + getSum(a,b)); */
+ 		
+ 		function sum(a,b) {	//함수 내부에서 생성한 함수는 그 함수 안에서만 사용할수있다.
+ 			var s= 0;
+ 			while(a<=b){
+ 				s += a++;
+ 			}
+ 			return s;
+ 		}
+ 		alert(a + '~' + b + '사이의 총합: ' + sum(a,b));
+	 }	
+	print(1,10);
+	
+	callbackFunction(testFunction);
+	callbackFunction(temp01);
+	
+	
+	//함수 호출
+	testFunction();
+	testFunction01(10);
+	testFunction02('A', 'B');
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

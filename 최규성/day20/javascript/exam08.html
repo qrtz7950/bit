@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var a = 10;
+	let b = 20;
+	const c = 30;
+	
+	alert(`a : ${a}, b : ${b}, c : ${c}`);
+	
+	a=100;
+	b=200;
+	//c=300;			//오류발생(const는 수정불가)
+	alert(`a : ${a}, b : ${b}, c : ${c}`);
+	
+	{
+		var temp = 123;
+		let letTemp = 123;
+		alert('temp: ' + temp);
+		alert('letTemp: ' + letTemp);
+	}
+	alert('temp: ' + temp);	//var는 {}안에서 지역변수로 만들었지만 사용이 가능하다
+	alert('letTemp: ' + letTemp);	//let은 지역변수로서 제대로 작동하여 밖에서 출력안된다.
+</script>
+</head>
+<body>
+
+</body>
+</html>

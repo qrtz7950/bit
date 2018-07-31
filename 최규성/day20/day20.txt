@@ -1,0 +1,56 @@
+html밑(경로)의 html 파일의 호출을 클라이언트가 실행할때 URL을 사용하여 불러오게 된다.(request)
+	ex) http:// ......
+
+이때 클라이언트의 호출에 응해주는 서버의 동작을 response라고 한다.
+	ex) <html><head>......</head></html>
+
+동작순서: request - server - response - client
+
+
+CSS, HTML은 동적인 문서를 제공하는데에 한계가 있으며,
+asp,php,jsp 같은 언어들은 정적인 문서들의 동적 활성을 도와주는 언어라고 볼수있다.
+동적인 프레임의 제어권을 서버가 갖는 경우는 백엔드, 클라이언트가 갖는 경우를 프론트엔드라고 부른다.
+
+Back-end : servlet/jsp , asp , php , 프레임워크 spring
+Front-end : javascript , jquery , 프레임워크 angular, vue.js , react.js
+
+js에서는 모든 자료형을 사용할때 var을 사용한다
+
+var: 지역,전역 상관없이 사용가능
+let: 지역변수로서 제대로 사용가능, 권고 사항이지만 잘 쓰지않는다.
+const: 변수값 수정불가
+
+
+js에서는 오류가 나면 아무것도 출력되지않기 때문에 크롬에서 f12를 눌러 오류를 확인해야한다.
+
+
+js의 배열은 모든 자료형을 갖을수 있다. ex) var array [12, 'a', 12.34, true,'ABC', null, '!'];
+
+함수의 종류
+1. 선언적함수
+2. 익명함수
+
+js는 함수 오버로딩을 지원하지않는다. 함수의 이름으로만 구분하며 뒤의 ()안 매개변수가 몇개던간에 
+이름이 같으면 같은 함수로 인식한다.
+
+
+//선언적 함수 정의
+	function testFunction(){
+		alert('call...');
+		
+	}
+//익명함수 정의
+	var temp01 = function (){
+		alert('call temp01()...');
+	}	
+		temp01();
+
+
+가장 기본적으로 많이 사용되는 함수의 형태는 다음과 같다
+
+	function callbackFunction(f) {
+		f();			//call-back 함수
+	}
+	callbackFunction(function() {	
+		alert('익명함수호출()...');
+	});

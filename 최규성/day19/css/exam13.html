@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	input[type=next] {
+		background-color:lightgray;
+		width: 100px;
+		height: 100px;
+		border: 1px solid red;
+	}
+	
+	[src = 'images/flower.jpg'] {
+		border:1px solid green;
+	}
+	[src $='jpg']{
+		border: 1px solid pink;
+	}
+	
+	[src ^=images]{
+		border: 1px solid blue
+	}
+	[src *= flower]{
+		border: 1px solid purple
+	}
+</style>
+</head>
+<body>
+	<form>
+		아이디: <input type = "text"><br>
+		비밀번호: <input type = "password "><br>
+	</form>
+
+	<img src="images/flower.jpg"> &nbsp;
+	<img src="images/flower.jpg"> &nbsp;
+	<img src="images/jake.gif">
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var names = ['홍길동','강길동','박길동','최길동','한길동'];
+	
+	for(var i = 0; i < names.length ; i++){
+		document.write(names[i] + '<br>');
+	}
+	
+	document.write('<hr>');
+	
+	for(var i in names){					//in 을 굉장히 많이 사용하게 된다
+		document.write(names[i] + '<br>');
+	}
+	
+	document.write('<hr>');
+	
+	//ecmascript6 추가
+	for(let name of names) {
+		document.write(name + "<br>");
+		alert(name);
+		console.log(name);
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
