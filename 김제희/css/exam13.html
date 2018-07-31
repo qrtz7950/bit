@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	input[type=text] {
+		background-color: lightgray;
+	}
+	
+	img {
+		width: 200px;
+		height: 200px;
+		border: 3px solid red;
+	}
+	
+	[src='img/pro.gif'] {
+		border: 3px solid green;
+	}
+	
+	[src$='jpg'] {
+		border: 3px solid pink;
+	}
+	
+	[src^=images] {
+		border: 3px solid blue;
+	}
+	
+	[src^=cea] {
+		border: 3px solid purple;
+	}
+	
+
+</style>
+</head>
+<body>
+	<form>
+		아이디 : <input type="text"><br>
+		패스워드 : <input type="password"><br>
+	</form>
+	
+	<img src="img/back.jpg">&nbsp;&nbsp;&nbsp;
+	<img src="img/ceajang.jpg">&nbsp;&nbsp;&nbsp;
+	<img src="img/pro.gif">
+</body>
+</html>

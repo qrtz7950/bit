@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	
+	/* 가로세로 너비가 300px인 빨간색 실선을 가지는 사각형 */
+	#test01{
+		width: 300px;
+		height: 300px;
+		border-style: solid;
+		border-color: red;
+		border-width: 1px;
+		padding: 10px;
+		text-align: center;
+	}
+	
+	#test02 {
+		width: 300px;
+		height: 300px;
+		border: 1px solid red; /* width, style color */
+		padding: 10px;
+		text-align: center;
+		padding: 10px;
+		border-radius: 20px; /* 꼭지점으로부터 20px떨어진 중심부터 그린 원의 호 */
+		border-radius: 50%; 비율로도 적용가능
+	}
+	
+	#test03 {
+		width: 200px;
+		border: 1px solid red;
+		text-align: center;
+		padding: 10px;
+		margin: 10px;
+		
+		border-radius: 20px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+		/*		
+		border-top-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+		 */
+		
+		box-shadow: 10px 10px 10px gray;
+		/* box-shadow: inset 10px 10px 10px gray; */
+	}
+
+</style>
+</head>
+<body>
+	<div id="test01">사각형01</div>
+	<div id="test02">원</div>
+	<div id="test03">사각형02</div>
+</body>
+</html>

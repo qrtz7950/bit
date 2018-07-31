@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		position: relative;
+		width: 100px;
+		height: 100px;
+	}
+	
+	#layer01{
+		background-color: red;
+		left: 50px;
+		top: 50px;
+		z-index: 1; /*3차원 축에서 z축을 조절하여 어떤 레이어가 앞으로 올지 선택가능*/
+	}
+
+	#layer02{
+		background-color: blue;
+		left: 30px;
+		top: 30px;
+		z-index: 2;
+	}
+	
+	#layer03 {
+		background-color: orange;
+		top: -100px;
+	}
+	
+	#layer04 {
+		position: fixed;
+		background-color: green;
+		right: 30px;
+		bottom: 30px;
+	}
+	
+</style>
+</head>
+<body>
+	<div id="layer01">첫번째</div>
+	<div id="layer02">두번째</div>
+	<div id="layer03">세번째</div>
+	<div id="layer04">고정</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

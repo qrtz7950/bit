@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		transition-property : background-color, border-radius;
+		-webkit-transition-property : background-color, border-radius;
+		-moz-transition-property : background-color, border-radius;
+		
+		transition-duration : 1s;
+		-webkit-transition-duration : 1s;
+		-moz-transition-duration : 1s;
+		
+		transition-timing-function: ease;
+		-webkit-transition-timing-function: ease;
+		-moz-transition-timing-function: ease;
+		
+		transition-delay: 1s;
+		-webkit-transition-delay: 1s;
+		-moz-transition-delay: 1s;
+	}
+	
+	div:hover {
+		background-color: blue;
+		border-radius: 50%;
+	}
+</style>
+</head>
+<body>
+	<!-- 100X100 빨간색 사각형에 마우스를 접근시키면 빨간색으로 원으로 변경 -->
+	<div></div>
+</body>
+</html>

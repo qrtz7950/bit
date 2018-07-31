@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body {
+		width: 900px;
+		background-color: red;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	header {
+		background-color: orange;
+		min-height: 100px;
+	}
+	
+	#div1 {
+		background-color: black;
+		/* width: 150px; */
+		/* 모든 너비와 높이를 퍼센트로 만들면 반응성 웹페이지 제작가능 */
+		width: 150px;
+		min-height: 600px;
+		float: left;
+	}
+	#div2 {
+		background-color: blue;
+		/* width: 150px; */
+		/* 모든 너비와 높이를 퍼센트로 만들면 반응성 웹페이지 제작가능 */
+		width: 150px;
+		min-height: 600px;
+		float: right;
+	}
+	
+	#section1 {
+		position:relative;
+		background-color: green;
+		/* width: 750px; */
+		width: 600px;
+		min-height: 300px;
+		float: left;
+		z-index: 2;
+	}
+	
+	#section2 {
+		position:relative;
+		background-color: lime;
+		width:600px;
+		height: 300px;
+		float: left;
+	}
+	
+	footer {
+		clear: both;
+		background-color: brown;
+		min-height: 100px;
+	}
+	
+</style>
+</head>
+<body>
+	<header>
+		header부분
+	</header>
+	<div id="div1">div1</div>
+	<div id="div2">div2</div>
+	<div id="section1">
+		sectio1부분
+	</div>
+	<div id="section2">
+		section2부분
+	</div>
+	<footer>
+		footer부분
+	</footer>
+</body>
+</html>

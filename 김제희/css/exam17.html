@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	p::selection {
+		background-color: yellow;
+	}
+	
+	p::first-line {
+		text-decoration: underline;
+ 	}
+ 	
+ 	p::first-letter {
+		font-size: 4em;
+ 	}
+ 	 		
+	h1:first-child {
+		color: yellow;
+	}
+	/* 같은레벨에 제일 먼저 나오는애가 퍼스트 차일드임 */
+	/* 때문에 아래의 코드는 출력되지 않음 */
+	#section > h2:first-child {
+		color: yellow;
+	}
+	/*같은 레벨에서 제일 먼저 나온 h1*/
+	h1:first-of-type {
+		color:blue
+	}
+	
+	h2:last-of-type {
+		color:green
+	}
+	
+	h6:only-child {
+		background-color: orange;
+	}
+	
+ 	
+</style>
+</head>
+<body>
+	<p>
+		ABCDEFGHIJKLMN<br>
+		OPQRSTUVWXYZ
+	</p>
+	<p>
+		abcdefghijklmnopqr<br>
+		stuvwxyz
+	</p>
+	
+	<div id="section">
+	<h1>Header1</h1>
+	<h2>Header2</h2>
+	<h3>Header3</h3>
+	<h4>Header4</h4>
+	<h1>Header1</h1>
+	<h2>Header2</h2>
+	<h6>Header6</h6>
+	</div>
+	
+	<div>
+		<h2>Sub-2</h2>
+		<h1>Sub-1</h1>
+	</div>
+	
+	
+</body>
+</html>
