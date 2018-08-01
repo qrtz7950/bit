@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function Person(name, phone, addr) {
+		this._name = name;
+		this._phone = phone;
+		this._addr = addr;
+
+		this.setName = function(name) {
+			this._name = name;
+		}
+
+		this.getName = function() {
+			return this._name;
+		};
+	}
+
+	Person.prototype.info = function() {
+		var msg = '';
+		for ( var key in this) {
+			if ((typeof this[key]) != 'function')
+				msg += key + ' : ' + this[key] + '\n';
+		}
+		alert(msg);
+	};
+
+	var person = new Person('홍길동', '010-1111-2222', '서울시 서초구');
+
+	alert('name : ' + person.getName());
+	person.setName('수정된 이름');
+	alert('name : ' + person.getName());
+</script>
+</head>
+<body>
+
+</body>
+</html>

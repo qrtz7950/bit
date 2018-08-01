@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var nums = [10,20,30,40,50];
+	
+	for(var i = 0; i< nums.length; i++){
+		document.write(i + '번째 정수 : ' + nums[i] + '<br>');
+	}
+	document.write('<hr>');
+	
+	for(var i in nums){
+		document.write(i + '번째 정수 : ' + nums[i] + '<br>');
+	}
+	document.write('<hr>');
+	
+	for(var data of nums){
+		document.write(data + "<br>");
+	}
+	document.write('<hr>');
+	
+	//EcmaScript5에서 추가
+	nums.forEach(function(element, index, nums){
+		document.write(index + '번째 정수 : ' + element + '<BR>');
+	});
+	document.write('<hr>');
+	
+	/* var copyNums  = new Array();
+	for(var i in nums) {
+		copyNums.push(nums[i]);
+	}
+	 */
+	 
+	 //EcmaScript5 추가
+	var copyNums = nums.map(function(element){
+		return element;
+	});
+	 document.write('nums : ' + nums + '<br>');
+	 document.write('copyNums : ' + copyNums + '<br>');
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

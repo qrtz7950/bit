@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func(num1, num2, num3){
+		alert(`num1 : ${num1}, num2: ${num2}, num3: ${num3}`);
+	}
+	
+	func(10,20,30);
+	func(100,200);		
+	func('A');			
+	func();				
+	//매개변수가 3개 호출되지않으면 각 변수가 undifined로 설정되지 않고 0으로 초기화되도록 설정
+	
+	//방법 1
+	function func(num1, num2, num3){
+		if(!num1) num1=0;
+		if(!num2) num2=0;
+		if(!num3) num3=0;
+		
+		alert(`num1 : ${num1}, num2: ${num2}, num3: ${num3}`);
+	}
+	
+	//방법 2
+	function func(num1, num2, num3){
+		num1 = num1 || 0;
+		num2 = num2 || 0;
+		num3 = num3 || 0;
+		alert(`num1 : ${num1}, num2: ${num2}, num3: ${num3}`);
+	}
+	
+	//방법 3 (EcmaScript6 추가)
+	function func(num1 = 0, num2 = 0, num3 = 0){
+		alert(`num1 : ${num1}, num2: ${num2}, num3: ${num3}`);
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

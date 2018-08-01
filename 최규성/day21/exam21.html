@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function aaa() {
+		alert('aaa');
+	}
+	
+	var bbb = () => {		//EcmaScript6에서 추가된 arrow함수
+		alert('bbb');	
+	}
+	
+	var add = (a,b) => {
+		alert(a+ '+' + b + '=' + (a+b));
+	}
+	
+	/* var sum (a,b) => {
+		return a+b;
+	}*/ 						//밑의 한줄과 같다{}안의 내용이 한줄이라면 생략할수있다.)
+	var sum = (a,b) => a+b;
+		
+	
+	bbb();
+	aaa();
+</script>
+</head>
+<body>
+
+</body>
+</html>

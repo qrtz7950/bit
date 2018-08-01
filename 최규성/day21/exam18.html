@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		자바스크립트 내장함수
+		1. 타이머
+			setTimeout(function , ms) //ms만큼 지나면 function을 수행한다.
+			setInterval(function, ms) //ms마다 function을 수행한다.
+		2. 코드 실행함수
+			eval(string) //string에 내용이 js의 문법이라면 그 문법을 실행한다
+		3. 숫자변환함수
+			parseInt(string)
+			parseFloat(string)
+	*/
+	
+//1.	setTimeout("alert('1초가 지났습니다.')", 1000);
+	
+/*2. 	setTimeout(function(){
+			alert('1초가 지났다.');
+		}
+		,1000);*/
+	
+/*3. 	var func = function() {
+			alert('1초가 타이머 끝...');
+		}
+	
+		setTimeout(func, 1000); */
+		
+	setTimeout(function(){
+		clearInterval(id);	//id라는 변수는 밑에 있지만 hoisting으로 끌어올려 사용할수있다.
+	},5000);
+		
+	var id = setInterval(function(){
+		document.write('현재시간: ' + new Date() + '<br>');
+	},1000);
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function makePerson(name, phone, addr) {
+		var person = {
+			'name' : name,
+			'phone' : phone,
+			'addr' : addr,
+			info : function() {
+				var msg = '';
+				for(var key in this){
+					//if(key != 'info')
+					if((typeof this[key]) != 'function')
+						msg += key +':' + this[key] + '\n';
+				}
+			alert(msg);
+			}
+		};
+		
+		return person;
+		
+	
+	}
+	var persons = [
+		makePerson('홍길동', '010-1111-2222','서울시 서초구'),
+		makePerson('고길동', '010-3333-4444','서울시 강남구')
+		];
+	
+	for(var i in persons){
+		persons[i].info();
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

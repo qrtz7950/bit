@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var person = {
+		name : '홍길동',
+		'phone' : '010-1111-2222',
+		"addr" : '서울시 서초구',
+		'info' : function() {
+			/* alert('name : '+ this.name + '\n'
+				 + 'phone : ' + this.phone + '\n'
+				 + 'addr : ' +this.addr + '\n'); */	//객체에 대한 변수명은 자기안에서 사용할때 this를 무적권 써야한다.
+			
+				/*  var msg = '';
+				 with(this) {
+					 msg+='name: ' + name + '\n';
+					 msg+='phone: ' + phone + '\n';
+					 msg+='addr: ' + addr + '\n';
+					 }
+				 alert(msg); */
+				 
+				 var msg = '';
+				 for(var key in this){	//info(함수)까지 포함한 속성들 = key
+					 msg += key + ':' +this[key] + '<Br>';
+				 }
+				 alert(msg);
+		}
+	};
+	
+	console.log(person);
+	person.info();
+	
+	with(person){
+		document.write('name : ' + name + '<br>');
+		document.write('phone : ' + phone + '<br>');
+		document.write('addr : ' + addr + '<br>');
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

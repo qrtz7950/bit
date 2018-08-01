@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var str = new String("Hello World");
+	console.log(str.length);
+	console.log('3번지에 위치한 문자 : ' + str.charAt(3));
+	console.log(str.concat('!!!!'));
+	
+	console.log('l 검색된 첫번째 위치 : ' + str.indexOf('l'));
+	
+	String.prototype.changeStr = function(){
+		return this.bold().toUpperCase().fontColor('red').fontsize('20pt').link('http://www.naver.com');
+	}
+	
+
+	document.write(str + "<br>");
+	document.write(str.changeStr() + "<br>");
+</script>
+</head>
+<body>
+
+</body>
+</html>
