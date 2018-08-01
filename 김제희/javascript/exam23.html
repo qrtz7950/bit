@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//	var a = 123; 		변수
+//	var a = [123,321];	배열
+//	var a = {123};		객체
+
+	var person = {
+		name : '홍길동',
+//		'name' : '홍길동' 멤버변수 이름의 따옴표는 쓰던말던 상관X
+		phone: '010-1111-2222',
+		addr : '서울시 서초구',
+		info : function() {
+			alert('call...');
+//			alert('name : ' + name); 멤버변수 클래스안에서 그냥 불러오는게 안됨
+			alert('name : ' + this.name + '\n' // this. 생략불가
+					+ 'phone : ' + this.phone + '\n'
+					+ 'addr : ' + this.addr + '\n');
+			var msg = '';
+			 with(this) {
+				msg += 'name : ' + name + '\n';
+				msg += 'phone : ' + phone + '\n';
+				msg += 'addr : ' + addr + '\n';
+			 }
+			 alert(msg);
+			var msg = '';
+			  for(var key in this) {
+				  msg += key + '\n';
+			  }
+			  alert(msg);
+
+		}
+	};
+	
+
+
+	console.log(person);
+	person.info(); //멤버변수로 가지고있는 함수 호출
+</script>
+</head>
+<body>
+
+</body>
+</html>

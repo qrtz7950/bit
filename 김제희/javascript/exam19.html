@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var str  = 'alert("Hello");';
+		str += 'var number = 10;';
+		str += 'alert(number);';
+		str += 'var arrays = ["A",12,true,34.56];';
+		str += 'alert("배열의 요소개수: " + arrays.length +"개")';
+	
+	eval(str);
+
+	number += 40;
+	alert('number : ' + number); //eval에서 만든 변수들도 유지되고있다
+</script>
+</head>
+<body>
+
+</body>
+</html>

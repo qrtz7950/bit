@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/*
+ * 자바스크립트 내장함수
+   1. 타이머
+   	  setTimeout(function , ms) // 특정시간 지난후 해당 함수 실행
+   	  setInterval(function , ms)// 특정시간마다 해당 함수 실행
+   2. 코드 실행함수
+   	  eval(string) 입력하는 문자가 자바의 문법이라면 실행되게해준다
+   3. 숫자 변환함수
+      parseInt(string)
+      parseFloat(string)
+ */
+	var func = function() {
+		alert('1초가 타이머 끝...');
+	}
+	
+	setTimeout("alert('3초가 지났다')",1000); //eval기능을 이용하여 기능정의
+	setTimeout(function() {	//여러줄의 기능을 실행시키고싶을때
+		alert('2초가 지났다');
+		alert('히히 못지나가!');
+	}, 2000);
+ 
+	setTimeout(func, 1000);	//너무 길어져서 콜백함수로 이용해서 다른 곳에 정의를 씀]
+	
+	setTimeout(function() { //콜백함수를 이용해서 5초뒤 clearInterval를 이용하여 시간출력 멈춤
+		clearInterval(id);
+	}, 5000);
+	
+	//jsp에서는 호이스팅이라고 밑에다가 변수 선언해도 아무대서나 쓸 수 있다
+	var id = setInterval(function() {
+		document.write('현재시간 : ' + new Date() + '<br>');
+	},1000);
+
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

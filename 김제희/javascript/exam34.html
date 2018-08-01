@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var nums = [10,20,30,40,50];
+	
+	for(var i = 0; i < nums.length; i++) {
+		document.write(i + '번째 정수 : ' + nums[i] + '<br>');
+	}
+	document.write('<hr>');
+	
+	for(var i in nums) {
+		document.write(i + '번째 정수 : ' + nums[i] + '<br>');
+	}
+	document.write('<hr>');
+	
+	for(var data of nums) {
+		document.write(data + '<br>');
+	}
+	document.write('<hr>');
+	
+	nums.forEach(function() { //nums에 들어있는 요소의 갯수만큼 함수를 실행한다
+		document.write('#');	
+	});
+	
+	document.write('<br>'+'<hr>');
+	
+	// EcmaScript5추가
+	nums.forEach(function(element, index) {
+		document.write(index + '번째 정수 : ' + element + '<br>');
+		console.log(arguments); //아규먼츠 3개 요소, 번지수, 전체를 조회
+	});
+	document.write('<hr>');
+
+/*	
+	var copyNums = new Array();
+	for(var i in nums) {
+		copyNums.push(nums[i]);
+	}
+*/
+	// ecmascript5 추가
+	var copyNums = nums.map(function(element) {
+		return element;
+	});
+	
+	document.write('nums : ' + nums + '<br>');
+	document.write('copyNums : ' + copyNums + '<br>');
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+

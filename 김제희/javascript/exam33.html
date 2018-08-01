@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var books = new Array();
+	books.push('신데렐라');
+	books.push('콩쥐팥쥐');
+	books.push('피터팬');
+	books.push('백설공주');
+	
+	for(var i in books) {
+		document.write(books[i] + '<br>');
+	}
+	document.write('<hr>');
+	
+	books.sort();
+	
+	for(var i in books) {
+		document.write(books[i] + '<br>');
+	}
+	document.write('<hr>');
+	
+	var nums = [4, 12, 74, 5, 235, 65, 7, 1, 23];
+	document.write(nums + '<br>');
+	nums.sort();
+	document.write(nums + '<br>');
+	
+	nums.sort(function(left, right) {
+		return left - right;
+	});
+	
+	document.write(nums + '<br>');
+	
+	nums.sort(function(left, right) {
+		return right - left;
+	});
+	document.write(nums + '<br>');
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+

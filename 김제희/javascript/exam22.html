@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//	var a = 123; 		변수
+//	var a = [123,321];	배열
+//	var a = {123};		객체
+
+	var person = {
+		name : '홍길동',
+		phone: '010-1111-2222'
+	};
+	
+	alert(typeof person); //오브젝트
+	alert(person);		  //오브젝트형이라고 출력
+	console.log(person);		  //내용을 보기위해서는 console.log사용
+	alert('name : ' + person.name);
+	alert('phone : ' + person.phone);
+
+	alert('name : ' + person[name]); //다음과 같이도 출력가능하나 문자열로 표현해주지않으면 변수와 헷갈림
+	alert('name : ' + person['name']); //이게 옳은 방법
+	
+	alert('멤버변수 name 존재여부 : ' + ('name' in person));
+	alert('멤버변수 phone 존재여부 : ' + ('phone' in person));
+	alert('멤버변수 addr 존재여부 : ' + ('addr' in person));
+	
+	// 동적으로 객체에 멤버변수 추가
+	person.addr = '서울시 서초구'
+	alert('멤버변수 addr 존재여부 : ' + ('addr' in person));
+	alert('addr : ' + person['addr']);
+	alert('addr : ' + person.addr); //둘다 같은 출력방법
+	
+	// 동적으로 객체에 멤버변수 삭제
+	delete(person.addr);
+	alert('멤버변수 addr 존재여부 : ' + ('addr' in person));
+	alert('addr : ' + person.addr);
+	console.log(person);
+
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

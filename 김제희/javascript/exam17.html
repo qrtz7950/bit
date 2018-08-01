@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func(num1, num2, num3) {
+		alert(`num1 : ${num1}, num2 : ${num2}, num3 : ${num3}`);
+	}
+	func(10, 20, 30);
+	func(10, 20); //num3: undefined
+	func(10); //num2, num3: undefined
+	func(); //num1, num2, num3: undefined
+	//좋지않은 형태 값이 들어오지않을경우 undefined가 나오기 떄문 그래서 값이 없어도 디폴트값으로 초기화하고싶다
+	
+	//매개변수가 3개 호출되지않으면 각 변수가 undefined으로 설정되지않고 0으로 초기화가 되되록 설정
+	//null, undefinded, false, 0 은 모두 자바스크립트에서 false값을 가진다 이를 이용하여 조건문을 작성해보자
+	
+	//방법1
+	function func(num1, num2, num3) {
+		if (!num1) num1 = 0;
+		if (!num2) num2 = 0;
+		if (!num3) num3 = 0;
+		alert(`num1 : ${num1}, num2 : ${num2}, num3 : ${num3}`);
+	}
+	
+	//방법2
+	function func(num1, num2, num3) {
+		num1 = num1 || 0;
+		num2 = num2 || 0;
+		num3 = num3 || 0;
+		
+		alert(`num1 : ${num1}, num2 : ${num2}, num3 : ${num3}`);
+	}
+
+	//방법3 ECMAscript6에서 추가된 방법
+	function func(num1 = 0, num2 = 0, num3 = 0) {
+//	function func(num1, num2=0, num3) {
+//  와 같이 중간이나 처음에서 초기화가 일어날 경우에는 초기화가 일어난 기점으로 오른쪽의 매개변수는 다 초기화 해야한다
+//	function func(num1, num2=0, num3=0) {
+//  와 같이 수정해야 함
+		alert(`num1 : ${num1}, num2 : ${num2}, num3 : ${num3}`);
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
