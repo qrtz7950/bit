@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	console.log(document);
+	console.log(document.body); // null 왜냐하면 body보다 먼저 스크립트를 보기때문에 기록되는것이 없다
+	
+	
+	//해당 함수는 문서 전체를 읽고나서 자동호출된다
+	window.onload = function() { //body를 모두 읽고 호출되었기 때문에 콘솔창에 찍힌다 
+		alert('innerHTML : ' + document.body.innerHTML); //태그   포함 출력
+		alert('innerText : ' + document.body.innerText); //태그 미포함 출력
+//		document.body.innerHTML = "변경했음..."; //html 태그 미포함 택스트들이 변경했음이라는 택스트로 변경됨
+		
+		var list = '';
+		list += '<ul>'
+		list += '<li>aaa</li>'
+		list += '<li>bbb</li>'
+		list += '<li>ccc</li>'
+		list += '</ul>'
+//		해당 텍스트를 html태그로 인식하여 출력하게 만들고 싶었다하면
+//		document.body.innerHTML = list;//를 사용한다
+//		document.body.innerText = list;//를 사용하면 단지 텍스트로만 나온다
+		
+		document.body.innerHTML += list;//대체하지 않고 더하면 body의 출력 이후에 추가로 출력된다
+		
+		
+	}
+	
+	
+	//document.body.innerHTML 를 이용해서 콘솔에서 확인가능
+	
+	
+</script>
+</head>
+<body>
+	hello<br>
+	<h2>안녕하세요`</h2>
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		alert(document.body.innerHTML);
+//		var id = document.getElementById('id').innerText;
+		<!-- 아이디를 부여시 document.getElementById('id')로 검색 가능 여기에 .innerText나 innerHTML를 이용하여 텍스트를 뽑아낼수 있다 -->
+		var id = document.getElementById('id');
+		console.log(id);
+		id.innerHTML = '아이디!';
+		console.log(id);
+		
+		var password = document.getElementById('pwd'); 
+		console.log(pwd);
+		password.innerText = '패스워드!'; //이미 태그를 거르고 뽑아낸 상태를 바꾸는 것이기 때문에 innerText나 innerHTML 둘중 어느것이라도 상관 X
+		
+//		다른 함수를 이용하여 id의 값을 뽑아올수있다
+		var password = document.querySelector("#pwd");
+//		클래스 아이디 css선택자 3가지 들어갈수있음
+		password.innerText = '힝힝';
+	}
+</script>
+</head>
+<body>
+	<table style="width:100px; height:100px" border=1>
+	<tr>
+		<td id="id">ID</td>
+	</tr>
+	<tr>
+		<td id = 'pwd'>PASSWORD</td>
+	</tr>
+	</table>
+	
+	
+	
+</body>
+</html>

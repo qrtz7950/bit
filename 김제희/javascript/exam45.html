@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+			//동적인 태그 삭제
+	
+	window.onload = function() {
+		var id = document.getElementById("id");
+		
+//		var trTags = document.getElementsByTagName("tr");
+//		trTags[0].removeChild(id);
+//		해당 방식으로 삭제 가능하나 검색후 삭제라서 매우 귀찮음
+
+//		삭제는 태그를 꼭 다 지워야하는게 아니라 부모와의 관계만 끊으면 된다
+		id.parentNode.removeChild(id);
+//		해당 id를 가진 태그의 부모에서 해당 id를 가진 태그를 삭제한다
+
+//		크롬에서는 더 쉬운 방법도 있다 하지만 익스플로러에서는 안먹힘
+//		id.remove();
+//		걍 아이디 지움됨
+//		권고되는 방법은 부모에서 지우기
+		
+//		css를 수정하여 꾸미기도 가능
+		var password = document.getElementById("pwd");
+		console.log(password.style); //해당 객체의 css정보 출력
+		password.style.color = 'red';
+		password.style.border = '2px dotted pink';
+//		password.style.background-color = 'lightgray';//속성이름은 background-color지만 css객체안에는 
+		password.style.backgroundColor = 'lightgray';//backgroundColor라고 되있기때문에 아래의 방법이 옳다
+	}
+</script>
+</head>
+<body>
+	<table style="width:100px; height:100px" border=1">
+		<tr>
+			<td id="id">ID</td>
+		</tr>
+		<tr>
+			<td id="pwd">PASSWORD</td>
+		</tr>
+	</table>
+</body>
+</html>
+

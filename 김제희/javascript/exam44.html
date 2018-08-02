@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		//트리구조에서 html태그가 붙은 택스트를 생성해보자
+		
+		var h1Tag = document.createElement('h1');
+		console.log(h1Tag); //태그 생성 <h1></h1>
+		
+		var text = document.createTextNode('Hello');
+		console.log(text); //택스트 생성 Hello
+		
+		h1Tag.appendChild(text); //합침 <h1>Hello</h1>
+		console.log(h1Tag); //생성까지는 했으나 body아래의 자식으로 입력되지 않았기 때문에 입력은 되지않음 (보디아래가 아님)
+		
+		document.body.appendChild(h1Tag); //이제 <h1>Hello</h1>가 body의 자식으로 추가되어 출력이된다
+		
+		////////////////////////////////////////////////////////////////////////
+		
+		imgTag = document.createElement('img');
+		imgTag.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDYHdNhLSsP7D6ja37E5p71xMqjor9fOH95OfFPF0zYcq4cH4f";
+//		imgTag.setAttribute("src", "http://t1.daumcdn.net/liveboard/jobsN/9a4910f5751f448e9851587b0e6728fc.jpg");
+//		원래는 src추가를 위해서는 setAttribute를 사용해야하나 객체에 .src를 붙여 추가 가능하다
+		console.log(imgTag);
+		
+		
+		aTag = document.createElement('a');
+		aTag.setAttribute("href", "http://www.daum.net/");
+		aTag.target = "_blank";
+		console.log(aTag);
+		
+		aTag.appendChild(imgTag);
+		
+		document.body.appendChild(aTag); //body에 추가
+		
+		
+	}
+</script>
+</head>
+<body>
+	<!-- 이것을 출력후 동적으로 스크립트로 같은 내용을 다시 출력 -->
+	<h1>Hello</h1>
+	<a href="http://www.daum.net/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDYHdNhLSsP7D6ja37E5p71xMqjor9fOH95OfFPF0zYcq4cH4f"></a>
+	<h1>여기아래부터는 동적으로 생성됬음</h1><hr>
+	
+</body>
+</html>

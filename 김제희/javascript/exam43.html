@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+//		id속성이 없는 텍스트틑 바꾸고 싶다 내가 아는것은 텍스트의 내용뿐
+//		다음과 같은 함수가 있다
+//		document.getElementsByTagName(); //Element's' 요소들이 여러개일수 있기때문
+//		id는 유니크한 속성이기 떄문에 결과가 나오거나 그렇지 않거나지만 요소들은 여러개 있을수도 있어서 배열로 반환됨
+		
+		var tags = document.getElementsByTagName('td');
+		console.log(tags);
+		console.log(tags[0]);
+		console.log(tags[1]);
+		// 태그를 리스트로 반환 각 주소값에는 태그를 포함한 텍스트가 들어있다
+		
+		console.log(tags[0].innerText);
+		//해당 태그 안의 텍스트
+		
+		tags[0].innerHTML= '아이디!';
+		//해당 태그안의 텍스트를 태그를 포함한 임의의 텍스트로 바꾸어 출력을 수정
+		
+		/*
+			document.querySelector(태그명)  : 맨처음 검색된 태그명의 요소 반환
+			document.querySelectorAll(태그명) : 태그명에 해당 요소들 반환 
+			
+		*/
+		var nodes = document.querySelectorAll('td');
+		console.log(nodes[1].innerText);
+		nodes[1].innerHTML= '패스워드!';
+	
+	}
+</script>
+</head>
+<body>
+	<table style="width:100px; height:100px" border=1>
+	<tr>
+		<td>ID</td>
+	</tr>
+	<tr>
+		<td>PASSWORD</td>
+	</tr>
+	</table>
+	
+	
+	
+</body>
+</html>
