@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		var id = document.getElementById("id");
+		
+		/*var trTags= document.getElementByTagName("tr");
+		trTags[0].removeChild(id);*/
+		
+		//id.parentNode.removeChild(id);	이 두가지 방법으로 id밑의 하위요소를 전부 지울수있다.
+		
+		id.remove();	//위의 두방법과 같지만 크롬에서만 적용되어있다.
+		
+		
+		//아래와 같이 css를 적용할수도있다
+		var password = document.getElementById("pwd");
+	//	console.log(password.style);
+		password.style.color = 'red';
+		password.style.border = '2px dotted pink';
+		password.style.backgroundColor = 'lightgray';
+		
+	}
+</script>
+</head>
+<body>
+	<table style = "width:100px; height:100px" border=1">
+		<tr>
+			<td id='id'> ID </td>
+		</tr>
+		<tr>
+			<td id='pwd'> PASSWORD </td>
+		</tr>
+	</table>
+</body>
+</html>

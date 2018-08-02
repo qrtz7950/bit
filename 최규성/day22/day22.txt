@@ -1,0 +1,66 @@
+브라우저 객체 모델 (BOM)
+	
+	 window  객체:(자바스크립트에서 기본제공되는 브라우저기반  최상위 객체)
+			-location객체 :  주소(URL)와 관련된 객체
+			-history객체 	: 기록과 관련된 객체
+			-navigator객체: 웹브라우저와 관련된 객체
+			-screen 객체 : 화면과 관련된 객체
+			-document객체 : HTML문서와 관련된 객체
+
+
+ex)팝업창(URL, 이름, 속성,)
+var sub = window.open("http://www.naver.com",
+			"",
+			"width=600,height=400,scrollbar=no,resizable=yes");
+
+////////////////////////////////////////////
+
+onload는 태그를 해석하기 위한 객체
+
+/////////////////////////////////////////////
+
+document.getElementsByTagName() : 태그명만을 알고있을때 오브젝트형 배열을 반환한다.(콘솔에서도 확인)
+	ex) document.getElementsByTagName("td")[0]
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+html -- head -- title -- "Insert title here"
+     ㅣ
+      L  body -- <h2> -- "Hello"
+	       l
+	       L image  --" https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png"
+
+ex) 
+<script>
+	window.onload = function(){
+		
+		var h1Tag = document.createElement('h1');
+//		console.log(h1Tag);
+		
+		var text = document.createTextNode('Hello');
+//		console.log(text);
+		
+		h1Tag.appendChild(text); //h1Tag의 하위에 text를 넣어주는 의미로 씀
+		console.log(h1Tag);
+		
+		document.body.appendChild(h1Tag);
+	}
+</script>
+
+
+	appendChild의 반대 개념으로 removeChild가 존재하며,
+	지운 요소의 하위개념까지 전부 제거한다.
+
+	parentNode.removeChild(id)를 사용하면 id의 상위 요소의 이름을 몰라도
+	하위 요소를 전부 지울수있다.
+	
+	id.remove는 크롬에서는 가능하지만 익플에서는 먹히지않는다
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+imgTag.setAttribute('src', "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png");
+imgTag.src = "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png";
+
+	위가 일반적인 방법이지만 imgTag가 객체이기 때문에 .src도 가능하다
+
+

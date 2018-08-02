@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	console.log(document);
+	window.onload = function(){
+		alert(document.body.innerHTML);
+		alert('innerText: ' + document.body.innerText);
+		alert('innerHTML: ' + document.body.innerHTML);
+		
+		var list = '';
+		list += '<ui>';
+		list += '<li>aaa</li>';
+		list += '<li>bbb</li>';
+		list += '<li>ccc</li>';
+		list += '</ui>';
+	
+		document.body.innerHTML = list;
+		document.body.innerText = list;
+		
+		document.body.innerHTML += list;
+		document.body.innerHTML += lisrt
+	}
+	
+</script>
+</head>
+	<!-- 바디를 끝까지 전부 읽으면 onload를 실행한다. -->
+<body>
+	hello<Br>
+	<h2> 안녕하세요 </h2>
+</body>
+</html>

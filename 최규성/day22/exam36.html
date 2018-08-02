@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		브라우저 객체 모델 (BOM)
+	
+		window 객체(자바스크립트에서 기본제공되는 브라우저기반  최상위 객체)
+			-location객체 :  주소(URL)와 관련된 객체
+			-history객체 	: 기록과 관련된 객체
+			-navigator객체: 웹브라우저와 관련된 객체
+			-screen 객체 : 화면과 관련된 객체
+			-document객체 : HTML문서와 관련된 객체
+			
+	*/
+	
+	var a = 10;
+	b = 20;
+	
+	window.alert('Hello');
+	
+	var sub = window.open("",
+			"",
+			"width=600,height=400,scrollbar=no,resizable=yes");
+	if(!sub) {
+		alert('팝업창을 해제하세요.');
+	}
+	
+	sub.moveTo(100,100);
+	
+	window.setInterval(function(){
+		sub.moveBy(10,10)
+	},1000);
+</script>
+</head>
+<body>
+
+</body>
+</html>

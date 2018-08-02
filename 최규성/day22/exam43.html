@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script> 
+	window.onload = function() {
+		var tags = document.getElementsByTagName("td");
+		//console.log(tags[0]);
+		tags[0].innerHTML = "아이디";
+		
+		/*
+			document.querySelector(태크명) :  맨처음 검색된 태그명의 요소 반환
+			document.querySelectorAll(태그명): 태그명에 해당 모든 요소 반환
+		*/
+		var nodes = document.querySelectorAll('td');
+		//console.log(nodes);
+		nodes[1].innerHTML = '패스워드';
+	}
+
+</script>
+</head>
+<body>
+<table styele="width:100px ;  hihght:l00px" border=1">
+
+		<tr>
+			<td>ID</td>
+		</tr>
+		<tr>
+			<td>PASSWORD</td>
+		</tr>
+	</table>
+
+	</tr>
+</table>
+</body>
+</html>

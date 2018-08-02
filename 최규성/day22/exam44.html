@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		
+		var h1Tag = document.createElement('h1');
+//		console.log(h1Tag);
+		
+		var text = document.createTextNode('Hello');
+//		console.log(text);
+		
+		h1Tag.appendChild(text); //h1Tag의 하위에 text를 넣어주는 의미로 씀
+		console.log(h1Tag);
+		
+		document.body.appendChild(h1Tag);
+		
+		var imgTag = document.createElement('img');
+//		imgTag.setAttribute('src', "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png");
+		imgTag.src = "https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png";
+		console.log(imgTag);
+		
+	//	document.body.appendChild(imgTag);
+		var aTag = document.createElement('a');
+		aTag.setAttribute('href', 'http://www.daum.net');
+		aTag.setAttribute('target', '_blank');
+		aTag.appendChild(imgTag);
+		document.body.appendChild(aTag);
+		
+	}
+</script>
+</head>
+<body>
+	<!-- <h1>Hello</h1>
+	<a href = "http://daum.net" target = '_blank'>
+	<img src=https://t1.daumcdn.net/daumtop_chanel/op/20170315064553027.png
+	</a> 
+	-->
+</body>
+</html>
