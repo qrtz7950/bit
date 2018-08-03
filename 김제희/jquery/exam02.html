@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+
+	//body의 내용처럼 h1태그를 가진 애들을 안보이게 하고싶다
+/*	
+	$(document).ready(function() {
+	alert('!!!');
+	var tags = document.getElementsByTagName('h1');
+	for(var i = 0; i < tags.length; i++) {
+		tags[i].style.display = 'none';
+	}
+*/
+// 	아래 제이쿼리를 이용해 표현
+	$(document).ready(function() {
+		alert('!!!');
+//		$('h1').hide(); //h1태그 다 지우기
+		$('#h01').hide(); //id가 h01인거 지우기
+		$('.c01').hide(); //class가 c01인거 지우기
+		$('h1.c01').hide(); //h1태그 중에 class가 c01인거 지우기
+		$('*').hide(); //모두 다 지우기 body head html다지워짐
+		$('body *').hide(); //body아래 다 지우기
+		$('h1.first').hide(); //첫번째 h1지우기
+		$('h1.last').hide();  //마지막 h1 지우기
+	});
+	
+	
+</script>
+</head>
+<body>
+	<h1 id="h01">Hello</h1>
+	<h1 class="c01">Hi</h1>
+	<h1>Good-bye</h1>
+	<h2 class="c01">안녕</h2>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.min.js"></script> <!-- 제이쿼리 상대경로 임포트하기 -->
+<!-- <script src="/Lecture-Web/jquery/js/jquery-3.3.1.min.js"></script> <!-- 제이쿼리 절대경로 임포트하기 -->
+<!-- <script href = "https://code.jquery.com/jquery-3.3.1.min.js"></script> 네트워크 임포트 -->
+
+<script>
+
+//	$(document).ready(function (){}); == window.onload = function(){}
+	
+/* 	window.onload = function() {
+		alert('load...');
+	} 
+*/
+*
+	$(document).ready(function () {
+		alert('load...');
+	});
+	
+	//윈도우 온로드는 하나 밖에 존재할수 없어 두개 이상 사용하면 덮어써진다
+	//때문에 document.addEventListener 를 사용해야한다
+	//제이쿼리를 이용하면 간단히 축약하여 표현가능
+	
+	/* window.addEventListener('load', function() {
+		alert('loading...');
+	});
+	
+	window.addEventListener('load', function() {
+		alert('loading01...');
+	});
+	
+	window.addEventListener('load', function() {
+		alert('loading02...');
+	}); */
+	
+	$(document).ready(function() {
+		alert('ready...');
+	});  
+  	
+  	$(document).ready(function() {
+		alert('ready01...');
+	});  
+  	
+  	$(document).ready(function() {
+		alert('ready02...');
+	});  
+	
+  	//축약하여 더 짧게도 표현가능
+  	$(function() {
+  		alert('ready03...');
+  	});
+  	
+	
+	
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

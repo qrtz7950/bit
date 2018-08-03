@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		alert('!!!');
+		
+//		$('ul li').hide();
+//		$('ul li:first').hide(); 		// li를 일렬로 늘어놓은 배열임 때문에ul로 구분되어 있더라도 호랑이만 지워짐
+//		$('ul li:first-child').hide();	// ul의 첫번째 자식을 지우기때문에 호랑이 쫄면이 지워짐
+//		$('ul li:last-child').hide();
+		
+//		$('a').hide();
+//		$('a[target]').hide(); //target속성 가진애 지우기
+//		$('a[href="http://www.daum.net"]').hide(); //href속성 중에 특정한 값을 가진애 지우기
+//		$('[target]').hide(); 				//속성만 선택한것도 가능
+
+//		$('input[type="button"]').hide(); // 타입의 대한 선택자
+//		$('input:button').hide();         // input태그는 타입선택을 이렇게도 가능
+//		$('[type=button]').hide();		  // 속성만 선택자로 사용
+//		$(':button').hide();         // input과 button태그 모두 내부적으로 타입이 버튼이라 둘다 지워짐
+//		$('button').hide();			 // button 태그만 지우기
+		
+		$(':button').click(function() {
+//			alert('click...');
+//			$(this).hide();
+		});
+		
+		$(':button').click(()=>{ //일반 익명함수와 에로우 함수에서 this의 의미가 다르기때문에
+								 // 애로우 함수에서 this는 쓰는게 아니다ㅓ//			alert('클릭...');
+			$(this).hide();
+		});
+
+		
+	});
+</script>
+</head>
+<body>
+	<hr>
+	<input type="button" value="BUTTON-1">
+	<button>BUTTON-2</button>
+	<hr>
+
+	<h2>aTag전</h2>
+	<a href="http://www.daum.net">다음</a>
+	<a href="http://www.naver.com" target="_blank">네이버</a>
+	<h2>aTag후</h2>
+
+	<h2>동물종류</h2>
+	<ul>
+		<li>호랑이</li>
+		<li>곰</li>
+		<li>기린</li>
+		<li>타조</li>
+	</ul>	
+	
+	<h2>음식종류</h2>
+	<ul>
+		<li>쫄면</li>
+		<li>떡볶이</li>
+		<li>순대</li>
+	</ul>
+</body>
+</html>
