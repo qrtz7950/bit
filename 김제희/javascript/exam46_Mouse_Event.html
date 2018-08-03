@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		var btnTag = document.getElementById('btn01');
+//		고전적 이벤트 모델
+//		Level1 방식의 이벤트 모델
+		console.log(btnTag);
+		btnTag.onclick=function() {
+			console.log('click');
+		}
+	}
+	
+	function clickBtn() {
+		alert('버튼을 클릭함...');
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="버튼1" id="btn01">
+	<!-- Level0방식의 인라인 이벤트모델  -->
+	<input type="button" value="버튼2" onclick="alert('클릭')">
+	<input type="button" value="버튼2" onclick="clickBtn()">
+</body>
+</html>

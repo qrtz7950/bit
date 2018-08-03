@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//일반함수로도 객체를 만들수있지만 생성자 함수로 더 간결히 만들수 있다
+	
+	function Person(name, phone, addr) {
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr;
+	}
+	
+	//객체안에 함수를 정의하지 않고 공유하는 영역인 프로토 타입안에 객체에서 사용할 함수를 선언
+	Person.prototype.info = function() {
+		var msg = '';
+		for(var key in this) {
+			if((typeof this[key]) != 'function')
+				msg += key + ' : ' + this[key] + '\n';
+		}
+		alert(msg);
+	};
+
+	var person = new Person('김제희', '010-2413-4221', '서울시 관악구');
+	var person2 = new Person('곽병문', '010-2413-4221', '경기도 군포시');
+	
+	console.log(person);
+	console.log(typeof person);
+	person.info();
+	person2.info();
+	
+	Person.prototype.info = function() { //공유된 공간에 재정의하는 순간 이름 출력이 아닌 change출력
+		alert('change...');
+	};
+	
+	var person3 = new Person('고길동', '010-5555-6666', '경기도 성남시');
+	person3.info();
+
+	
+	var person3 = new Person('곽병문', '010-2413-4221', '경기도 군포시');
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

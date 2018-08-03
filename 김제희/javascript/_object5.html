@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//일반함수로도 객체를 만들수있지만 생성자 함수로 더 간결히 만들수 있다
+	
+	function Person(name, phone, addr) {
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr;
+		this.info = function() {
+			var msg = '';
+			for(var key in this) {
+				if((typeof this[key]) != 'function')
+					msg += key + ' : ' + this[key] + '\n';
+			}
+			alert(msg);
+		};	
+	}
+	
+	//그냥 선언함수로도 객체를 만들 수 있지만 생성자를 이용해서 만드는 경우와의 차이는
+	//생성자를 이용하여 객체를 만들면 (new 사용) 객체 타입이 생성된다
+	//ex) typeof person = person
+	
+	var person = new Person('김제희', '010-2413-4221', '서울시 관악구');
+	
+	console.log(person);
+	console.log(typeof person);
+	person.info();
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

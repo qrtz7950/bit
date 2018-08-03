@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function whenSubmit() {
+		console.log('call...');
+		
+//		var pass = document.getElementById('pass');
+//		var passCheck = document.getElementById('passCheck');
+		
+		var pass 	  = document.inputForm.pass;
+		var passCheck = document.inputForm.passCheck;
+		
+		if(pass.value != passCheck.value) {
+			alert('패스워드가 올바르지 않습니다')
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</head>
+<body>
+	<!-- 
+		<input type="">
+			   type :	text(한줄입력)
+			   			password(암호처리)
+			   			checkbox(다중선택)
+			   			radio(단일선택)
+			   			file(첨부파일)
+			   			reset(초기화)
+			   			hidden(입력받지 않은 데이터를 전송)
+			   			submit(폼에서 입력받은 데이터 전송)
+	-->
+	<form action="http://www.naver.com" onsubmit="return whenSubmit()">
+		아이디 : <input type="text" size="20" name="id"><br>
+		<!-- 실행하면 네이버에 입력한 정보가 아래와 같은 형식으로 전송된다 -->
+		<!-- http://www.naver.com?id=hong -->
+		<!-- ?id=hong 이러한 형태를 쿼리라고한다 -->
+		
+		패스워드 : <input type="password" size="20" name="pass" id="pass"><br>
+		패스워드 확인 : <input type="password" size="20" name="passCheck" id="passCheck"><br>
+		<input type="submit" value="전송">
+		
+		<!-- 쿼리가 두개 이상을 경우에는 & 기호로 분류한다 -->
+		<!-- https://www.naver.com/?id=asd&pass=asd -->
+		<!-- 비밀번호 확인이 틀렷을 경우 전송하지 않기위해 이런한 방법을 사용할 수 있다 -->
+		
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

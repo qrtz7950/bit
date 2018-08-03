@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function aaa() {
+		alert('aaa');
+	}
+	
+	var bbb = () => {
+		alert('bbb');
+	}
+	
+	var add = (a,b) => {
+		alert(a + ' + ' + b + ' = ' + (a + b));
+	}
+	
+	/* var sum = (a, b) => {
+		return a + b;
+	} */
+	var sum = (a, b) => a + b;
+	//다음과 같이 써도 반환값을 가진다
+	//람다를 사용해서 익명함수를 좀더 간결하게 쓸수잇다
+	
+	alert(sum(10, 20));
+
+	aaa();
+	bbb();
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

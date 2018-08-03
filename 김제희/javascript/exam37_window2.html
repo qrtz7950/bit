@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var sub = window.open("","","width = 400 , height=300");
+	
+	sub.moveTo(0,0);
+	sub.resizeTo(screen.width,screen.height);
+	
+	setInterval(function () {
+		sub.moveBy(15,15);
+		sub.resizeBy(-30,-30);
+	}, 1000);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

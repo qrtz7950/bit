@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	//ecam 6 script 추가
+	//지금까지 모든 자료형들은 var로 표현했으나 let형으로도 만들수 있다
+	
+	var a = 10;
+	let b = 20;	
+	const c = 30; //상수형으로 만들기
+	
+	alert(`a : ${a}, b : ${b}, c : ${c}`);
+	
+	a = 100;
+	b = 200;
+	//c = 300; //오류발생 변경X
+	alert(`a : ${a}, b : ${b}, c : ${c}`);
+	
+	{
+		var temp = 123;
+		let lettemp = 123;
+		alert('temp : ' + temp);
+		alert('lettemp : ' + lettemp);
+	}
+	alert('temp : ' + temp); //var형은 어디에 선언해도 전역변수처럼 사용됨
+	alert('lettemp : ' + lettmep); //let은 지역성을 가진다 이건 출력 안됨
+	//권고사항에서는 변수들을 let형으로 쓰라고하나 실제로는 이전에 만든 것들을 ecmascript6형으로 바꾸기 힘들기 때문에
+	// 실제로는 아직도 var형이 많이 쓰이고 있다
+	
+	
+
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
