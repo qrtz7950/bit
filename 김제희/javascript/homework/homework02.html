@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#calc{
+		width: 200px;
+		height: 250px;
+		border-style: outset;
+	}
+	.outbox{
+		width: 100%;
+		height: 100%;
+		border-style: inset;
+	}
+	#top{
+		height:15%;
+	}
+	#middle{
+		height:70%;
+	}
+	#bottom{
+		height:15%;
+	}
+	table{
+		height:100%;
+		width:100%;
+		border-style: inset;
+		font-size: 11pt;
+	}
+	tr{
+		border-style: inset;
+	}
+	td{
+		border-style: inset;
+	}
+</style>
+<script>
+	var val = "";
+	var sum = "";
+	
+	function clickBtn(str) {
+		console.log(str);
+        document.getElementById("display").value += str;
+        val = document.getElementById("display").value;
+    }
+	
+	function plus() {
+		clickBtn('+')
+		sum += val;
+		val ="";
+	}
+	
+	function calc() {
+		val ="";
+		document.getElementById("display").value += '=';
+		document.getElementById("display").value += sum;
+	}
+	
+	
+</script>
+</head>
+<body>
+	<div id ="calc">
+		<div class="outbox">
+			<div id="top">
+				<table>
+					<tr>
+						<td><input type="text" id="display"></td>
+					</tr>
+				</table>
+			</div>
+			<div id="middle">
+				<table>
+					<tr>
+						<td><button id="7" value="7"onclick="clickBtn('7')">7</button></td>
+						<td><button id="8" value="8"onclick="clickBtn('8')">8</button></td>
+						<td><button id="9" value="9"onclick="clickBtn('9')">9</button></td>
+						<td><button id="/" value="/"onclick="clickBtn('/')">/</button></td>
+					</tr>
+					<tr>
+						<td><button id="4" value="4"onclick="clickBtn('4')">4</button></td>
+						<td><button id="5" value="5"onclick="clickBtn('5')">5</button></td>
+						<td><button id="6" value="6"onclick="clickBtn('6')">6</button></td>
+						<td><button id="*" value="*"onclick="clickBtn('*')">*</button></td>
+					</tr>
+					<tr>
+						<td><button id="1" value="1"onclick="clickBtn('1')">1</button></td>
+						<td><button id="2" value="2"onclick="clickBtn('2')">2</button></td>
+						<td><button id="3" value="3"onclick="clickBtn('3')">3</button></td>
+						<td><button id="-" value="-"onclick="clickBtn('-')">-</button></td>
+					</tr>                                             
+					<tr>                                              
+						<td><button id="0" value="0"onclick="clickBtn('0')">0</button></td>
+						<td><button id="." value="."onclick="clickBtn('.')">.</button></td>
+						<td><button id="+" value="+"onclick="plus()">+</button></td>
+						<td><button id="%" value="%"onclick="clickBtn('%')">%</button></td>
+					</tr>                     
+				</table>
+			</div>
+			<div id="bottom">
+				<table>
+					<tr>
+						<td><button value="=">=</button></td>
+						<td><button value="clear"onclick="calc()">clear</button></td>
+					</tr>
+				</table>
+			</div>		
+		</div>
+	</div>
+</body>
+</html>
