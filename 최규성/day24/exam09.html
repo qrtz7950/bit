@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{
+		width: 100px;
+		height:100px;
+		background-color:red;
+		position: absolute;
+	}	
+</style>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function(){
+		$('div').animate({
+			'width': '200px',
+			'height' : '200px'
+		}, 1000);
+		$('div').animate({
+			'width': '-=100px',
+			'height' : '-=100px',
+			'left' : '100px',
+			opacity: '0.8',
+			'backgroundColor': 'blue'
+		}, 1000,function(){
+			$
+		});
+	});
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

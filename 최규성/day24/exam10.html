@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#menu{
+		height: '100px';
+		background-color: orange;
+	}
+	#submenu{
+		height: '100px';
+		background-color: olive;
+		padding: 10px;
+		margin-left :10px;
+		margin-right:10px;
+		display: none;
+	}
+</style>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#menu').mouseenter(function(){
+		//	$('#submenu').show(1000);
+		//	$('#submenu').fadeIn(1000);
+		//	$('#submenu').slideDown(1000);
+		//	$('#submenu').slideUP(1000);
+			$('#submenu').slideToggle();
+			$('#submenu').slideToggle();
+			
+		})
+	});
+</script>
+</head>
+<body>
+	<div id = 'menu'> 마우스를 진입해보세요</div>
+	<div id = 'submenu'> 메뉴화면입니다</div>
+</body>
+</html>

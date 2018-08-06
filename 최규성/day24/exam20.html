@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('button').click(function(){
+		//	$('img').last().prependTo('body');	//맨마지막 이미지를 바디의 맨앞쪽으로 옮김
+			$('img').first().appendTo('body');
+		});
+	});
+</script>
+</head>
+<body>
+	<button>click</button>
+	<br><BR>
+	<img src="images/img01.jpg">
+	<img src="images/img02.png">
+	<img src="images/img03.jpg">
+	<img src="images/img04.gif">
+</body>
+</html>

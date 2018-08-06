@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		
+		var btn01 = document.getElementById('btn01');
+		
+		//level 2 방식의 이벤트 모델
+		btn01.addEventListener('click', function() {
+			console.log('click')
+		});
+		btn01.addEventListener('click', function() {	//level 2는덮어쓰기 형태가 아닌 동시에 이벤트를 실행할수있음
+			console.log('click01...')
+		});
+	}
+</script>
+</head>
+<body>
+	<button id="btn01">클릭해봐</button>
+</body>
+</html>

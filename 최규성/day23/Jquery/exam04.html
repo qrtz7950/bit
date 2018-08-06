@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	/*
+		이벤트 핸들러
+		Mouse			: click, dblclick, mouseenter, mouseleave
+		Keyboard		: keydown, ketup, keypress
+		Form			: submit, focus, blur
+		Document/Window : load, unload, resize, scroll
+	*/
+	
+	$(document).ready(function(){
+		
+		$('body > h1').click(function(){	//body밑의 div를 제외한 3개의 h1을 말한다
+			$(this).hide(1000);
+		});
+		
+		$('h1').dblclick(function(){
+			$(this).hide(1000);
+		})
+		$(':button').click(function(){
+			$('h1:first').hide();
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>첫번째 문장입니다</h1>
+	
+	<h1>두번째 문장입니다</h1>
+	
+	<div>
+		<h1>세번째 문장입니다</h1>
+	</div>
+	<h1>네번째 문장입니다</h1>
+	<button>클릭</button>
+</body>
+</html>

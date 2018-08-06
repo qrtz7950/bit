@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#btn01').click(function() {
+			$('#p01').html('<mark>문장수정이 완료되었습니다</mark>');
+//			document.getElementById("p01").innerHTML("<mark>문장수정이 완료되었습니다</mark>");
+		});
+		
+		$('#btn02').click(function() {
+			$('#p02').text('<mark>문장수정이 완료되었습니다</mark>');
+		});
+		
+		$('#btn03').click(function() {
+			$('#site').attr('href', 'http://www.daum.net');
+		});
+		
+		$('#btn04').click(function() {
+//			$('p').html('<strong><em>문장변환</em></strong>');
+
+/*
+			var pTags = document.getElementsByTagName("p");
+			for(var i = 0; i < pTags.length; i++) {
+				var pTag = pTags[i];
+				pTag.innerHTML = "<strong><em>" + i + " : 문장변환</em></strong>";
+			}
+*/
+/*
+			for(var i = 0; i < $('p').length; i++) {
+				$('p')[i].innerHTML = "<strong><em>" + i + " : 문장변환!</em></strong>";
+			}
+*/
+/*
+			$('p').html(function(index, innerHTML) {
+				return "<strong><em>" + index + " : 문장변환</em></strong>";
+			});
+*/			
+			$('p').text(function(index) {
+				return "<strong><em>" + index + " : 문장변환</em></strong>";
+			});
+		});
+
+	});
+</script>
+</head>
+<body>
+	<a href="http://www.naver.com" id="site">사이트 이동</a>
+	<p id="p01">첫번째 문장입니다</p>
+	<p id="p02">두번째 문장입니다</p>
+	<button id="btn01">HTML변환</button>
+	<button id="btn02">TEXT변환</button>
+	<button id="btn03">주소변환</button>
+	<button id="btn04">문장변환</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

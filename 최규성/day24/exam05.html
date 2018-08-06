@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{
+		background-color: orange;
+	}
+</style>
+<script src = "js/jquery-3.3.1.min.js"></script>
+<script> 
+	$(document).ready(function(){
+		
+		$('h1').hover(function(){
+			$('h1').css('background-color','pink');
+		}, function(){
+			$('h1').css('background-color', 'orange');
+		});
+			
+		
+		
+		//위의 호버를 풀면 이런식
+		/* $('h1').mouseenter(function(){
+			$('h1').css('background-color','yellow');
+		});
+		
+		$('h1').moudeleave(function(){
+			$('h1').css('background-color','orange');
+		}) */
+	});
+</script>
+</head>
+<body>
+	<h1>마우스를 접근시켜보세요</h1>
+</body>
+</html>

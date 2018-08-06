@@ -1,0 +1,157 @@
+
+이벤트(Event)
+			-마우스 이벤트
+			-키보드 이벤트
+			-HTML프레임 이벤트
+			-HTML 입력양식 이벤트
+			-유저 인터페이스 이벤트
+
+-- level 1  --
+ex)
+
+<script>
+window.onload = function(){
+		var btnTag = document.getElementById('btn01');
+		//level 1 방식의 이벤트모델(고전적이벤트 모델)
+		btnTag.onclick = function(){
+			console.log('Click....');
+		}
+		function clickBtn(){
+			alert('버튼을 클릭함');
+		}
+	}
+</script>
+.
+.
+.
+<body>
+<!-- level 1방식의 인라인 이벤트 모델 -->
+	<!-- <input type="button" value="CLICK 2" onclick="alert('클릭')"> -->
+	<input type="button" value="CLICK 2" onclick="clickBtn()">
+</body>
+
+
+-- level 2 --
+ex)
+
+<script>
+	window.onload = function(){
+		
+		var btn01 = document.getElementById('btn01');
+		
+		//level 2 방식의 이벤트 모델
+		btn01.addEventListener('click', function() {
+			console.log('click')
+		});
+		btn01.addEventListener('click', function() {	//level 2는덮어쓰기 형태가 아닌 동시에 이벤트를 실행할수있음
+			console.log('click01...')
+		});
+	}
+</script>
+.
+.
+.
+.
+.
+<body>
+	<button id="btn01">클릭해봐</button>
+</body>
+
+////////////////////////////////////////////////////////////////////////////////////
+
+
+<!-- 
+		<input type= "">
+				type :  text(한줄입력)
+						password(암호처리)
+						checkbox(다중선택)
+						radio(단일선택)
+						file(첨부파일)
+						reset(초기화)
+						hidden(입력받지않은 데이터르 전송)
+						submit(폼에서 입력받은 데이터 전송)
+	-->
+ex)
+
+<script>
+	function whenSubmit(){
+		
+		//var pwd = document.getElementById("pwd");
+		//var pwdCheck = document.getElementById("pwdCheck");
+		var pwd = document.inputForm.pwd;
+		var pwdCheck = document.inputForm.pwdCheck;
+		
+		
+		if(pwd.value != pwdCheck.value){
+			alert('패스워드가 올바르지 않습니다')
+			return false;
+		} else{
+			
+			return true;
+		}
+		
+	}
+</script>
+.
+.
+.
+.
+
+<body>
+	<form action = "http://www.naver.com"
+			onsubmit="return whenSubmit()"
+			name="inputForm">
+		아이디 : <input type="text" size ="20" name="id" id="id"><br>
+		패스워드 : <input type="password" size ="20" name="pwd" id="pwd"><br>
+		패스워드확인 : <input type="password" size ="20" name="pwdCheck" id="pwdCheck"><br>
+		<input type="submit" value="전송"><br>
+	</form>
+</body>
+	
+	아이디 패스워드를 적고 난뒤 전송하면 https://www.naver.com/?id=asrbtjd&pwd=1234
+	로 이동하게된다.
+
+	<form action = "http://www.naver.com?(name)=(vlaue)">
+	?뒤의 오는 것들을 쿼리라고 부른다.
+
+	패스워드를 확인할때 패스워드와 확인이 맞지 않을 경우를 URL뒤의 onsubmit으로 
+	잡을수있다
+
+	유일하게 form태그만  name속성을 가질수있다.
+
+////////////////JS 끝///////////jquery 시작///////////////////////////////////////////////////////////////////
+
+
+
+
+$(function(){				//축약가능
+		alert('ready02...');
+	});
+ 
+ 	/* 
+ 	window.addEventListener('load', function(){
+ 		alert('ready...');
+ 	});
+ 	*/
+
+	위에있는 $ ~~~ ;와 같지만 addEvent...같은 함수명을 몰라도 쉽게 사용할수있다.
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+이벤트 핸들러
+		Mouse			: click, dblclick, mouseenter, mouseleave
+		Keyboard		: keydown, ketup, keypress
+		Form			: submit, focus, blur
+		Document/Window : load, unload, resize, scroll
+
+
+
+
+
+
+
+
+
+

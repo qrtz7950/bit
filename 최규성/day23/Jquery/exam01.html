@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+<script>
+ 	$(document).ready(function(){
+		alert('ready00');
+	});
+ 	$(document).ready(function(){
+		alert('ready01...');
+	});
+ 	$(function(){				//축약가능
+		alert('ready02...');
+	});
+ 
+ 	/* 위에있는 $ ~~~ ;와 같지만 addEvent...같은 함수명을 몰라도 쉽게 사용할수있다.
+ 	window.addEventListener('load', function(){
+ 		alert('ready...');
+ 	});
+ 	*/
+	
+</script>
+</head>
+<body>
+	<H2>Hello</H2>
+</body>
+</html>

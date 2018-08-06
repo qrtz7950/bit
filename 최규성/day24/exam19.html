@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body * {
+		border:1px solid red;
+		display:block;
+		margin:10px;
+		padding:10px;
+	}
+</style>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//형제간
+	//	$('h2').siblings().css('border-color', 'blue');
+	//	$('h2').siblings('h3').css('border-color', 'blue');	//형제관계의 속성 모두를 뒤진다
+	//	$('h2').next('h3').css('border-color', 'blue');	//
+	//	$('h2').prev('h3').css('border-color', 'blue');	//
+	//	$('h1').nextUntil('p').css('border-color', 'blue');	//
+	//	$('h3').prevAll().css('border-color', 'blue');	//
+	
+	//	$('p').eq(2).css('border-color', 'blue');	//p태그가 배열형식으로 만들어지기 떄문
+	//	$('div > *').eq(7).css('border-color', 'blue');
+	//	$('div > *').not('p').css('border-color', 'blue');
+	//	$('div > *').not('p').first().css('border-color', 'blue');
+	//	$('div > *').not('p').last().css('border-color', 'blue');
+		
+		
+	});
+</script>
+</head>
+<body>
+	<div>div1
+		<p>p1-1</p>
+		<span>span</span>
+		<h1>h1</h1>
+		<h2>h2</h2>
+		<h3>h3</h3>
+		<p>p1-2</p>
+	</div>
+	<div>div2
+		<h2>h2</h2>
+		<h3>h3</h3>
+		<p>p2-1</p>
+	</div>
+
+</body>
+</html>

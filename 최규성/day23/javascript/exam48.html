@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function whenSubmit(){
+		
+		//var pwd = document.getElementById("pwd");
+		//var pwdCheck = document.getElementById("pwdCheck");
+		var pwd = document.inputForm.pwd;
+		var pwdCheck = document.inputForm.pwdCheck;
+		
+		
+		if(pwd.value != pwdCheck.value){
+			alert('패스워드가 올바르지 않습니다')
+			return false;
+		} else{
+			
+			return true;
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<!-- 
+		<input type= "">
+				type :  text(한줄입력)
+						password(암호처리)
+						checkbox(다중선택)
+						radio(단일선택)
+						file(첨부파일)
+						reset(초기화)
+						hidden(입력받지않은 데이터르 전송)
+						submit(폼에서 입력받은 데이터 전송)
+	-->
+	<form action = "http://www.naver.com"
+			onsubmit="return whenSubmit()"
+			name="inputForm">
+		아이디 : <input type="text" size ="20" name="id" id="id"><br>
+		패스워드 : <input type="password" size ="20" name="pwd" id="pwd"><br>
+		패스워드확인 : <input type="password" size ="20" name="pwdCheck" id="pwdCheck"><br>
+		<input type="submit" value="전송"><br>
+	</form>
+</body>
+</html>

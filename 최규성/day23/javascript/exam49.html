@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function selectAll(){
+		var hobbys = document.inputForm.hobby;
+		for(var i = 0; i < hobbys.length; i++){
+			hobbys[i].checked = true;
+		}
+	}
+	function deSelectAll(){
+		var hobbys = document.inputForm.hobby;
+		for(var i = 0; i < hobbys.length; i++){
+			hobbys[i].checked = false;
+		}
+	}
+	function showInfo(){
+		var msg= "";
+		var hobbys = document.inputForm.hobby;
+		for(var i = 0 ; i < hobbys.length; i++){
+			if(hobbys[i].checked){
+				msg+= hobbys[i].value + '\n';
+			}
+		}
+		alert(msg);
+	}
+	
+	function toggle(check){
+		var hobbys = document.inputForm.hobby;
+		for(var i = 0; i < hobbys.length; i++){
+			hobbys[i].checked = check;
+		}
+	}
+	function toggle(){
+		var hobbys = document.inputForm.hobby;
+		/* 
+		// 전체 선택 해제 버튼 따로
+			for(var i = 0; i < hobbys.length; i++){
+			hobbys[i].checked = !hobbys[i].checked;
+		}*/
+		
+		/*
+		//토글 방법1
+		var check = false;
+		for(var i =0; i < hobbys.length; i++){
+			if(!hobbys[i].checked){
+				check = true;
+				break;
+			}
+		}
+		//
+		*/
+		
+		//토글 방법2
+		var cnt = 0;
+		for(var i =0; i < hobbys.length; i++){
+			if(hobbys[i].checked){
+				cnt++;
+			}
+		}
+		
+		var check=true;
+		if(cnt== hobbys.length){
+			check = false;
+		}
+		//
+		for(var i =0; i < hobbys.length; i++){
+			hobbys[i].checked = check;
+		}
+	}
+		
+</script>
+</head>
+<body>
+	<form name="inputForm">
+		당신의 취미는? <br> 
+		<input type="checkbox" name="hobby" value="music">음악감상<br> 
+		<input type="checkbox" name="hobby" value="movie">영화감상<br> 
+		<input type="checkbox" name="hobby" value="reading">독서<br> 
+		<input type="checkbox" name="hobby" value="Geme">게임<br> 
+		
+	<!--<input type="button" value="전체선택" onclick="selectAll()">
+		<input type="button" value="전체해제" onclick="deSelectAll()">  -->
+		
+	<!--<input type="button" value="전체선택" onclick="toggle(true)">
+		<input type="button" value="전체해제" onclick="toggle(false)">  -->
+		
+		<input type="button" value="전체 선택/해제" onclick="toggle()"> 
+		
+		<input type="button" value="결과보기" onclick="showInfo()">
+	</form>
+</body>
+</html>
