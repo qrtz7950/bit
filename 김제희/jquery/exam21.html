@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+	img {
+		width: 200px;
+	}
+</style>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function() {
+		$('#prev').click(function() {
+			$('img').first().appendTo('#gallery');
+		});
+		
+		$('#next').click(function() {
+			$('img').last().prependTo('#gallery');
+		});
+		
+		setInterval(function () {
+			$('img').last().prependTo('#gallery');
+		}, 1000);
+		
+	});
+</script>
+</head>
+<body>
+	<button id="prev" type="button" class="btn btn-danger">Danger</button>
+<!--<button id="prev">PREV</button> -->
+	<span id = "gallery">
+		<img src="img/images01.jpg" class="rounded">
+		<img src="img/images02.jpg" class="rounded">
+		<img src="img/images03.jpg" class="rounded">
+		<img src="img/images04.jpg" class="rounded">
+	</span>
+	<button id="next" type="button" class="btn btn-danger">Danger</button>
+<!-- <button id="next">NEXT</button> -->
+</body>
+</html>

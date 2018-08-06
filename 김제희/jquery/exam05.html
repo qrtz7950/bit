@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1 {
+		background-color: orange;
+	}
+	
+	h2 {
+		background-color: red;
+	}
+</style>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('h1').mouseenter(function () {
+			$('h1').css('background-color', 'yellow');
+		});
+		
+		$('h1').mouseleave(function () {
+			$('h1').css('background-color', 'orange');
+		});
+		
+		//마우스를 메뉴에 가져다 놓았을 때 메뉴창이 확장되는 형태를 해당 함수를 이용하여 작성
+		
+		//두 함수를 동시에 쓸수있는 함수가 있다
+		//매겨변수는 차례대로 mouseenter mouseleave
+		//$('h1').hover(mouseenter, mouseleave)
+		$('h2').hover(function() {
+			$('h2').css('background-color', 'pink');
+		}, function() {
+			$('h2').css('background-color', 'orange');
+		});
+
+		
+		
+	});
+</script>
+</head>
+<body>
+	<h1>마우스를 접근시켜보세요</h1>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<h2>마우스를 접근시켜보세요</h2>
+</body>
+</html>

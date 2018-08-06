@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ 	div {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		margin: 10px;
+	} 
+</style>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		/*
+		$('div').css({
+			'width': '100px',
+			'height': '100px',
+			'background-color' : 'red'
+			mr
+		})
+		*/
+		$('div').fadeTo(2000, 0.4);
+		
+		$('#btn01').click(function() {
+//			$('div').hide(1000);
+			$('div').fadeOut(1000);
+		});
+		
+		$('#btn02').click(function() {
+//			$('div').show(1000);
+			$('div').fadeIn(1000);
+		});
+		
+		//hide show를 하나로 합친 토글
+		//fade를 하나로 합친 fade토글
+		
+		$('#btn03').click(function() {
+//			$('div').toggle(1000);
+			$('div').fadeToggle(1000);
+		});
+	});
+	
+	
+</script>
+
+</head>
+<body>
+	<button id = 'btn01'>HIDE</button>
+	<button id = 'btn02'>SHOW</button><br>
+	<button id = 'btn03'>HIDE/SHOW</button><br>
+	<!-- <div style="width:100px;height:100px; background-color:red;"></div> -->
+	<div></div>
+</body>
+</html>

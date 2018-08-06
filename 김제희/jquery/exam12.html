@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		
+/*		
+		//자바 스크립트를 이용한 텍스트 가져오기
+//		var pTag = document.getElementsByTagName("p");
+		var pTag = document.querySelectorAll('p');
+		
+		console.log(pTag);
+		console.log(pTag[0]);
+		console.log(pTag[1]);
+		
+		var html = pTag[0].innerHTML;
+		var text = pTag[1].innerText;
+		alert('추출된 html :' + html + '\n추출된 text : ' + text);
+*/
+		
+		// 제이쿼리 이용하여 텍스트 가져오기
+		
+		//.innerXXXX는 자바의 문법이다
+//		var html = $('p')[0].innerHTML;
+//		var text = $('p')[1].innerText;
+
+		// 순수 제이쿼리 문법만을 사용해보자
+		// 제이쿼리를 이용하여 태그를 불러오면 객체 타입이 자바스크립트와 다르기 때문에
+		// 자바스크립트의 함수를 이용할 수 없다
+		// ex) $('p:first').innerHTML은 사용할 수 없다
+		
+		var html = $('p:first').html();
+		// p태그중 첫번째 HTML태그가 붙은 애를 가져옴
+		// first를 붙이지 않아도 디폴트는 첫번째
+		var text = $('p:first').text();
+		
+		alert('추출된 html :' + html + '\n추출된 text : ' + text);
+		
+		//★★★★★ 불러오는 객체에 따라 자바스크립트 제이쿼리 이용할 수 있는 함수가 다름 ★★★★★★★
+		//꼭 콘솔모드로 찍어보면서 작성하자!
+		
+		
+		//속성값 뽑기 자바스크립트
+		
+//		var aTag = document.querySelector('a');
+//		var attr = aTag.getAttribute('href');
+		
+		//속성값 뽑기 제이쿼리
+		
+		var attr = $('a').attr('href');
+		alert('추출된 주소 : ' + attr + '\n');
+		
+		$(':button').click(function() {
+			var name = $('#name2').val();
+			alert('입력한 이름 : ' + name + '\n');
+		});
+		
+	});
+		function clickBtn() {
+			var inputTag = document.getElementById("name");
+			var name = inputTag.value;
+			
+			alert('입력한 이름 : ' + name + '\n');
+		}
+</script>
+</head>
+<body>
+	<p>내이름은 <b>홍길동</b>이고, 별명은  <i>의적입니다</i></p>
+	<p>내이름은 <b>홍길순</b>이고, 별명은  <i>의적2입니다</i></p>
+	<a href="http://www.naver.com">네이버</a><br>
+	이름 : <input type="text" size="20" id="name">
+	<button onclick="clickBtn()">입력완료</button>
+	
+	이름22 : <input type="text" size="20" id="name2">
+	<button>입력완료</button>
+</body>
+</html>

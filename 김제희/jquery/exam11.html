@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1 {
+		display: none;
+	}
+	
+	h2 {
+		display: none;
+	}
+</style>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		// 3초에 걸쳐서 h1문장을 화면에 보인 후 complete 메세지를 화면에 띄우기
+		// 근데 alert가 먼저 뜸 왤까요
+		// 왜냐면 명령어들은 이미 다 보내져있어서 동시에 실행됨
+		// 목적을 수행하기 위해서 콜백함수 형태를 사용해야한다
+//		$('h1').fadeIn(3000);
+//		alert('complete');
+		
+		//페이드 인 실행후 콜백 호출
+//		$('h1').fadeIn(3000, function() {
+//			alert('complete');
+//		});
+		
+		// 3초 동안 h2문장을 보인후 글자색을 파란색으로 변경한 후,
+		// 슬라이드 효과로 올라갔다 내려갔다를 수행한 후 배경색을 노란색으로 변경
+		
+		$('h2').fadeIn(2000, function() {
+			$(this).css('color', 'blue');
+			$(this).slideDown(1000);
+			$(this).slideUp(1000, function() {
+				$(this).css('backgroudColor', 'yelolow');
+			});	
+		});
+		
+		//함수 체인 기법으로도 가능하다
+		
+		$('h1').fadeIn(3000, function() {
+			$(this).css('color', 'blue').slideUp(1000)
+				.slideDown(1000, function() {
+					$(this).css('background-color', 'yellow');
+				});
+		});
+
+		
+	});
+</script>
+</head>
+<body>
+	<h1>첫번째 문장</h1>
+	<h2>두번째 문장</h2>
+</body>
+</html>
