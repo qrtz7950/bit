@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	
+
+	#theworld {
+		margin:0px;
+		background-image: url("https://i.pinimg.com/originals/75/7e/10/757e102d4571bc9f23e33d74b2ba7945.png");
+		/* 936x468 */
+		background-repeat: no-repeat;
+		width: 968px;
+		height: 468px;
+		font-weight: bold;
+	}
+	
+	#time{
+		position:absolute;
+		width: 80%;
+		min-height:100px;
+	}
+	.timezone {
+		width: 4.16%;
+		min-height:468px;
+		float: left;
+	}
+	
+	.inout{
+		display: none;
+	}
+	
+</style>
+<script src="/Lecture-Web/jquery/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var country;
+		var t = new Date();
+		var time;
+		
+		$('.timezone').hover(
+			function () {
+				$(this).css({
+					'background-color' : 'black',
+					'opacity' : '0.4'
+				});
+				var a = $(this).attr('id');
+				console.log(a);
+				var caltime = Number(t.getHours()) + Number(a)
+				if(caltime >= 24) {
+					caltime = 24-caltime;
+					caltime *= -1;
+				}
+				time= caltime + '시' + t.getMinutes() + '분';
+				$('#time').append(time);
+				
+				
+			},
+			function () {
+				$(this).css({
+				'background-color' : 'transparent',
+				'opacity' : '1'
+				});
+				$('#time').empty();
+		});
+		
+		
+	});
+	
+	
+</script>
+</head>
+<body>
+	<div id="theworld">
+		<div class="timezone" id="-9" ><br><br><br>영국</div>
+		<div class="timezone" id="-8" ></div>
+		<div class="timezone" id="-7" ></div>
+		<div class="timezone" id="-6" ></div>
+		<div class="timezone" id="-5" ><br><br><br><br><br>모스코바</div>
+		<div class="timezone" id="-4" ></div>
+		<div class="timezone" id="-3" ></div>
+		<div class="timezone" id="-2" ></div>
+		<div class="timezone" id="-1" ></div>
+		<div class="timezone" id="0" ><br><br><br><br><br><br><br>한국</div>
+		<div class="timezone" id="1" ></div>
+		<div class="timezone" id="2" ></div>
+		<div class="timezone" id="3" ></div>
+		<div class="timezone" id="4" ></div>
+		<div class="timezone" id="5" ></div>
+		<div class="timezone" id="6" ></div>
+		<div class="timezone" id="7" ></div>
+		<div class="timezone" id="8" ><br><br><br><br><br><br><br>LA</div>
+		<div class="timezone" id="9" ></div>
+		<div class="timezone" id="10" ></div>
+		<div class="timezone" id="11" ><br><br><br><br><br><br>뉴욕</div>
+		<div class="timezone" id="12" ></div>
+		<div class="timezone" id="-11" ></div>
+		<div class="timezone" id="-10" ></div>
+	</div>
+	<div id='time'>
+	
+	</div>
+</body>
+</html>

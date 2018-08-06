@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	
+	#rainbow{
+	}
+	
+	.inbox {
+		padding:40px;
+		float: left;
+		text-align: center;
+	}
+	
+</style>
+<script src="/Lecture-Web/jquery/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var day
+		
+		$('p').mouseenter(function() {
+			$(this).animate({
+				'padding':'80px'
+			}, 100);
+			day = $(this).text();
+			$(this).append("요일");
+		});
+		
+		$('p').mouseleave(function() {
+			$(this).empty();
+			$(this).append(day);
+			$(this).animate({
+				'padding':'-=40px'
+			}, 100);
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+	<div id= "rainbow">
+		<p class="inbox" style="background-color: red" id="mon">월</p>
+		<p class="inbox" style="background-color: orange" id="tue">화</p>
+		<p class="inbox" style="background-color: yellow" id="wen">수</p>
+		<p class="inbox" style="background-color: green" id="thur">목</p>
+		<p class="inbox" style="background-color: blue" id="fri">금</p>
+		<p class="inbox" style="background-color: navy" id="sat">토</p>
+		<p class="inbox" style="background-color: purple" id="sun">일</p>
+	</div>
+</body>
+</html>
