@@ -30,9 +30,41 @@ classes - 서블릿관련 파일들(바이너리 파일 .class)
 lib     - 외부 jar파일들 드라이버
 web.xml - 환경설정파일
 
-WEB-INF는 보안 폴더이며 외부에서 접근할 수 없다 이러면 웹에서 보내는 요청에도 답할 수 없기 때문에
+WEB-INF는 보안 폴더이며 외부에서 접근할 수 없다 (URL로 접근불가)
+이러면 웹에서 보내는 요청에도 답할 수 없기 때문에
 서블릿 파일들에 접근하기 위해 해당 폴더에 대한 가상 접근경로가 있다
 웹 서버에서는 가상 경로를 WEB-INF의 위치로 매핑한다
 이 매핑 방식에는 두 가지가 있음
 servlet 2.5 버전까지는 xml를 사용하여 매핑
 servlet 3.0 버전부터는 어노테이션을 이용하여 가상경로와 실제 파일을 매핑하는 방식을 사용
+
+C:\Program Files\Apache Software Foundation\Tomcat 8.0\lib\servlet-api.jar
+를 가상경로인
+D:\Lecture\web-workspace\Lecture-Web\WebContent\WEB-INF\lib 에 넣으면
+
+이클립스에서 web-project에서 Java Resouce- Libraries - Web App Libraries - servlet-api.jar 드라이버가 로드된것을 확인가능
+
+자바파일 작성 후 xml파일에서 실제 파일 경로와 가상 경로를 매핑해줘야한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
