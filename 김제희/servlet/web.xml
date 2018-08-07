@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Lecture-Web</display-name>
+  <!-- servlet class파일과 가상의 경로 매핑 -->
+  <servlet>
+  	<!-- 한쌍인것을 알기 위해서 서블릿과 서블릿 매핑의 네임이 서로 같이야 한다 -->
+  	<servlet-name>hello</servlet-name>
+  	<servlet-class>kr.co.mlec.servlet.HelloServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/hi</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>method</servlet-name>
+  	<servlet-class>kr.co.mlec.servlet.MethodServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>method</servlet-name>
+  	<url-pattern>/method</url-pattern>
+  </servlet-mapping>
+
+<!--   <servlet>
+  	<servlet-name>Methodexam</servlet-name>
+  	<servlet-class>kr.co.mlec.servlet.Methodexam</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Methodexam</servlet-name>
+  	<url-pattern>/Methodexam</url-pattern>
+  </servlet-mapping> -->
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
