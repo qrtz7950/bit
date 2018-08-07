@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>개인 정보 입력</h1>
+	<form action="http://localhost:8000/Lecture-Web/pinfoResult">
+		이름 : <input type="text" name="name"><br>
+		아이디 : <input type="text" name="id"><br>
+		패스워드 : <input type="password" name="pwd"><br>
+		성별 : 남 <input type="radio" name="gender" value="남">
+			   여<input type="radio" name="gender" value="여"><br>
+		메일 수신 여부: 공지 메일<input type="checkbox" name="mail" value="notice">	
+				   광고 메일<input type="checkbox" name="mail" value="ad">
+				   배송 확인 메일<input type="checkbox" name="mail" value="express"><br>
+				   직업 : <select name="career">
+				   			<option>회사원</option>
+				   			<option>학생</option>
+				   			<option>기타</option>
+				      </select><br>
+		<input type="reset" value="취소">&nbsp;&nbsp;<input type="submit">
+	</form>
+	
+</body>
+</html>
