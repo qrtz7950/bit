@@ -1,17 +1,109 @@
-/*
- 	http://localhost:8000/Lecture-Web/sevlet/table?row=3&col=4
- 	
- 	------------------------------------------------
- 	| cell(0,0) | cell(0,1) | cell(0,2) | cell(0,3)|
- 	------------------------------------------------
- 	| cell(1,0) | cell(1,1) | cell(1,2) | cell(1,3)|
- 	------------------------------------------------
- 	| cell(2,0) | cell(2,1) | cell(2,2) | cell(2,3)|
- 	------------------------------------------------
- 	
- 	http://localhost:8000/Lecture-Web/servlet/table
- 	 5 X 5 table
- 	 
- 	http://localhost:8000/Lecture-Web/servlet/table?col=2
- 	 5 X 2 table
-*/
+<%@page import="kr.co.mlec.util.JDBCClose"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="kr.co.mlec.util.ConnectionFactory"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!--
+	5번 게시글 상세 목록조회
+	 http://localhost:8000/Mission_web/board/detail.jsp?no=5
+	 
+	 작업순서
+	1.글번호 조회 파라미터 뽑기
+	2.얻어온 글 번호를 통해 t_board테이블에서 해당 게시글 조회하기
+	3.조회된 게시불 브라우저에 출력
+-->
+
+<%
+	String strNo = request.getParameter("no");
+	int no = Integer.parseInt(strNo);
+	
+	Connection conn = ConnectionFactory.getConnection();
+	StringBuilder sql = new StringBuilder();
+	
+	sql.append("select no, title, writer, content, view_cnt, to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
+	sql.append("		from t_board ");
+	sql.append("		where no = ? ");
+	
+	PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+	pstmt.setInt(1, no);
+	
+	ResultSet rs = pstmt.executeQuery();
+	rs.next();
+	//번호가 이미 URL에 입력되어 날아 왔기 떄문에 없다고 생각하지 않고 바로 rs.next()를 실행한다
+%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	hr{
+		width: 80%;
+	}
+	
+	div {
+		align:center;
+	}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+	/* 		$('button').eq(2).click(function() {
+			location.href = "list.jsp";
+		});
+	*/
+			$('button').click(function() {
+				switch($(this).text()) {
+				case '목록' : 
+					location.href = "list.jsp";
+					break;
+				}
+			});
+	});
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<hr>
+			<h2>게시판 상세</h2>
+		<hr>
+	</div>
+	
+	<table border="1" style="width: 80%">
+		<tr>
+			<th width="25%">번호</th>
+			<td><%=no%></td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td><%=rs.getString("title")%></td>
+		</tr>
+		<tr>
+			<th>글쓴이</th>
+			<td><%=rs.getString("writer")%></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><%=rs.getString("content")%></td>
+		</tr>
+		<tr>
+			<th>조회수</th>
+			<td><%=rs.getString("view_cnt")%></td>
+		</tr>
+		<tr>
+			<th>등록일</th>
+			<td><%=rs.getString("reg_date")%></td>
+		</tr>
+	</table>
+	<button>수정</button>
+	<button>삭제</button>
+	<button>목록</button>
+</body>
+</html>
+
+<%
+	JDBCClose.close(conn, pstmt);
+%>
