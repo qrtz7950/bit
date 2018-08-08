@@ -1,0 +1,194 @@
+@@@@@@@@@@@@@@@@@@@@WebContent/WEB-INF/lib에 servlet-api.jar를 붙여넣기한다
+
+
+
+Servlet: 	'자바로 만들어진 웹프로그래밍 언어
+		'JSP는 서블릿 기술에 기반한다
+		'서블릿의 프리젠테이션 문제를 해결하기 위해 JSP가 등장
+		'JSP 모델2가 주목받으며 다시 서블릿에 대한 중요성 부각
+		'2000년대 초반에는 JSP만을 사용해서 웹을 만들었었다.
+
+"클라이언트의 요청(URL)에 따라 그에 알맞은 응답(HTML)을 해주는 것이 서블릿의 가장 큰 목적"
+
+@서블릿 생명주기
+	서블릿 클래스는 기본적인 메소드 호출순서(LifeCycle)가 존재
+- init : 최초한번만 실행
+- service : 사용자 요청에 대한 실제 응답 처리진행
+- destroy : 메모리에서 해제될 경우 호출(예> 서블릿 내용이 변경,서버 재구동....)
+- init -> service -> destroy의 순서로 사이클이 돈다
+
+init과 destroy메소드는 안만들어도 되지만 service는 꼭 만들어야 한다.
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+서블릿의 워크스페이스(Lecture-Web)를 생성하면 WEB-INF폴더(보안폴더)가 생기고 하위에
+폴더 2개(classes, lib)와 파일 1개(web.xml)이 생성되어있다
+	
+	WEB-INF는 보안폴더이기 때문에 외부에서 직접적인 요청,응답 처리가 불가능하다
+	그래서 이를 해결하기 위해 서버가 가상의 경로(URL)를 설정해야한다 
+	ex) http://localhost:8888/Lecture-Web/WEB-INF/classes/servlet/class  -> X
+	    http://localhost:8888/Lecture-Web/aaa   -> O
+
+
+	오라클과 연동을 원한다면 파일이 lib폴더에 위치해야한다
+	모든 클래스파일은 classes 폴더에 있어야한다.
+
+	서블릿jsp2.0에서는 .xml파일이 있어야 연동이 가능했지만
+	지금은 Annotation(@ ~~)을 사용해서도 연동이 가능하다
+
+//////////////////////////////////////////////////////////////////////////////////////////
+	
+web.xml에서 가상의 경로 /hello를 설정한다.
+
+
+<!--  servlet class파일과 가상의 url을 매핑 -->
+  <servlet>
+  	<servlet-name>hello</servlet-name>
+  	<servlet-class>servlet.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+/////////////////////////////////////////////////////////////////////////////////////////
+
+404 ERROR는 접속하려는 서버의 파일경로가 잘못됨을 알려주는 에러
+
+405 ERROR는 서블릿에서만 나오는 에러
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+get 방식이나 post 방식을 통해 요청한다.
+post방식은 form을 사용할때만 사용할수있다.
+post방식은 주소창에 id pwd 같은것들을 띄우지않아서 보안에 좋다
+보통 get을 사용한다.
+
+service는 doGet, doPost로 분리시켜서 get과 post 각각 처리할수있는 메소드로 만들수있다.
+
+
+URI를 통해 각각의 파일을 구분하는 지표가 된다.
+
+
+ex) @Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doGet(request, response);
+		String method = request.getMethod();
+		StringBuffer url = request.getRequestURL();
+		String uri = request.getRequestURI();
+		
+		
+		System.out.println("get방식 호출...");
+		System.out.println("Method: " + method);
+		System.out.println("URL: " + url.toString());
+		System.out.println("URI: " + uri);
+	}
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+@@@@@@@ JSP 기본요소
+
+'HTML
+
+'지시문(Directive)
+'스크립트:스크립트릿(Scriptlet),표현식(Expression), 선언문(Declaration)
+'주석문
+	위의 3개 요소는 <% %>로 표현된다
+
+
+'기본객체(Implicit Object)
+	request response page application out pageContext exception session config 가 있다
+
+'표현언어(Expression Language)
+'표준태그라이브러리(JSTL)
+	위의 2개 요소가 가장 중요하다
+
+'표준액션태그(Action Tag)
+	<jsp:include:...>,<jsp:...>
+'커스텀태그(Custom Tag)
+	안씀
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+-주석문
+
+JSP 프로그램을 설명
+
+구문
+ <% -- 설명 --%>
+ 자바에서 사용하는 // /**/ 와 동일한 역할
+ <!-- -->:html,xml에서 사용하는 컨텐츠 주석문
+
+JSP 주석문과 컨텐트 주석문 차이점
+ JSP주석문은  JSP엔진이 해석하지않는다
+ 컨텐츠 주석문은  JSP엔진이 해석하여 사용자에게 주석내용을 응답
+ 하지만 브라우져에서 해석하지않아 화면에 보이지않는다
+ JSP에서는 JSP주석을 쓰는게 권고사항이다
+
+
+-지시문
+
+JSP페이지에 대한 설정 정보를 지정
+
+구문
+<%@ 디렉티브이름 속성1="값1" 속성2="값2"... %>
+<%@ page contentType = "text/html; charset=UTF-8"%>
+<%@ page import="java.sql.*"%>
+
+종류
+
+
+
+-실행문
+
+자바코드를 실행할때 사용되는 코드의 블록
+메소드에 처리하는 실행문장이라고 생각
+
+구문
+<% 자바실행코드 %>
+
+
+-표현식
+
+값을 출력결과에 포함
+
+구문
+<%= 화면에 출력할 표현식 %>
+
+주의사항: <%=과 %> 사이에 ";"를 사용하면 안됨
+
+
+
+-선언문
+
+변수또는 메소드 선언시사용
+
+구문
+<%! %>
+
+거의 사용하지않는다
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

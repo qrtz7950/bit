@@ -1,0 +1,77 @@
+EL :Expression Language
+
+표현식<%= %> 대신 사용
+자바의 클래스 메소드 호출 및 집합 객체에 대한 접근 방법을 제공
+JSP에서 제공하는 내장객체 중 4가지기본 영역에 대한 속성 사용
+자바의 구문이나 표현식을 덜 사용하고 싶어서 만들게 되었다.
+4가지의 기본 영역에 있는 것들을 갖고와서 사용하는 형식이다.
+구문
+  : ${expr}
+	ex) 당신의 이름은 ${name}입니다.
+
+EL에서 사용하는 연산자
+
+ +,-,*,/,%, div, mod
+
+== eq ,!= ne, < lt, > gt, <= le, >= ge
+
+empty : 값이 null이면 true
+
+///////////////////////////////////////////////////////////////////////////////
+
+객체 찾는 순서
+1. EL에서 기본적으로 제공하는 객체에서 동일한 객체이름을 찾는다
+2. EL에서 기본적으로 제공하는 객체에서 찾지 못했다면, 4가지 공유영역에서 객체를 찾는다
+
+	JSP에서 쓰는 4가지의 공유영역 pageContext, request, session, application은
+	EL에서 pageScope,requestScope, sessionScope, applicationScope와 서로 공유할수있다.
+
+3. 만약, 공유영역에서 찾는 객체이름이 중복되어 있다면,
+   pageContext -> request -> session -> application 순으로 찾는다
+
+	EL을 사용해서 객체를 등록할수는 없다
+
+4. 공유영역에 객체 등록, 조회, 삭제하기
+	
+	ex)
+	<%
+		// pageContext, request, session, application
+		공유영역.setAttribute(name, value);
+		pageContext.setAttribute("id", "hong1234"); 	//앞의 변수는 String형, 뒤 변수는 object형
+		pageContext.setAttribute("name","홍길동");
+		request.setAttribute("name","임꺽정");
+		session.setAttribute("userinfo", "sbc:1234");
+	%>
+	
+      
+	<body>
+	    id: ${id}<br>	 <%--hong1234 출력--%>
+	  name:${name}<br>     <%--홍길동 출력--%>
+	  name:${requestScope.name}<br> <%-- 임꺽정 출력 --%>
+      userinfo:${sessionScope.userinfo}<br> <%--sbc:1234 출력 --%>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
