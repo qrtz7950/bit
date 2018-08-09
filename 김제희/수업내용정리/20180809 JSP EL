@@ -127,3 +127,13 @@ core-choose태그
       when 절이 모두 거짓일 경우 실행할 내용
   </c:otherwise>
 </c:choose>
+
+core - forEach태그
+<c:forEach var="" items="" [varstatus]>
+     반복시 처리할 문장
+</c:forEach>
+
+<c:forEach var="" begin"" end="">
+     반복시 처리할 문장
+</c:forEach>
+
