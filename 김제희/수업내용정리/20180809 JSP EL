@@ -61,4 +61,23 @@ ${ 객체.이름 }으로 표현 될 수 있는 객체는 자바빈즈 클래스�
 ${ 객체.이름 } 에서 객체가 자바빈즈인 경우
 ${ board.no } 는 board class 멤버변수 no의 getter 메소드를 의미한다
 
+------------------------------------------------------------------------------------------------
+
+JSTL (JSP standard Tag Library)
+ 개발자들이 개별적으로 만들어 쓰던 태그 중 자주 사용되는 태그를 표준으로 만들어서 제공
+ 
+ core 태그 - 프로그램에서 많이 사용되는 기본 태그 제공
+ fmt 태그 - 다국어 지원, 로케일 제공, 메세지 처리, 메시지 처리, 숫자, 날짜 포멧팅
+ 함수
+ sql태그
+ xml태그
+
+코어 말고 다 잘 안씀
+
+https://tomcat.apache.org/download-taglibs.cgi#Standard-1.2.5
+맨아래 4개 다 다운
+D:\Lecture\web-workspace\Lecture-Web\WebContent\WEB-INF\lib에 넣기
+
+
+
 
