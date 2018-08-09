@@ -90,4 +90,21 @@ scope 변수의 사용영역 page, request, session, application
 ex)         
 <c:set var="cnt" value="1" [scope="page"]/>          
 
+core-remove 태그
+
+공유영역에 설저오딘 변수 삭제시 사용
+삭제할 변수의 영역을 설정하지 않으면 모든 영역을 뒤짐
+
+core-out 태그
+<c:out value="" [escapeXml="true/false"] [default=""]/>          
+
+getAttribute를 대체하기 위해 나옴
+출력 전용 태그
+이미 el로 출력가능하나 보안성때문에 사용한다
+
+escapeXml true일 경우 출력내용에 태그가 있을 경우 문자값으로 변경처리
+<:&lt; >:&gt &:&amp ':&#039 ":&#0
+
+default value가 없을 경우 출력할 디폴트 설정
+
 
