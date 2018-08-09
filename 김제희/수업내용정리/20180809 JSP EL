@@ -1,0 +1,34 @@
+${}가 있을때 
+기본적으로 제공하는 객체와 이름이 같은지 비교
+
+PageContext
+pageScope
+requestScope
+sessionScope
+applicationScope
+param
+paramValues
+cookie
+
+4가지 공유영역에 이름이 같은 객체가 있는지 확인
+pageScope
+requestScope
+sessionScope
+applicationScope
+
+공유영역에 객체이름이 중복되어 있다면
+pageScope -> requestScope -> sessionScope -> applicationScope
+순으로 찾아서 추출한다
+
+등록 조회 삭제
+setAttribute
+getAttribute
+removeAttribute
+
+el은 조회를 위함이고 선언을 위함이 아니기 때문에 선언은 자바의 문법를 이용해야함
+
+공유역역에 객체를 등록할때 객체명은 언제나 텍스트이지만 value는 그렇지 않을 수 있다
+
+어떤 형인지 알수 없기 때문에 .getAttribute는 기본적으로 Object형으로 반환한다
+
+출력을 위해서는 명시적 형변환 하여야한다
