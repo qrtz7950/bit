@@ -78,6 +78,16 @@ https://tomcat.apache.org/download-taglibs.cgi#Standard-1.2.5
 맨아래 4개 다 다운
 D:\Lecture\web-workspace\Lecture-Web\WebContent\WEB-INF\lib에 넣기
 
+core-set 태그
 
+JSP 자체의 문법만을 이용하여 공유 영역에 객체를 등록시키기 위해 사용된다
+형식
+<c:set var="" value="" [scope=""]/>
+var 설정할 변수명
+valuew 설정할 값
+scope 변수의 사용영역 page, request, session, application
+          default = page
+ex)         
+<c:set var="cnt" value="1" [scope="page"]/>          
 
 
