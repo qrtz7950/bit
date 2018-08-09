@@ -107,4 +107,23 @@ escapeXml true일 경우 출력내용에 태그가 있을 경우 문자값으로
 
 default value가 없을 경우 출력할 디폴트 설정
 
+--------------------------------------------------------------------------
+core-if태그
 
+<c:if test="조건">
+     조건이 참일 경우 실행할 내용
+</c:if>
+
+<c:if test="${5==5}">
+   5==5와 같습니다
+</c:if>
+
+core-choose태그
+<c:choose>
+  <c:when test="">
+      조건이 참일 경우 실행할 내용
+  </c:when>
+  <c:otherwise>
+      when 절이 모두 거짓일 경우 실행할 내용
+  </c:otherwise>
+</c:choose>
