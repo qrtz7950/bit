@@ -26,3 +26,23 @@ JSTL - import
 변화가 많지 않은 부분이 include를 이용하여 들어간다
 ex) footer
 
+그러나 이 방법으 모든 코드에 복사 되어 비 효율적이므로 보통action include를 이용한다
+
+---------------------------------------------------------------------
+action include
+
+커스텀 태그 중에 하나다
+jsp가 붙은 태그들을 액션 태그라고 한다
+<jsp:include page = "파일경로"/>
+
+<jsp:include page = "파일경로"/>
+  <jsp:param name="msg" value="Hello action inculde"/>
+</jsp:include>
+
+포함되는 방식이 변환될 때 복사 붙여넣기하여 모든 파일이 들어가는 것이 아니라
+메소드나 함수를 호출하듯이 실행하는 시점에 불러와지므로 나의 코드가 길어지지 않는다
+인클루드를 호출한 파일과 원래의 action include 파일 사이에서 데이터를 주고받는다
+
+활용
+-JSP 페이지 내의 중복적인 부분을 처리 ex)메뉴
+
