@@ -1,0 +1,187 @@
+(EL은 보는것을 주 목적으로 한다)
+
+pageContext영역: 하나의 jsp파일에서만 데이터 유지
+request영역: 한 번의 요청을 받았을때, 서버에서 요청에 관련한 파일외에 또 연관된 파일들끼리 객체를 공유하는영역
+		하지만 요청의 응답을 해주기 전까지만 공유하고 응답을 보내면 서버의 객체가 사라진다
+session영역: 요청을 받았을때 서버에 객체를 등록했기 때문에 다른 요청에서도 등록한 객체를 호출할수있다
+		하지만 다른 클라이언트에서 서버의 객체를 요청했을시 호출불가능
+		request에서는 객체를 등록하고 재요청시 못봄
+application영역: 모든 클라이언트가 서버에 등록했던 객체를 재요청시 호출이 가능한 영역( ex)public )
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+EL에서의 객체 표현 이해
+
+1.${ 객체.이름 }
+ - 객체 자리에 올 수 있는 타입은 2가지만 가능
+	: 자바빈즈 클래스 , 맵 객체
+
+     *자바빈즈 클래스 형태
+	1) 패키지로 선언
+	2) 클래스는 public 선언
+	3) 매개변수 없는 생성자 선언
+	4) 멤버변수는 private 선언
+	5) 멤버변수에 대한 setter, getter
+
+	ex)
+	package test;
+	public class Board{
+	  private int no;
+	  public void setNo(int no) {
+	    this.no = no;
+	  }
+	  public String getNo(){
+	    return no;
+	  }
+	}
+
+    --객체 타입이 자바빈즈인 경우 ${board.no} -> no는 board 의 get 메소드를 의미
+
+    --객체 타입이 맵인 경우 ${board.no} ->no는 맵의 key가 no를 의미
+	맵은 key의 중복을 허락하지않는다 
+
+2. ${ 객체 [이름]}
+ - 객체자리에 올 수 있는 타입은 4가지만 가능
+	: 자바빈즈 클래스, 맵 객체, *배열*, 콜렉션
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+JSTL(JSP Standard Tag Library)
+
+개발자들이 개별적으로만들어 쓰던 태그 중 자주 사용되는 태그를 표준으로 만들어서 제공
+
+
+-core 태그 : 프로그램에서 많이 사용되는 기본 태그제공(모든 사이트 주요 사용태그) c
+-fmt 태그 : 다국어 지원, 로케일 제공, 메시지 처리, 숫자, 날짜 포맷팅(빈도는 낮지만 가끔사용) fmt
+-함수	(빈도는 낮지만 가끔 사용) fn
+-spl 태그 (거의 사용하지않음) sql
+-xml 태그 (거의 사용하지않음) x
+
+
+ core - set태그
+
+1. 형식 
+ - <c:set var="" value="" [scope=""] />
+
+2.공유영역에 변수 설정 시 사용
+3.속성 설명
+ -var : 설정할 변수명
+ -value : 설정할 값
+ -scope: 변수의 사용 영역(page,request,session,application)
+	기본 설정영역: page (EL의 pageContext와 이름만 다름)
+
+4.사용 예
+  <c:set var="cnt" value="1" scope="page" />
+
+
+*******************************************************************
+
+	공유영역 4가지
+	     JSP		EL  		    JSTL
+          pageContext       pageScope		    page
+            request       requestScope 	           request
+            session        sessionScope	 	   session
+         application	applicationScope         application
+
+*******************************************************************
+
+ core - remove 태그
+1.형식
+   <c:remove var="cnt" [scope="page"] />
+
+2. 공유영역에 설정된 변수 삭제 시 사용
+
+3.속성 설명
+ - var : 삭제할 변수명
+ - scope : 삭제할 변수가 설정되어있는 영역
+		(page,request, session, application)
+
+
+ core - out 태그 : 코드 중간중간에 문자값이 들어가기 때문에 보안성이 좋다
+1. 형식
+    <c:out value="" [escapeXml="true/false"] [default=""] />
+2.출력 전용 태그
+3.속성 설명
+  - value: 출력할 내용을 지정
+  - escapeXml :
+	-true일 경우 : 출력 내용에 태그가 있을 경우 문자값으로 변경처리
+	< : &lt;   >  &gt;    & :amp;    ' : &#039;      " : &#
+  - default
+	-속성값이 없을 경우 디폴트값 지정
+
+
+ core - if 태그
+1. 형식
+	<c:if test="조건">
+		조건이 참일 경우 실행할 내용
+	</c:if>
+2. 조건에 따라 내용을 실행
+3. 속성설명
+	test : 참과 거짓을 판단하는 조건을 명시
+4. 사용 예
+<c:if test="${5==}:>
+	5==5와 같습니다.
+</c: if>
+
+
+core - choose 태그
+1. 형식
+	<c:choose>
+		<c:when test="">
+			조건이 참일경우 실행할 내용
+		</c:when>
+		.......
+		<c:otherwise>
+			when절이 모두 거짓일경우 실행할 내용
+		</c:otherwise>
+	</c:choose>
+2.다중조건 처리태그
+3.속성설명
+ - test : 참과 거짓을 판단하는 조건을 명시
+
+
+core - forEach 태그
+1.형식
+	<c:forEach var="" items="" [varStatus=""]>
+		반복  시 처리할 문장: 배열 또는 콜렉션 객체를 반복할 경우 사용
+	</c:forEach>
+
+	<c:forEach var="" begin="" end="">
+		반복 시 처리할 문장: 지정된 회수 만큼 반복할 경우 사용
+	</c:forEach>
+2. 반복문 처리 태그
+3. 속성 설명
+ var : 반복문에서 사용 할 변수명 지정
+ items : 반복시킬 대상 객체 지정(배열또는콜렉션)
+ verstatus:
+	first
+	index
+	count
+	last
+
+
+fn(함수)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

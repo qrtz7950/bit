@@ -1,0 +1,97 @@
+페이지 포함
+
+- 페이지 공통부분
+
+ex) 상단의 메뉴바를 눌렀을때 밑의 내용부분의 섹션만 바뀌는 홈페이지에서
+	메뉴바는 페이지의 공통부분으로 바뀌지않는다
+
+
+
+페이지 내용을 포함하는 3가지 방식
+1.directive(지시자) - include
+2.action(액션) - include	(제일많이쓴다)
+3.jstl - import
+
+
+ 1.지시자
+	다른 페이지의 코드를 내 페이지로 포함
+	구문: <%@ include file = "파일경로" %>
+	시점: jsp가 java로 변환될 때 같이 포함
+	활용
+	-jsp페이지에서 사용되는 공통변수 지정
+	-각 페이지에 고정적으로 사용되는 내용처리
+	   :사이트 하단 부분
+
+
+ 2.액션
+	다른 페이지의 실행결과를 내 페이지로 포함시킴
+	아웃객체를 사용할수있기 때문에 많이 사용한다
+	파라미터와 공유영역(request) 이용하여 데이터를 공유
+	구문: <jsp:include page="파일경로" />
+	      <jsp:include page="파일경로">
+		<jsp:param name="msg" value="test" />
+	      </jsp:include>
+	시점: 실행 시(실행된 결과값이 포함)
+	활용
+	-JSP 페이지내의 중복적인 부분을 처리( ex) 메뉴 )
+
+
+ 3. JSTL
+	다른 페이지의 실행 결과를 내 페이지로 포함시킴
+	구문: <c:import url="파일경로" />
+	      <c:import url="파일경로" >
+		<c:param name="msg" value="test"/>
+	      </c:import>
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+페이지 이동
+
+포워드 기술에서는 action 포워드 기술밖에없다
+대기업의 제품이지만 하청업체가 만드는 것과 비슷함
+
+  액션-forward
+	호출된 페이지에서 다른 페이지로 요청 처리가 이동
+	파라미터와 공유 영역(request) 이용하여 데이터를 공유
+	구문:<jsp:forward path ="파일경로">
+	     <jsp:forward parh="파일경로">
+		<jsp:param name="msg" value="test />
+	     </jsp:forward>
+	활용
+	-JSP페이지에서 조건에 따른 페이지 이동
+
+
+
+************경로*************
+	http://localhost:8888/Mission-Web/jsp/board/aaa.jsp 경로가있을때
+
+include, forward, xml에서의 / 경로(Mission-Web을 제외한 jsp부터 써야함)
+
+<%@ include file="/jsp/board/aaa.jsp" %>
+
+<jsp:forward page="/jsp/board/aaa.jsp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

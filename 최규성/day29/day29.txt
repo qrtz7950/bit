@@ -1,0 +1,177 @@
+
+  response.sendRedirect(url)
+
+호출된 페이지에서 다른 페이지로 요청 처리가 이동
+요청이 재 발생되어 데이터 공유가 되지 않음
+
+request는 한번의 요청에 응답이 오기까지 데이터를 공유하기때문에 
+sendRedirect로 요청하면 바로 응답이 오기때문에 데이터의 공유가 불가능하다
+
+forward는 url에 입력받은 id가 ? 뒤에 출력되지만
+ sendRedirect는 입력받은 데이터 없이 ~/admin.jsp로 끝난다
+
+구문
+	response.sendRedirect(url);
+ex)
+	response.sendRedirect("http://~~);
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+  상태정보 유지기술 -  쿠키 , 세션
+
+쿠키는 개인정보를 유지시키는 데에는 보안성이 떨어지기 때문에 개인정보를 제외한 유지에서만 사용한다
+------------------------------------------------------------------------------------------------------
+
+ - 쿠키의 특성
+ 정보저장 위치 : 사용자 컴퓨터
+ 서버의 부하가 분산된다
+ 보안상의 문제가 발생할 수 있다.
+ 정보저장 유효기간을 사용자가 설정한다(브라우저가 닫힌 이후에도 유지)
+ 한 사이트에서 저장할 수있는 쿠키객체는 한정되어있다 (20개)
+ 하나의 쿠키에 저장할 수 있는 데이터는 브라우저별 한계가있음(4k)
+ 컴퓨터에 쿠키 한계치(300개)가 오게되면 랜덤하게 저장되어있는 쿠키가 삭제된다
+ 쿠키의 정보저장은 문자열만 가능
+ 한글저장할때는 반드 안코딩을 해야함
+
+쿠키 생성 및 전송하기
+<%
+ Cookie cookie = new Cookie("cookieName", "cookieValue");
+ response.addCookie(cookie);
+%>
+
+
+쿠키의 구성
+ 구성요소
+	name이름, value값, maxAge쿠키 유효시간, domain전송할 도메인, path전송요청경로
+
+쿠키이름 제약
+  아스키코드의 알파벳과 숫자만을 포함할 수있다
+  콤마, 세미콜론, 공백등의 문자는 포함 할 수없다
+  $로 시작할수없다
+
+
+쿠키의 인코딩 / 디코딩
+  쿠키는 값으로 한글과 같은 문자를 가질 수없음
+  쿠키 값의 처리
+
+	- URLEncoder.encode("값","euc-kr");
+	- String cName = "한글이름";
+	         cName = URLEncoder.encode(cName,"euc-kr");
+
+
+	- URLDecoder.decode(....);
+
+쿠키 유효시간
+  쿠키의 유효시간 설정
+	cookie.setMaxAge(int maxAge): 초단위 설정
+	유효시간 미 지정시, 웹브라우저를 닫을때 쿠키도 삭제
+	- setMaxAge(0); //쿠키삭제
+	- setMaxAge(-1); // 브라우저를 닫을때 삭제[
+	- setMaxAge(60 * 60 * 24) //1일 설정
+
+쿠키의 도메인
+  쿠키 도메인 지정시 해당  도메인에  쿠키전달
+	Cookie.setDomain(String domain)
+	
+쿠키 경로
+  설정된 경로를 기준으로 쿠키 전달
+  경로 미설정시, 요청 URL의 경로에 대해서만 전달
+
+
+	ex)
+	Cookie c = new Cookie("type01" ,URLEncoder.encode("/루트 설정", "utf-8"));
+	c.setPath("/");
+	
+	Cookie c2 = new Cookie("type02", URLEncoder.encode("/Lecture-Web/jsp/cookie 설정", "utf-8"));
+	c2.setPath("/Lecture-Web/jsp/cookie");
+	
+	Cookie c3 = new Cookie("type03", URLEncoder.encode("/Lecture-Web/jsp/cookie/type03 설정", "utf-8"));
+	c3.setPath("/Lecture-Web/jsp/cookie/type03");
+
+	Cookie c4 = new Cookie("type04", URLEncoder.encode("/Lecture-Web/jsp/cookie/type04 설정", "utf-8"));
+	c4.setPath("/Lecture-Web/jsp/cookie/type04");
+
+	전체폴더와 하위 파일에 type01의 쿠키가 존재하게 되며 type02는 cookie폴더의 모든 하위폴더,파일에 들어가고
+	type03은 type03.jsp파일에만, type04도 type04.jsp파일에만 존재하게 된다
+
+------------------------------------------------------------------------------------------------------------------
+
+세션(cookie)
+ 웹 컨테이너에서 클라이언트의 정보를 보관할 때 사용
+ 오직 서버에서만 생성
+ 클라이언트마다 세션이 생성
+ page 지시자의 session 속성값을 true로 지정
+  -세션이 존재하지 않을 경우 세션이 생성되고, 세션이 존재할 경우 이미 생성된 세션을 사용(true가 디폴트값)
+     <%@ page session ="true"%>
+
+세션의 특성
+ 정보 저장 위치: 서버
+ 서버의 부하가 가중된다
+ 보안상의 문제 발생 소지를 줄인다
+ 정보저장 최대 유효기간이 브라우저가 닫힐 때 까지이다(서버의 부하가 걸리기때문에)
+ 정보 저장시 객체 타입이 가능하다
+ 
+
+세션 종료/ 타임아웃
+  세션 타임아웃 시간 설정
+     -web.xml에 설정(분 단위)
+	ex) <session-config>
+		<session-timeout>
+		    30
+		</session-timeout>
+	    </session-donfig>
+
+  프로그램에서 설정(API활용 -초단위)
+     -session.setMaxInactiveInterval(int interval);
+
+
+세션 주요 API메소드
+  세션 객체 얻기
+ 세션이 없을 경우 새롭게 생성, 존재한다면 존재하는 객체 반환
+ -javax.servlet.http.HttpServletRequest.getSession()
+ -javax.servlet.http.HttpServletRequest.getSession(true)
+
+ 세션이 없을 경우 null, 존재한다면 존재하는 객체 반환
+ -javax.servlet.http.HttpServletRequest.getSession(false)
+
+
+세션 삭제
+removeAttribute도 사용가능하지만
+session.invalidate(); 로 전부 삭제 가능하다
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+mission-web
+
+1.7 버전의 try문은 finally에 close()메소드를 써줄 필요가 없이 자동으로 닫아준다.
+대신 sql문을 try문 안이 아닌 위쪽에 선언해줘야한다
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
