@@ -62,3 +62,12 @@ readyState
 2 : loaded (send 메서드가 호출되었지만 서버 응답 전)
 3 : interactive (데이터의 일부가 전송된 상태)
 4 : completed (모든 데이터 전송 완료)
+
+status
+	서버의 처리결과 상태 코드
+	200 : OK 요청성공
+	403 : 엑세스 
+	404 : Not Found(페이지 못찾을 경우)
+	500 : server Error 서버에서 결과 생성시 오류 발생
+
+
