@@ -70,4 +70,4 @@ status
 	404 : Not Found(페이지 못찾을 경우)
 	500 : server Error 서버에서 결과 생성시 오류 발생
 
-
+responceText : 응답을 텍스트로 받음
