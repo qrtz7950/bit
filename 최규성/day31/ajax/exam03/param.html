@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var httpRequest = null;
+	function getXMLHttpRequest(){
+		if(window.XMLHttpRequest){
+			return new XMLHttpRequest();
+		} else if(window.ActiveXObject){
+			return new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		return null;
+	}
+	function sendProcess(method, param){
+		var msg="==========================================================\n"
+		msg += method + "방식: /Lecture-Web/jsp/ajax/exam03/param.jsp?name=" + param + "\n";
+		debugTrace(msg);
+		
+		httpRequest = getXMLHttpRequest();
+		
+		httpRequest.onreadystatechange = callbackFunction;
+		
+		param = encodeURIComponent(param);	//한글문자열 인코딩
+		
+		/* var url = "param.jsp?name=" + param;
+		httpRequest.open("GET", url , true);
+		httpRequest.send(null); */
+		
+		var url = "param2.jsp";
+		var args = "name=" + param;
+		
+		if(method == 'GET'){
+			httpRequest.open(method,url + '?' + args , true);
+			httpRequest.send(null);
+		} else if(method =='POST'){
+			httpRequest.open(method,url,true);
+			httpRequest.setRequestHeader('content-type' , 'application/x-www-form-urlencoded');
+			httpRequest.send(args);
+		}
+	
+	}
+	
+	function callbackFunction(){
+		
+		var msg = "";
+		
+		switch(httpRequest.readyState){
+		case 1: 
+			msg += "Loading....\n";
+			break;
+		case 2: 
+			msg += "Loaded....\n";
+			break;
+		case 3: 
+			msg += "Interactive....\n";
+			break;
+		case 4: 
+			msg += "Complete....\n";
+			//서버 응답후 상태코드 표시
+			if(httpRequest.status == 200){
+				msg += '웹서버에서 정상적으로 수행 ...\n';
+				msg += '실행결과: ' + httpRequest.responseText + '\n';
+			} else{
+				msg += '웹서버에서 오류발생...\n';
+				msg += '오류코드: ' + httpRequest.status + '\n';
+				msg += '오류내용: ' + httpRequest.statusText + '\n';
+			}
+			break;
+		}
+		
+		debugTrace(msg);
+	}
+	
+	function debugTrace(msg) {
+		var debug = document.getElementById("debug");
+		debug.value += msg;
+	}
+	
+</script>
+</head>
+<body>
+	<textarea rows="8" cols="80" id="debug"></textarea>
+	<input type="button" value="GET영문인자전송" onclick="sendProcess('GET','honggildong')">
+	<input type="button" value="GET한글인자전송" onclick="sendProcess('GET','호옹기일도옹')">
+	<input type="button" value="POST영문인자전송" onclick="sendProcess('POST','honggildong')">
+	<input type="button" value="POST한글인자전송" onclick="sendProcess('POST','호옹기일도옹')">
+	
+</body>
+</html>
