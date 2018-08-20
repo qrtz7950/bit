@@ -1,0 +1,98 @@
+.properties 파일에서는 name= & value= 같은 형식을 갖기 때문에
+쓸데없는 공백문자,엔터의 사용을 금한다
+ex)
+/board/list.do=kr.co.mlec.ListController
+/board/writeForm.do=kr.co.mlec.WriteFormController
+
+-----------------------------------------------------------------------------------
+
+MVC2.5 은 기능하나에 컨트롤러가 하나씩 필요했기때문에 불편하다
+ex)
+/list.do =>    ListController => handleRequest()
+/detail.do =>    DetailController => handleRequest()
+/writeForm.do =>    WriteFormController => handleRequest()
+
+MVC3.0에서는 /~~~.do라는 url이 호출됐을때, 어떤 컨트롤러안의 어떤 메소드를 써야하는지를
+구분해놓았다.(어노테이션@ 을 통해 찾을수있다)
+ex)
+BoardController => list()
+		=> detail()
+
+LoginController => login()
+		=> loginProcess()
+		=> logout()
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+ex) RequestMapping.java에서 
+
+package kr.co.mlec.framework.annotation;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface RequestMapping {
+
+	String value();
+}
+
+
+	이렇게 설정해두고
+   BoardController.java에서
+
+package kr.co.mlec.board.control;
+
+import kr.co.mlec.framework.annotation.Controller;
+import kr.co.mlec.framework.annotation.RequestMapping;
+
+@Controller
+public class BoardController {
+
+	@RequestMapping(value="/board/list.do")
+	void list() {
+		
+	}
+}
+
+
+@RequestMapping으로 어느 컨트롤러의 어느 메소드인지를 알려주게된다
+
+
+-------------------------------------------------------------------------------------
+
+3.0에서 dispatcher 서블릿으로 2.5의 frontController를 대신한다
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
