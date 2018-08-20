@@ -1,0 +1,81 @@
+
+Jquery + Ajax
+
+$.ajax();   -  자동으로 원하는 메소드 url 파라미터 함수를 갖고올수있다
+	$.get() , $.post(); 를 간단히 사용할수있게된다.
+
+f2904c73a7dd3a504891f83a242f5f32 <-kobis.or.kr openAPI 키
+
+크롬 앱스토어에서 postman 앱추가
+
+http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml
+
+
+
+
+
+ex)
+
+	$(document).ready(function(){
+		$('button').click(function(){
+			$.ajax({
+				url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json",
+				data : {
+					key : "f2904c73a7dd3a504891f83a242f5f32",
+					targetDt : "20180816"
+				},
+				dataType : "jsonp", 
+				success : callback
+				
+			});
+		});
+	}); 
+
+
+--------------ajax 끝, 다시 서블릿jsp----------------------------------------
+
+서버가 요청을 받으면, 서블릿과 jsp 두 개의 파일로 나누어서 서블릿파일은 DB에 접속해
+공유영역에 올리고 foward로 jsp에 전달해주면 jsp가 화면에 응답해주는 방식이다. 
+
+파라미터 분석
+DB접속 및 실행		=>    요청이 들어오면 서버의.servlet이 받고 forward로 .jsp에 전달
+공유영역 등록		 
+
+HTML문서 작성 		=>    응답을 해줄땐 .jsp가 클라이언트에 응답해줌
+
+
+
+MVC(model view controller)
+
+원래는 하나의 요청에 하나의 응답이 필요했기 때문에
+서블릿 파일이 너무 많아지는것을 방지하기 위해 대표적인 서블릿하나에서
+원하는 서블릿으로 쏴주는 형식으로 기능이 가능하게 한다
+사단 교환대, ARS 상담원연결 같은것을 생각하면 됨
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
