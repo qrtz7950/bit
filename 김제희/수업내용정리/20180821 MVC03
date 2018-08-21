@@ -1,0 +1,4 @@
+servletContext  서블릿끼리의 공유 영역
+Config          서블릿 하나가 설정을 저장하는 공간
+
+servletContext 공간이 서버가 시작될 때 만들어져야 안정적이다 이 공간을 리스너라고한다
