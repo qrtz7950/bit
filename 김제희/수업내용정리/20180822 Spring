@@ -178,9 +178,20 @@ id 속성은 자바 명명규칙을 따름
 
 -----------------------------------------------------------------------------------------
 
-이제 컨터이너를 만들고 XML파일을 로딩하여 필요한 객체를 만드는법을 알아야 겠죠?
+이제 컨터이너를 만들고 XML파일을 로딩하여 필요한 객체를 만드는법을 알아야겠죠?
 
-억떡계 객체를 만드는지 
+***********************************************************
+XML템플릿 추가하기  preference - XML - XML FIles - Editor - Template에 새로운 것 추가하여
+
+<beans xmls="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schgemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd "
+	>
+</beans>
+를 추가하여 XML파일에서 자동완성으로 beans사용을 위한 XML 템플릿을 자동입력가능
+
+
 
 
 
