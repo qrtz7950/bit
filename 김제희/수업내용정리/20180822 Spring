@@ -191,9 +191,13 @@ XML템플릿 추가하기  preference - XML - XML FIles - Editor - Template에 �
 </beans>
 를 추가하여 XML파일에서 자동완성으로 beans사용을 위한 XML 템플릿을 자동입력가능
 
------------Container BeanFactory------------------
+-----------Container ApplicatronContext------------------
 
+BeanFactory 기능 이외에 추가적인 기능 제공
+국제화를 지원 자원을 로딩하는 범용적 방법 제공 이벤트 처리
 
+beanFactory와의 차이점 
+빈을 컨테이너를 로딩하는 시점이 컨텍스트가 시작되기 전에 모든 빈을 미리 로딩하여 빈이 필요할 때 바로 사용할 수 있도록 함
 
 
 
