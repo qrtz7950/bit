@@ -199,7 +199,15 @@ BeanFactory 기능 이외에 추가적인 기능 제공
 beanFactory와의 차이점 
 빈을 컨테이너를 로딩하는 시점이 컨텍스트가 시작되기 전에 모든 빈을 미리 로딩하여 빈이 필요할 때 바로 사용할 수 있도록 함
 
+------------Dependency Injecticon-----------------------------
 
+각 Bean간의 의존관계 설정을 XML파일에 등록
+프로그램 코드에서는 직접 빈을 획득하기 위한 코드를 사용할 필요가 없음
+Container가 자체적으로필요한 객체를 넘겨줘서 사용하는 방식
+
+사용방식
+1. Constructor Injection
+2. Setter Injection
 
 
 
