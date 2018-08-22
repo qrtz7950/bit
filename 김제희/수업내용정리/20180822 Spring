@@ -42,3 +42,46 @@ D:\Lecture\apache-maven-3.5.4\conf\settings.xml 의
   
   그러면 이클립스가 뭘 다운받음  
   
+  --------------------------------------------------------------
+  
+  만들어진 프로젝트에 패키지 형태의 4개의 src가 보이는데 사실은 아래 폴더의 src를 패키지 형태로 보여주는것 뿐 하나의 폴더다
+  
+  지금까지는 jar파일을 다운받거나 가져왔는데
+  pom.xml에서 이를 원격으로 설정할 수 있다
+  
+src/main/java 소스파일 작성
+
+src/main/resouces 자원파일 작성
+
+이제 설정한 레스포토리 폴더를 보면 자동으로 생성된 폴더들이 있고 여기에 아직 스프링 관련 파일은 다운 받아져있지 않다
+
+이를 다운 받기 위해 http://mvnrepository.com/ 로 이동
+
+spring-context 검색 4.3.18 버젼의 메이븐이라고 써진곳에 xml을 가져오자
+
+pom.xml에 
+
+<dependencies>
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>4.3.18.RELEASE</version>
+	</dependency>
+</dependencies>
+  
+추가하면 설정 폴더 안에 org라는 폴더가 추가로 생긴다 여기에 스프링 관련 파일이 자동으로 다운받아진다
+
+이제부터는 내가 다운받아 수동으로 추가하는 것이 아니라
+
+<dependencies></dependencies> 안에 추가하면 maven이 알아서 다운로드 및 관리를 해준다
+
+
+
+
+//메이븐이 jar파일에대한 관리를 해줌
+
+
+
+  
+  
