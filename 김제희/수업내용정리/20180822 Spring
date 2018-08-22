@@ -145,9 +145,9 @@ Container 종류
 
 BeanFactory
 -XmlBeanFactory
-ApplicationContext		 xml설정파일을 로딩하는 단순한 빈팩토리 
+ApplicationContext		 xml설정파일을 로딩하는 단순한 bean팩토리
 classPathXmlApplicationContext 	 클래스 패스
-FileSystemXmlApplicationContext	 지정된 파일 경로
+FileSystemXmlApplicationContext	 지정된 파일 시스템으로 부터 경로를 가져옴
 XmlWebApplicationContext
 
 *******************************************************************
@@ -191,8 +191,7 @@ XML템플릿 추가하기  preference - XML - XML FIles - Editor - Template에 �
 </beans>
 를 추가하여 XML파일에서 자동완성으로 beans사용을 위한 XML 템플릿을 자동입력가능
 
-
-
+-----------Container BeanFactory------------------
 
 
 
