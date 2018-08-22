@@ -1,0 +1,169 @@
+
+메이븐프로젝트로 만들어야한다
+
+
+
+SPRING
+
+웹사이트를 구성할때 모델2를 기반으로 해서 구성하는데에 도움을 준다.
+편하게 개발하는것이 가능하지만 처음 진입장벽이 굉장히 높다.
+
+sts라는 편집기를 사용하는것이 대부분이다
+
+
+스프링은 외부의 jar파일들을 자동으로 다운받게 되는데 이 경로를 찾기위해 maven을 쓴다
+
+src/main/java - 소스파일 작성
+src/main/resources -자원파일 작성(설정XML, properties)
+
+
+http://mvnrepository.com/artifact/org.springframework/spring-context/4.3.18.RELEASE에서
+
+maven을 드래그해서 pom.xml에 복사 붙여넣기 한다
+
+---------------------------------------------------------------------------------------
+
+Spring DI (의존주입)
+
+객체를 관리하는 것이 주목적
+만들어져있는 객체를 어떻게 사용하는지가 관건이된다
+
+
+
+IoC - 제어 역행
+-기존: 인스턴스의 생성방법에 대한 부분을 개발자가 소스상에서 직접 처리
+-IoC: 인스턴스의 생명주기 관리를 개발자가 아닌 컨테이너가 처리함
+
+DI - 의존주입
+-Spring에서 IoC를 제공하는 형태중 한자(DL, DI)
+-종류:
+	Setter Injection	세터주입
+	Contructor Injection	컨스트럭터주입
+	두 개의 주입방식이 아닌 방법으로도 가능하다
+    *의존: 객체간의 의존관계를 의미
+
+
+기존 코드 작성방식
+  필요한 위치에서 객체 생서
+  인터페이스를 활용한 객체 생성
+  별도의 조립기 클래스를 활용하여 객체 생성
+---------------------------------------------
+  개선방법 :
+ - Spring에서 제공하는 DI활용
+ -개발자가 코드에서 직접객체생성하지않는 방식
+ -XML환경 설정파일 또는 어노테이션을 이용하여 객체를 주입
+
+------------------------------------------------------------------------------
+Container
+
+Spring Container
+ Spring프레임워크에서 Container기능을 제공해주는 클래스를 의미
+ Container: Bean클래스를 관리 하는 주체
+ Bean: Spring에서 관리되는 클래스 객체를 나타냄
+ Container 초기화 방법: 설정정보 XML파일을 읽고 Container에 로딩
+
+
+Container 종류
+1. BeanFactory	(요즘은 잘 안쓴다)
+  - XmlBeanFactory
+
+2. ApplicationContext
+  - ClassPathXmlApplicationContext
+  - FileSystemXmlApplicationContext
+  - XmlWebApplicationContext
+
+------------------------------------------------------------------------------
+Container- XML
+
+ spring은 xml설정정보를 참조하여 여러가지 Container Service를 제공
+유지보수 작업시 xml파일을 조정
+
+
+Container - Bean
+
+ Bean클래스
+-스프링 크레임워크에 의해 LifeCycle이 관리되는 클래스
+-일반 POJO기반의 클래스
+-XML에 <bean /> 태그를 이용하여 등록
+-<bean> 태그의 속성
+  1. id: 여러개의 Bean클래스를 식별하기위한 이름
+  2. name : id 속성과 동일한 의미
+  3. class: 사용하려는 Bean 클래스의 패키지명을 포함한 클래스명
+
+ * id와 name의 차이
+설정될 수 있는 값에 차이가 있다,. id속성은 자바 명명규칙을 따름
+즉, 숫자가 우선 할 수 없고 "/"같은 특수기호가 사용될 수 없음
+ex) <bean class="basic.Hello" id="hello" />
+
+
+Container - BeanFactory
+
+Bean의 LifeCycle을 관리
+BeanFactory객체는 XmlBeanFactory
+
+
+ClassPath는 src/main/resources 패키지를 의미한다
+
+
+
+------------------------------------------------------------------------------------
+Container - ApplicationContext
+
+BeanFactory기능 이외에 추가적인 기능제공:
+	국제화를 지원, 자원을 로딩하는 범용적 밥법 제공 , 이벤트처리
+
+BeanFactory와의 차이점:
+	빈을 커테이너에 로딩하는 시점이 컨텍스트가 시작되기 전에 모든 빈을
+	미리 로딩하여 빈이 필요할때 바로 사용할 수 있도록함
+	getBean을 하지않아도 실행시 객체를 먼저 생성한다
+
+xml에서 <bean class="basic.Hello" id="hello" lazy-init="true" /> 처럼
+lazy-init="true"을 추가한 경우에는 실행시에 바로 객체를 만들지않고 BeanFactory처럼
+getBean을 한 경우에 객체가 생성되게 된다.
+
+
+
+--------------------------------------------------------------------------------------
+DI
+
+Dependency Injection
+
+각 Bean간의 의존관계 설정을 xml파일에 등록
+프로그램 코드에서는 직접 빈을 획득하기 위한 코드를 사용할 필요가 없음
+Container가 자체적으로 필요한 객체를 넘겨줘서 사용하는 방식
+
+사용방식
+1.Constructor Injection
+2.Setter Injection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
