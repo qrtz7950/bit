@@ -41,7 +41,17 @@ xml파일 설정을 통해서 자동으로 빈으로 사용될 객체를 등록�
 <context:component-scan base -package="kr.co.mlec"/>
 지정된 ㅍ키지 하위의 모든 패키지를 스캔하여 빈으로 등록
 빈으로 등록되려면 자바 클래스에서 어노테이션을 사용해야 한다
-@Compoenet, @Contriller, @Service, @Repository
+@Compoenet, @Contoiller, @Service, @Repository
+
+Coponent - scan
+<Context:cpmporent-scan base-package="kr.co.mlec"/>
+
+지정된 패키지 하위의 모든 패키지를 스캔하여 빈으로 등록
+빈으로 등록되려면 자바 클래스에서 어노테이션을 사용해야한다
+@Compoenet, @Controller, @Service, @Repository
+
+그러나 이렇게 만들면 id가 없다
+내가 객체를 만들 클래스명의 맨 앞글자를 소문자로 적용시킨것이 아이디가 된다
 
 
 
