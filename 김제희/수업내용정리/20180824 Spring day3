@@ -1,0 +1,17 @@
+DI 자동주입
+
+XML파일이 너무 커지는 것을 방지
+
+자동주입 기능 사용시 스프링이 알아서 의존객체를 찾아서 주입
+
+자동주입 기능 사용 방법
+
+-XML파일에 <context:annotation-config/> 설정을 추가
+-java파일에 의존주입 대상에 @Autowired @Resource 설정
+
+@Autowired
+
+java 설정
+-변수설정
+-생성자 설정
+-set 메소드 설정
