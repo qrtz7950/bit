@@ -33,4 +33,15 @@ java 설정
 
 4. 위의 경우에 해당하는 객체가 없을 경우 예외가 발생함
 
-type - > Qualifier - > di
+type - > Qualifier - >  id
+
+Componetn-scan
+
+xml파일 설정을 통해서 자동으로 빈으로 사용될 객체를 등록한다
+<context:component-scan base -package="kr.co.mlec"/>
+지정된 ㅍ키지 하위의 모든 패키지를 스캔하여 빈으로 등록
+빈으로 등록되려면 자바 클래스에서 어노테이션을 사용해야 한다
+@Compoenet, @Contriller, @Service, @Repository
+
+
+
