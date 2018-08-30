@@ -12,3 +12,19 @@ junit
 spring-test
 spring-jdbc
 마이 바티스에서 3개 다운
+
+http://www.mybatis.org/mybatis-3/ko/getting-started.html
+-시작하기
+-<?xml>로 시작하는거 복사하여
+
+스프링 프로젝트에 Config/mybatis/sqlMapConfig.xml
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+</configuration>
+
+복붙
