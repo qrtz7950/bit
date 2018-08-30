@@ -1,0 +1,14 @@
+datasource 설정
+
+커넥션 풀을 이용한 datasource 설정
+DBCP (Jakara Commonsdatabase Connection Pool API)를 이용한 설정
+
+
+스프링에서 객체가 만들어졌는지를 테스트하기 위해서는 xml의 객체 생성 마이바티스의 디펜던시 추가 등 할일이 많아
+ㄱ개체가 제대로 만들어 졌는지 체크하기 어려우므로 
+J unit 이라는 단위 테스트를 이용해보자\
+
+junit
+spring-test
+spring-jdbc
+마이 바티스에서 3개 다운
