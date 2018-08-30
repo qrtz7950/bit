@@ -1,0 +1,12 @@
+1. Maven project 선택 -> Mission-Web-Spring 생성
+
+2. src/main/webapps -> WEB-INF 폴더 생성 후 web.xml 붙이기
+
+3. src/main/java/resources -> config/spring 폴더 생성 spring-mvc.xml 붙이기
+
+3. pom.xml -> <dependencies></dependencies> 안에 dependency 추가
+                         servelet-api, jsp-api, spring-webmvc
+
+4. tomcat에서 서버 실행 후 에러유무 확인
+
+5. properties에서 project facets에 java 버전을 1.5 -> 1.8 변경
