@@ -1,0 +1,9 @@
+REST 방식 URI : method(CRUD) + uri(parameter)
+
+GET	/board			조회
+GET	/board?no=3		상세조회
+GET	/board/3		
+GET	/board/post		글등록폼
+POST	/board/post		글등록
+PUT	/board/3		수정
+DELETE 	/board/3		삭제
