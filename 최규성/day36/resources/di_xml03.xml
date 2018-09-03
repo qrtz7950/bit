@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+							
+		<bean class="di_xml03.KoreaTire" id="koreaTire" />
+		<bean class="di_xml03.NexenTire" id="nexenTire" />
+		<bean class="di_xml03.Car" id="car">
+			<constructor-arg ref="koreaTire" />	<!-- 의존성을 가진 ref를 넣어서 생성자를 구성한다 -->
+		</bean>
+		
+		<bean class="di_xml03.Car" id="car2">
+			<constructor-arg ref="nexenTire"/>
+			<constructor-arg value="10"/>
+		</bean>
+		
+		<bean class="di_xml03.Car" id="car3">
+			<constructor-arg value="1" index="1"/>
+			<constructor-arg ref="koreaTire" index="0"/>
+			<constructor-arg index="2">
+				<value>2</value>
+			</constructor-arg>
+		</bean>
+</beans>
