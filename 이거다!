@@ -1,106 +1,26 @@
-# api.py
 import sys
-import math
-from urllib.parse import urlencode
-from .json_request import json_request
-from datetime import datetime
+import json
+from datetime import * # import datetime
+from urllib.request import Request, urlopen
 
-def pd_gen_url(endpoint, service_key, **params):
-    return '%s?%s&serviceKey=%s' % (endpoint,urlencode(params), service_key)
 
-# 관광 자원 통계  서비스
-# 관광지 방문자 정보를 가져오는 함수
-def pd_fetch_tourspot_visitor(district1='',     #시,도
-                              district2='',     #군,구
-                              tourspot='',      #관광지
-                              year=0,           #연도
-                              month=0,          #월
-                              service_key=''):  #인증키
-    # 요청을 보낼 url (API 종류에 대한 경로)
-    #   http://openapi.tour.go.kr/openapi/service
-    #       -> 공공데이터포탈에서 제공하는 관광 관련 api service 경로
-    #   /TourismResourceStatsService/getPchrgTrrsrtVisitorList
-    #       -> 제공하는 관광 api 데이터들이 분류된 경로
-    endpoint = 'http://openapi.tour.go.kr/openapi/service/TourismResourceStatsService/getPchrgTrrsrtVisitorList'
-    pageNo = 1
-    hasnext = True # 다음 데이터가 있는지 체크(flag)
-    while hasnext:
-        # 요청할 url의 정보를 문자열 데이터로 가공
-        #   -> 최종적으로 보낼 요청 url
-        url = pd_gen_url(endpoint,
-                         service_key,
-                         YM='{0:04d}{1:01d}'.format(year, month),
-                         SIDO=district1,
-                         GUNGU=district2,
-                         RES_NM=tourspot,
-                         numOfRows=100,
-                         _type='json',
-                         pageNo=pageno)
-        # 요청보낸 _type='json' -> 결과 데이터
-        json_rusult = json_request(url=url)
+def json_request(url='',
+                 encoding='utf-8',
+                 success=None,
+                 error=lambda e: print('%s : %s' % (e, datetime.now()), file=sys.stderr)
+                 ):
+    # 예외처리
+    try:
+        request = Request(url)  #url 로 요청
+        response = urlopen(request) #요청한 url을 열어라(결과)
 
-        if json_result is None:
-            break
-        # 결과 메시지 성공 여부 판단
-        # json 데이터의 요소를 탐색(level)
-        #response -> header -> resultMsg (최상위부터 찾고자하는 요소까지)
-        json_response = json_result.get('response')
-        json_header = json_response.get('header')
-        result_message = json_header.get('resultMsg')
+        response_body = response.read().decode(encoding)
+        json_result = json.loads(response_body)
 
-        # 요청결과가 OK가 아닐 시 예외처리
-        # 원인을 찾기 위한 log를 출력
-        if 'OK' != result_message:
-            print('%s : Error[%s] 요청 오류 [%s]' % (datetime.now(), result_message, url), file=sys.stderr)
+        print('%s : 요청 성공 [%s]' % (datetime.(now),url))
+        if callable(success) is False:
+            return json_result
+        success(json_result)
 
-        json_body = json_response.get('body')
-        numofrows = json_body.get('numOfRows')
-        totalcount = json_body.get('totalCount')
-
-        # 결과가 없다면, 루프 탈출
-        if totalcount == 0:
-            break
-
-        last_pageno = math.ceil(totalcount/numofrows)
-        #마지막 페이지라면 flag를 이용한 루프 종료
-        if pageno == last_pageno:
-            hasnext = False
-        else:
-            pageno += 1     # 아니라면 페이지 증가
-
-        # 실제로 사용할 데이터 요소인 items 추출
-        json_items = json_body.get('items')
-
-        # yield -> return 과 유상
-        # 제네레이터 (이터레이터 생성)와 같이 사용하는 방법
-        # 반복 시 (현재 while문 내부)
-        # TODO...
-        yield json_items.get('item') if isinstance(json_items, dict) else None
-
-# 출입국 관광 통계 서비스
-# 외국인 방문자 정보를 가져오는 함수
-def pd_fetch_foreign_visitor(country_code=0,
-                             year=0,
-                             month=0,
-                             service_key=''):
-    endpoint='http://openapi.tour.go.kr/openapi/service/EdrcntTourismStatsService/getEdrcntTourismStatsList'
-
-    url = pd_gen_url(endpoint,
-                     service_key,
-                     YM='{0:04d}{1:02d}'.format(year, month),
-                     NAT_CD=country_code,
-                     ED_CO='E',
-                     _type='json')
-
-    json_result = json_request(url=url)
-    json_response = json_result.get('response')
-    json_header = json_response('header')
-    result_message = json_header('resultMsg')
-
-    if 'OK' != result_message:
-        print('%s : Error[%s] 요청 오류 [%s]' % (datetime.now(), result_message, url), file=sys.stderr)
-
-    json_body = json_response.get('body')
-    json_items = json_body.get('items')
-
-    return json_items.get('item') if isinstance(json_items, dict) else None
+    except Exception as e:
+        callable(error) and error(e)
