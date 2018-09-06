@@ -1,34 +1,26 @@
-# service key test
+# json_request.py
 
-# 출입국 관광 통계 서비스
-#   endpoint
-#   http://openapi.tour.go.kr/openapi/service/EdrcntTourismList
-#collection.api : collection/api (경로)
+import sys
+import json
+from datetime import * # = import datetime
+from urllib.request import Request, urlopen
 
-import collection.api as pdapi
 
-url = pdapi.pd_gen_url(
-    'http://openapi.tour.go.kr/openapi/service/EdrcntTourismStatsService/getEdrcntTourismStatsList',
-    'HFG5pLNtWiid4i5Bzyc6a%2FSfNOeiz4HBqoZModpqnj7RFNesMa0h2QP9ivG7RQJ0jml0mGhEccK%2BJfY3SJz3GQ%3D%3D',
-    YM='{0:04d}{1:02d}'.format(2018, 1), # 201801
-    NAT_CD='130',
-    ED_CD='E',
-    _type='json'
-    )
-print(url)
+def json_request(url=''
+                 , encoding = 'utf-8'
+                 , success = None
+                 , error = lambda e: print('%s : %s' % (e, datetime.now()), file=sys.stderr)) :
+    # 예외처리
+    try :
+        request = Request(url)  # url로 요청
+        response = urlopen(request) # 요청 url 열기 (결과)
 
-#관광자원통계 서비스
-#   endpoint
-#   http://openapi.tour.go.kr/openapi/service/TourismResourceStatsService/getPchrgTrrsrtVisitorList
-url = pdapi.pd_gen_url(
-    'http://openapi.tour.go.kr/openapi/service/TourismResourceStatsService/getPchrgTrrsrtVisitorList',
-    'HFG5pLNtWiid4i5Bzyc6a%2FSfNOeiz4HBqoZModpqnj7RFNesMa0h2QP9ivG7RQJ0jml0mGhEccK%2BJfY3SJz3GQ%3D%3D',
-    YM='{0:04d}{1:02d}'.format(2018, 1),
-    SIDO='서울특별시',
-    GUNGU='',
-    RES_NM='',
-    numOfRows=100,
-    _type='json',
-    pageNo=1
-    )
-print(url)
+        response_body = response.read().decode(encoding)
+        json_result = json.loads(response_body)
+
+        print('%s : 요청 성공 [%s]' % (datetime.now, url))
+        if callable(success) is False :
+            return json_result
+        success(json_result)
+    except Exception as e :
+        callable(error) and error(e)
