@@ -1,0 +1,8 @@
+python 3.6.6
+
+프로젝트 내부의 vemv 경로에 가상환경이 설정된다 프로젝트에서 사용했던 라이브러리 관리에 용이하다
+프로젝트 파이썬 콘솔창 맨 앞 (venv)로 가상환경에서 실행중이라는 것을 확인 가능하다.
+
+파이참 - 세팅 - setting - project:name - project interpreter에서 내가 쓰는 가상 환경들 검사
+
+#pip install beautifulsoup4 명령어로도 가능하나 해당 세팅창에서 GUI로 라이브러리 추가도 가능하다
